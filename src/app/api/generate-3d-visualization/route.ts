@@ -526,6 +526,8 @@ function generateLegend(industryName: string) {
 export async function POST(request: NextRequest) {
   try {
     console.log('API 호출 시작...')
+    console.log('환경변수 GEMINI_API_KEY 존재 여부:', !!process.env.GEMINI_API_KEY)
+    console.log('환경변수 GEMINI_API_KEY 길이:', process.env.GEMINI_API_KEY?.length || 0)
     
     // API 키 확인
     if (!process.env.GEMINI_API_KEY) {
