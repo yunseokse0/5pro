@@ -12,7 +12,8 @@ import {
   User,
   Phone,
   Settings,
-  Users
+  Users,
+  Eye
 } from 'lucide-react'
 
 const Navigation = () => {
@@ -21,6 +22,7 @@ const Navigation = () => {
   const navItems = [
     { href: '/', icon: Home, label: '홈' },
     { href: '/estimate', icon: Calculator, label: '견적' },
+    { href: '/3d-visualization', icon: Eye, label: '3D 조감도' },
     { href: '/partners', icon: Users, label: '파트너사' },
     { href: '/contract', icon: FileText, label: '계약관리' },
     { href: '/consultation', icon: MessageSquare, label: '상담' },

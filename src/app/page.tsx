@@ -3534,6 +3534,96 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 3D 조감도 섹션 */}
+      <section className="py-20 bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full mb-6">
+              <Eye className="w-10 h-10 text-white" />
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              <span className="block">오프로만의</span>
+              <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                스마트 조감도
+              </span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed">
+              <span className="font-semibold text-gray-900">오프로만의 AI</span>가 생성하는 
+              <span className="font-semibold text-indigo-600"> 현실적인 3D 공장 조감도</span>로 
+              미래의 식품공장을 미리 만나보세요
+            </p>
+            
+            {/* 특징 아이콘들 */}
+            <div className="flex justify-center items-center space-x-8 mb-12">
+              <div className="flex items-center text-indigo-600">
+                <div className="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center mr-2">
+                  <span className="text-sm font-bold">AI</span>
+                </div>
+                <span className="text-sm font-medium">AI 생성</span>
+              </div>
+              <div className="flex items-center text-purple-600">
+                <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-2">
+                  <Building className="w-4 h-4" />
+                </div>
+                <span className="text-sm font-medium">실제 규모</span>
+              </div>
+              <div className="flex items-center text-green-600">
+                <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-2">
+                  <Zap className="w-4 h-4" />
+                </div>
+                <span className="text-sm font-medium">즉시 생성</span>
+              </div>
+            </div>
+
+            {/* CTA 버튼 */}
+            <Link
+              href="/3d-visualization"
+              className="group inline-flex items-center justify-center px-12 py-6 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white rounded-2xl font-bold text-xl shadow-2xl hover:shadow-3xl transition-all duration-500 ease-out transform hover:scale-110 hover:-translate-y-2 ring-4 ring-indigo-300 ring-opacity-50 hover:ring-opacity-75 active:scale-95"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-white to-transparent opacity-0 group-hover:opacity-20 rounded-2xl transition-opacity duration-300"></div>
+              <Eye className="w-7 h-7 mr-3" />
+              <span className="relative z-10 whitespace-nowrap">지금 바로 사용해보세요</span>
+              <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform duration-300" />
+            </Link>
+          </div>
+
+          {/* 미리보기 카드들 */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+              <div className="w-full h-48 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-xl mb-4 flex items-center justify-center">
+                <Building className="w-16 h-16 text-indigo-500" />
+              </div>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">김치공장</h3>
+              <p className="text-gray-600 text-sm">숙성실, 세척실, 절단실 등 업종별 특화된 레이아웃</p>
+            </div>
+            
+            <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+              <div className="w-full h-48 bg-gradient-to-br from-green-100 to-emerald-100 rounded-xl mb-4 flex items-center justify-center">
+                <Building className="w-16 h-16 text-emerald-500" />
+              </div>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">제빵공장</h3>
+              <p className="text-gray-600 text-sm">혼합실, 발효실, 베이킹룸 등 완벽한 제빵 라인</p>
+            </div>
+            
+            <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+              <div className="w-full h-48 bg-gradient-to-br from-purple-100 to-pink-100 rounded-xl mb-4 flex items-center justify-center">
+                <Building className="w-16 h-16 text-purple-500" />
+              </div>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">음료공장</h3>
+              <p className="text-gray-600 text-sm">혼합실, 여과실, 병입실 등 음료 제조 특화 설계</p>
+            </div>
+          </div>
+
+          {/* 하단 텍스트 */}
+          <div className="text-center mt-12">
+            <p className="text-gray-500 text-sm">
+              💡 <span className="font-medium">10개 업종 × 4가지 규모 = 무제한 조합</span>으로 
+              여러분만의 이상적인 식품공장을 설계해보세요
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Realtime Stats Section */}
       <section className="py-16 bg-gray-50 border-b border-gray-100">
         <div className="container mx-auto px-4">
