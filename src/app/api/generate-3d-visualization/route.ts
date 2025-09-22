@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { GoogleGenerativeAI } from '@google/generative-ai'
 
-// Gemini 2.5 Flash Preview API 키
-const genAI = new GoogleGenerativeAI('AIzaSyBJTUfNHa-h8JRV83E7kKrKl_Z0eInLMrA')
+// Gemini 2.5 Flash Preview API 키 (환경변수 사용)
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || '')
 
 const SIZE_OPTIONS = [
   { value: '100', label: '100평', area: '330㎡' },
@@ -526,6 +526,13 @@ function generateLegend(industryName: string) {
 export async function POST(request: NextRequest) {
   try {
     console.log('API 호출 시작...')
+    
+    // API 키 확인
+    if (!process.env.GEMINI_API_KEY) {
+      console.error('GEMINI_API_KEY 환경변수가 설정되지 않았습니다.')
+      return NextResponse.json({ error: 'API 키가 설정되지 않았습니다.' }, { status: 500 })
+    }
+    
     const { prompt, options } = await request.json()
     console.log('받은 데이터:', { prompt, options })
 
