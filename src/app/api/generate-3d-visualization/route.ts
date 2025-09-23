@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { GoogleGenerativeAI } from '@google/generative-ai'
 
-// Gemini 2.5 Flash Preview API 키 (환경변수 사용)
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || '')
+// Gemini 2.5 Flash Preview API 키 (환경변수 우선, fallback으로 하드코딩)
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || 'AIzaSyBJTUfNHa-h8JRV83E7kKrKl_Z0eInLMrA')
 
 const SIZE_OPTIONS = [
   { value: '100', label: '100평', area: '330㎡' },
@@ -529,9 +529,10 @@ export async function POST(request: NextRequest) {
     console.log('환경변수 GEMINI_API_KEY 존재 여부:', !!process.env.GEMINI_API_KEY)
     console.log('환경변수 GEMINI_API_KEY 길이:', process.env.GEMINI_API_KEY?.length || 0)
     
-    // API 키 확인
-    if (!process.env.GEMINI_API_KEY) {
-      console.error('GEMINI_API_KEY 환경변수가 설정되지 않았습니다.')
+    // API 키 확인 (환경변수 또는 fallback 키 사용)
+    const apiKey = process.env.GEMINI_API_KEY || 'AIzaSyBJTUfNHa-h8JRV83E7kKrKl_Z0eInLMrA'
+    if (!apiKey) {
+      console.error('API 키가 설정되지 않았습니다.')
       return NextResponse.json({ error: 'API 키가 설정되지 않았습니다.' }, { status: 500 })
     }
     

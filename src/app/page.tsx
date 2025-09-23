@@ -1146,8 +1146,13 @@ const EstimateProcessGuide = () => {
   return (
     <div className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-6 md:p-10 shadow-xl border border-gray-100">
       <div className="text-center mb-8 md:mb-12">
-        <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-4 leading-tight">식품공장 설립 5단계 프로세스</h3>
-        <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
+        <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-full mb-6 shadow-lg">
+          <Workflow className="w-8 h-8 text-white" />
+        </div>
+        <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent mb-4 leading-tight">
+          식품공장 설립 5단계 프로세스
+        </h3>
+        <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
           견적부터 HACCP 인증까지 완벽한 식품공장 설립 여정을 완성하세요
         </p>
       </div>
@@ -1155,21 +1160,23 @@ const EstimateProcessGuide = () => {
       {/* 데스크톱: 수평 플로우 차트 */}
       <div className="hidden lg:block mb-12">
         <div className="flex items-center justify-between relative">
-          {/* 연결선 */}
-          <div className="absolute top-8 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-200 via-emerald-200 via-purple-200 to-orange-200"></div>
+          {/* 배경 연결선 */}
+          <div className="absolute top-8 left-0 right-0 h-1 bg-gradient-to-r from-blue-200 via-emerald-200 via-purple-200 via-orange-200 to-green-200 rounded-full opacity-60"></div>
+          {/* 활성 연결선 */}
+          <div className="absolute top-8 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-emerald-500 via-purple-500 via-orange-500 to-green-500 rounded-full opacity-80 animate-pulse"></div>
           
         {processSteps.map((step, index) => (
             <div key={step.step} className="flex flex-col items-center relative z-10">
               {/* 단계 아이콘 */}
-              <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-4 shadow-lg ${
-                step.color === 'blue' ? 'bg-blue-500' :
-                step.color === 'emerald' ? 'bg-emerald-500' :
-                step.color === 'purple' ? 'bg-purple-500' :
-                step.color === 'orange' ? 'bg-orange-500' :
-                'bg-green-500'
+              <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-4 shadow-lg transition-all duration-300 hover:scale-110 ${
+                step.color === 'blue' ? 'bg-gradient-to-br from-blue-400 to-blue-600' :
+                step.color === 'emerald' ? 'bg-gradient-to-br from-emerald-400 to-emerald-600' :
+                step.color === 'purple' ? 'bg-gradient-to-br from-purple-400 to-purple-600' :
+                step.color === 'orange' ? 'bg-gradient-to-br from-orange-400 to-orange-600' :
+                'bg-gradient-to-br from-green-400 to-green-600'
               }`}>
                 <step.icon className="w-8 h-8 text-white" />
-            </div>
+              </div>
               
               {/* 단계 정보 */}
               <div className="text-center max-w-32">
@@ -1181,30 +1188,31 @@ const EstimateProcessGuide = () => {
                   <div className="flex items-center justify-between mb-1">
                     <span className="text-xs font-medium text-gray-500">진행률</span>
                     <span className="text-xs font-bold text-gray-700">{step.progress}%</span>
-              </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2">
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
                     <div 
-                      className={`h-2 rounded-full transition-all duration-1000 ${
-                        step.color === 'blue' ? 'bg-blue-500' :
-                        step.color === 'emerald' ? 'bg-emerald-500' :
-                        step.color === 'purple' ? 'bg-purple-500' :
-                        step.color === 'orange' ? 'bg-orange-500' :
-                        'bg-green-500'
+                      className={`h-full rounded-full transition-all duration-1500 ease-out ${
+                        step.color === 'blue' ? 'bg-gradient-to-r from-blue-400 to-blue-600' :
+                        step.color === 'emerald' ? 'bg-gradient-to-r from-emerald-400 to-emerald-600' :
+                        step.color === 'purple' ? 'bg-gradient-to-r from-purple-400 to-purple-600' :
+                        step.color === 'orange' ? 'bg-gradient-to-r from-orange-400 to-orange-600' :
+                        'bg-gradient-to-r from-green-400 to-green-600'
                       }`}
                       style={{width: `${step.progress}%`}}
                     ></div>
                   </div>
                 </div>
                 
-                <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium mb-3 ${
-                  step.color === 'blue' ? 'bg-blue-100 text-blue-700' :
-                  step.color === 'emerald' ? 'bg-emerald-100 text-emerald-700' :
-                  step.color === 'purple' ? 'bg-purple-100 text-purple-700' :
-                  step.color === 'orange' ? 'bg-orange-100 text-orange-700' :
-                  'bg-green-100 text-green-700'
+                <div className={`inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium mb-3 border ${
+                  step.color === 'blue' ? 'bg-blue-50 text-blue-700 border-blue-200' :
+                  step.color === 'emerald' ? 'bg-emerald-50 text-emerald-700 border-emerald-200' :
+                  step.color === 'purple' ? 'bg-purple-50 text-purple-700 border-purple-200' :
+                  step.color === 'orange' ? 'bg-orange-50 text-orange-700 border-orange-200' :
+                  'bg-green-50 text-green-700 border-green-200'
                 }`}>
+                  <Clock className="w-3 h-3 mr-1" />
                   {step.time}
-                  </span>
+                </div>
                 
                 <button 
                   onClick={() => {
@@ -1225,12 +1233,12 @@ const EstimateProcessGuide = () => {
                       window.location.href = '/dashboard'
                     }
                   }}
-                  className={`block w-full px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:scale-105 ${
-                    step.color === 'blue' ? 'bg-blue-500 hover:bg-blue-600 text-white' :
-                    step.color === 'emerald' ? 'bg-emerald-500 hover:bg-emerald-600 text-white' :
-                    step.color === 'purple' ? 'bg-purple-500 hover:bg-purple-600 text-white' :
-                    step.color === 'orange' ? 'bg-orange-500 hover:bg-orange-600 text-white' :
-                    'bg-green-500 hover:bg-green-600 text-white'
+                  className={`w-full px-4 py-3 rounded-xl text-sm font-semibold transition-all duration-300 hover:scale-105 shadow-md hover:shadow-lg ${
+                    step.color === 'blue' ? 'bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white' :
+                    step.color === 'emerald' ? 'bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white' :
+                    step.color === 'purple' ? 'bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white' :
+                    step.color === 'orange' ? 'bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white' :
+                    'bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white'
                   }`}
                 >
                   {step.cta}

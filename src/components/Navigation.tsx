@@ -11,7 +11,6 @@ import {
   BarChart3, 
   User,
   Phone,
-  Settings,
   Users,
   Eye
 } from 'lucide-react'
@@ -29,7 +28,6 @@ const Navigation = () => {
     { href: '/progress', icon: BarChart3, label: '진행상황' },
     { href: '/login', icon: User, label: '로그인' },
     { href: '/contact', icon: Phone, label: '연락처' },
-    { href: '/admin', icon: Settings, label: '관리' },
   ]
 
   return (
