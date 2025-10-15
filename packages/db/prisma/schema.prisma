@@ -1,0 +1,397 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String?
+  roleId    String
+  role      Role     @relation(fields: [roleId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  estimates           Estimate[]
+  visual3dRequests    Visual3DRequest[]
+  projects            Project[]
+  contracts           Contract[]
+  signatures          Signature[]
+  auditLogs           AuditLog[]
+  projectEnvLogs      ProjectEnvLog[]
+  projectLiveFeeds    ProjectLiveFeed[]
+
+  @@index([roleId])
+  @@map("users")
+}
+
+model Role {
+  id          String           @id @default(cuid())
+  name        String           @unique
+  description String?
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+
+  users       User[]
+  permissions RolePermission[]
+
+  @@map("roles")
+}
+
+model RolePermission {
+  id         String   @id @default(cuid())
+  roleId     String
+  permission String
+  resource   String
+  createdAt  DateTime @default(now())
+
+  role Role @relation(fields: [roleId], references: [id], onDelete: Cascade)
+
+  @@unique([roleId, permission, resource])
+  @@index([roleId])
+  @@map("role_permissions")
+}
+
+enum PartnerGrade {
+  DIAMOND
+  PLATINUM
+  GOLD
+  SILVER
+  BRONZE
+}
+
+model Partner {
+  id               String        @id @default(cuid())
+  companyName      String
+  contactName      String?
+  email            String?
+  phone            String?
+  address          String?
+  grade            PartnerGrade  @default(BRONZE)
+  totalRevenue     Float         @default(0)
+  projectCount     Int           @default(0)
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+
+  achievements     PartnerAchievement[]
+  projects         Project[]
+
+  @@map("partners")
+}
+
+model PartnerAchievement {
+  id          String   @id @default(cuid())
+  partnerId   String
+  title       String
+  description String?  @db.Text
+  achievedAt  DateTime @default(now())
+
+  partner Partner @relation(fields: [partnerId], references: [id], onDelete: Cascade)
+
+  @@index([partnerId])
+  @@map("partner_achievements")
+}
+
+model Estimate {
+  id          String            @id @default(cuid())
+  userId      String
+  projectName String
+  description String?           @db.Text
+  status      String            @default("draft")
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+
+  user     User               @relation(fields: [userId], references: [id])
+  versions EstimateVersion[]
+
+  @@index([userId])
+  @@map("estimates")
+}
+
+model EstimateVersion {
+  id          String   @id @default(cuid())
+  estimateId  String
+  versionNum  Int
+  inputData   Json
+  resultData  Json?
+  createdAt   DateTime @default(now())
+
+  estimate Estimate @relation(fields: [estimateId], references: [id], onDelete: Cascade)
+
+  @@unique([estimateId, versionNum])
+  @@index([estimateId])
+  @@map("estimate_versions")
+}
+
+model Visual3DRequest {
+  id          String   @id @default(cuid())
+  userId      String
+  projectName String
+  description String?  @db.Text
+  inputParams Json
+  status      String   @default("pending")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  user    User              @relation(fields: [userId], references: [id])
+  results Visual3DResult[]
+
+  @@index([userId])
+  @@map("visual3d_requests")
+}
+
+model Visual3DResult {
+  id        String   @id @default(cuid())
+  requestId String
+  fileType  String
+  fileUrl   String
+  fileSize  Int?
+  createdAt DateTime @default(now())
+
+  request Visual3DRequest @relation(fields: [requestId], references: [id], onDelete: Cascade)
+
+  @@index([requestId])
+  @@map("visual3d_results")
+}
+
+model Project {
+  id              String   @id @default(cuid())
+  name            String
+  description     String?  @db.Text
+  userId          String
+  partnerId       String?
+  regionId        String?
+  presetId        String?
+  status          String   @default("planning")
+  startDate       DateTime?
+  endDate         DateTime?
+  budget          Float?
+  actualCost      Float?
+  progress        Float    @default(0)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  user       User                @relation(fields: [userId], references: [id])
+  partner    Partner?            @relation(fields: [partnerId], references: [id])
+  region     Region?             @relation(fields: [regionId], references: [id])
+  preset     IndustryPreset?     @relation(fields: [presetId], references: [id])
+  milestones ProjectMilestone[]
+  envLogs    ProjectEnvLog[]
+  liveFeeds  ProjectLiveFeed[]
+  haccpStages HaccpStage[]
+  contracts  Contract[]
+
+  @@index([userId])
+  @@index([partnerId])
+  @@index([regionId])
+  @@index([presetId])
+  @@map("projects")
+}
+
+model ProjectMilestone {
+  id          String    @id @default(cuid())
+  projectId   String
+  title       String
+  description String?   @db.Text
+  dueDate     DateTime?
+  completedAt DateTime?
+  status      String    @default("pending")
+  order       Int       @default(0)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@index([projectId])
+  @@map("project_milestones")
+}
+
+model ProjectEnvLog {
+  id          String   @id @default(cuid())
+  projectId   String
+  temperature Float?
+  humidity    Float?
+  co2Level    Float?
+  recordedBy  String?
+  recordedAt  DateTime @default(now())
+
+  project    Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  recordedByUser User? @relation(fields: [recordedBy], references: [id])
+
+  @@index([projectId])
+  @@index([recordedBy])
+  @@map("project_env_logs")
+}
+
+model ProjectLiveFeed {
+  id         String   @id @default(cuid())
+  projectId  String
+  cameraName String
+  streamUrl  String
+  isActive   Boolean  @default(true)
+  createdBy  String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  project      Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  createdByUser User?   @relation(fields: [createdBy], references: [id])
+
+  @@index([projectId])
+  @@index([createdBy])
+  @@map("project_live_feeds")
+}
+
+model HaccpStage {
+  id          String   @id @default(cuid())
+  projectId   String
+  stageName   String
+  description String?  @db.Text
+  criteria    Json?
+  status      String   @default("pending")
+  completedAt DateTime?
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@index([projectId])
+  @@map("haccp_stages")
+}
+
+model Contract {
+  id            String   @id @default(cuid())
+  projectId     String
+  userId        String
+  title         String
+  description   String?  @db.Text
+  totalAmount   Float
+  status        String   @default("draft")
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  project    Project           @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  user       User              @relation(fields: [userId], references: [id])
+  clauses    ContractClause[]
+  signatures Signature[]
+
+  @@index([projectId])
+  @@index([userId])
+  @@map("contracts")
+}
+
+model ContractClause {
+  id          String   @id @default(cuid())
+  contractId  String
+  title       String
+  content     String   @db.Text
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  contract Contract @relation(fields: [contractId], references: [id], onDelete: Cascade)
+
+  @@index([contractId])
+  @@map("contract_clauses")
+}
+
+model Signature {
+  id         String    @id @default(cuid())
+  contractId String
+  userId     String
+  signerName String
+  signerRole String?
+  ipAddress  String?
+  signedAt   DateTime?
+  createdAt  DateTime  @default(now())
+
+  contract Contract @relation(fields: [contractId], references: [id], onDelete: Cascade)
+  user     User     @relation(fields: [userId], references: [id])
+
+  @@index([contractId])
+  @@index([userId])
+  @@map("signatures")
+}
+
+model Lead {
+  id           String   @id @default(cuid())
+  companyName  String
+  contactName  String
+  email        String?
+  phone        String?
+  source       String?
+  status       String   @default("new")
+  notes        String?  @db.Text
+  estimatedBudget Float?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("leads")
+}
+
+model CatalogItem {
+  id          String   @id @default(cuid())
+  name        String
+  category    String
+  description String?  @db.Text
+  unitPrice   Float
+  unit        String   @default("ea")
+  supplier    String?
+  specs       Json?
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([category])
+  @@map("catalog_items")
+}
+
+model Region {
+  id         String   @id @default(cuid())
+  name       String   @unique
+  code       String?  @unique
+  costIndex  Float    @default(1.0)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  projects Project[]
+
+  @@map("regions")
+}
+
+model IndustryPreset {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  description String?  @db.Text
+  config      Json?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  projects Project[]
+
+  @@map("industry_presets")
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  userId    String?
+  action    String
+  resource  String
+  resourceId String?
+  metadata  Json?
+  ipAddress String?
+  createdAt DateTime @default(now())
+
+  user User? @relation(fields: [userId], references: [id])
+
+  @@index([userId])
+  @@index([resource])
+  @@index([createdAt])
+  @@map("audit_logs")
+}
+

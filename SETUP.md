@@ -1,113 +1,179 @@
-# 🚀 오프로 로컬 환경 설정 가이드
+# 설치 및 설정 가이드
 
-## 📋 필수 요구사항
+## 사전 요구사항
 
-### 1. Node.js 설치
-- **Node.js 18.0.0 이상** 필요
-- **npm 8.0.0 이상** 필요
+- Node.js >= 18.0.0
+- pnpm >= 8.0.0
+- MySQL 8.0+
 
-#### Windows 설치 방법:
-1. [Node.js 공식 웹사이트](https://nodejs.org/) 방문
-2. LTS 버전 다운로드 (권장: 18.x 또는 20.x)
-3. 설치 프로그램 실행 후 기본 설정으로 설치
-4. 설치 완료 후 명령 프롬프트에서 확인:
-   ```bash
-   node --version
-   npm --version
-   ```
+## 상세 설치 단계
 
-#### macOS 설치 방법:
-```bash
-# Homebrew 사용
-brew install node
+### 1. MySQL 데이터베이스 생성
 
-# 또는 공식 웹사이트에서 다운로드
+```sql
+CREATE DATABASE 5pro_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE USER '5pro_user'@'localhost' IDENTIFIED BY 'your_password';
+GRANT ALL PRIVILEGES ON 5pro_db.* TO '5pro_user'@'localhost';
+FLUSH PRIVILEGES;
 ```
 
-#### Linux 설치 방법:
-```bash
-# Ubuntu/Debian
-curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
-sudo apt-get install -y nodejs
+### 2. 환경 변수 설정
 
-# CentOS/RHEL
-curl -fsSL https://rpm.nodesource.com/setup_18.x | sudo bash -
-sudo yum install -y nodejs
+루트 디렉토리에 `.env` 파일 생성:
+
+```env
+# Database
+DATABASE_URL="mysql://5pro_user:your_password@localhost:3306/5pro_db"
+
+# NextAuth
+NEXTAUTH_URL="http://localhost:3000"
+NEXTAUTH_SECRET="generate-a-random-32-character-secret-key-here"
+
+# API
+API_URL="http://localhost:4000"
+API_PORT=4000
+
+# S3 (선택사항)
+S3_ENDPOINT="https://s3.amazonaws.com"
+S3_BUCKET="5pro-uploads"
+S3_ACCESS_KEY_ID="your-access-key"
+S3_SECRET_ACCESS_KEY="your-secret-key"
+S3_REGION="us-east-1"
+
+# CORS
+CORS_ORIGIN="http://localhost:3000"
 ```
 
-## 🚀 빠른 시작
+### 3. NEXTAUTH_SECRET 생성
 
-### Windows 사용자:
 ```bash
-# 1. 프로젝트 폴더로 이동
-cd C:\project\5pro\5pro
+# OpenSSL 사용
+openssl rand -base64 32
 
-# 2. 자동 실행 스크립트 실행
-start.bat
+# 또는 Node.js
+node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"
 ```
 
-### macOS/Linux 사용자:
+### 4. 프로젝트 설치
+
 ```bash
-# 1. 프로젝트 폴더로 이동
-cd /path/to/5pro
+# pnpm 설치 (없는 경우)
+npm install -g pnpm
 
-# 2. 실행 권한 부여
-chmod +x start.sh
+# 전체 설정 (권장)
+pnpm setup
 
-# 3. 자동 실행 스크립트 실행
-./start.sh
+# 또는 수동으로
+pnpm install
+pnpm db:migrate
+pnpm db:seed
 ```
 
-### 수동 실행:
+### 5. 개발 서버 실행
+
 ```bash
-# 1. 의존성 설치
-npm install
+# 터미널 1: API 서버
+pnpm --filter @5pro/api dev
 
-# 2. API 서버 실행 (터미널 1)
-npm run server
+# 터미널 2: Web 서버
+pnpm --filter @5pro/web dev
 
-# 3. Next.js 앱 실행 (터미널 2)
-npm run dev
+# 또는 동시 실행
+pnpm dev
 ```
 
-## 🌐 접속 정보
+## 포트 구성
 
-- **Next.js 앱**: http://localhost:3000
-- **API 서버**: http://localhost:3001
-- **정적 HTML**: http://localhost:8080 (out 폴더 사용 시)
+- **Web (Next.js)**: 3000
+- **API (Express)**: 4000
+- **Prisma Studio**: 5555 (실행 시)
 
-## 🔧 문제 해결
+## 트러블슈팅
 
-### Node.js가 설치되지 않은 경우:
-- 위의 "Node.js 설치" 섹션을 참고하여 설치하세요.
+### 데이터베이스 연결 오류
 
-### 포트가 이미 사용 중인 경우:
 ```bash
-# 포트 사용 중인 프로세스 확인
-netstat -ano | findstr :3000
-netstat -ano | findstr :3001
+# MySQL 실행 확인
+sudo systemctl status mysql
 
-# 프로세스 종료 (Windows)
-taskkill /PID <프로세스ID> /F
+# 포트 확인
+netstat -an | grep 3306
 ```
 
-### 의존성 설치 실패:
+### Prisma 마이그레이션 오류
+
 ```bash
-# 캐시 정리 후 재설치
-npm cache clean --force
-rm -rf node_modules package-lock.json
-npm install
+# 마이그레이션 리셋
+pnpm --filter @5pro/db prisma migrate reset
+
+# 다시 마이그레이션
+pnpm db:migrate
 ```
 
-### 파일 업로드 오류:
-- `uploads` 폴더가 생성되었는지 확인
-- 파일 크기가 10MB 이하인지 확인
-- 지원되는 파일 형식인지 확인 (jpg, png, pdf, doc, docx, txt)
+### 포트 충돌
 
-## 📞 지원
+```bash
+# 사용 중인 포트 확인
+lsof -i :3000
+lsof -i :4000
 
-문제가 지속되면 다음을 확인해주세요:
-1. Node.js 버전이 18.0.0 이상인지
-2. 인터넷 연결 상태
-3. 방화벽 설정
-4. 바이러스 백신 프로그램 차단 여부
+# 프로세스 종료
+kill -9 <PID>
+```
+
+### pnpm 캐시 문제
+
+```bash
+pnpm store prune
+pnpm install --force
+```
+
+## 프로덕션 배포
+
+### 1. 빌드
+
+```bash
+pnpm build
+```
+
+### 2. API 서버 실행
+
+```bash
+cd apps/api
+pnpm start
+```
+
+### 3. Web 서버 실행
+
+```bash
+cd apps/web
+pnpm start
+```
+
+### 4. 환경 변수 (프로덕션)
+
+프로덕션 환경에서는 다음 변수를 반드시 변경:
+
+- `NEXTAUTH_SECRET`: 강력한 랜덤 키
+- `DATABASE_URL`: 프로덕션 DB 주소
+- `CORS_ORIGIN`: 실제 도메인
+- `S3_*`: 실제 S3 설정
+
+## Docker (선택사항)
+
+```dockerfile
+# Dockerfile 예시는 별도로 제공 가능
+```
+
+## 모니터링
+
+```bash
+# 데이터베이스 상태 확인
+pnpm db:studio
+
+# API 헬스체크
+curl http://localhost:4000/health
+
+# 로그 확인
+pm2 logs (PM2 사용 시)
+```

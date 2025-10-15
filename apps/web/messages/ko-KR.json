@@ -1,0 +1,62 @@
+{
+  "common": {
+    "dashboard": "대시보드",
+    "estimates": "견적",
+    "visual3d": "3D 시각화",
+    "projects": "프로젝트",
+    "contracts": "계약",
+    "partners": "파트너",
+    "leads": "리드",
+    "catalog": "카탈로그",
+    "settings": "설정",
+    "logout": "로그아웃",
+    "search": "검색",
+    "filter": "필터",
+    "export": "내보내기",
+    "create": "생성",
+    "edit": "수정",
+    "delete": "삭제",
+    "save": "저장",
+    "cancel": "취소",
+    "confirm": "확인",
+    "loading": "로딩 중...",
+    "noData": "데이터가 없습니다",
+    "error": "오류가 발생했습니다",
+    "success": "성공했습니다"
+  },
+  "auth": {
+    "signIn": "로그인",
+    "signOut": "로그아웃",
+    "email": "이메일",
+    "password": "비밀번호",
+    "invalidCredentials": "이메일 또는 비밀번호가 올바르지 않습니다"
+  },
+  "dashboard": {
+    "title": "대시보드",
+    "totalProjects": "전체 프로젝트",
+    "activeProjects": "진행 중 프로젝트",
+    "totalRevenue": "총 매출",
+    "recentActivity": "최근 활동"
+  },
+  "projects": {
+    "title": "프로젝트",
+    "overview": "개요",
+    "milestones": "마일스톤",
+    "environment": "환경 모니터링",
+    "live": "실시간 CCTV",
+    "haccp": "HACCP 단계",
+    "progress": "진행률",
+    "budget": "예산",
+    "actualCost": "실제 비용"
+  },
+  "contracts": {
+    "title": "계약",
+    "clauses": "계약 조항",
+    "signatures": "서명",
+    "status": "상태",
+    "amount": "금액",
+    "signed": "서명 완료",
+    "unsigned": "서명 대기"
+  }
+}
+

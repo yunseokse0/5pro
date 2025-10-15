@@ -1,228 +1,199 @@
-# 오프로 (Offro) - 식품공장 설립 플랫폼
+# 5PRO - 공장 건설 관리 시스템
 
-식품공장 설립을 원스톱으로 지원하는 모바일 웹 플랫폼입니다.
+HACCP 인증 공장 건설 및 관리를 위한 통합 플랫폼 모노레포
 
-## 🚀 주요 기능
+## 🏗 기술 스택
 
-### 1. 견적 시뮬레이션
-- 지역, 규모, 용도, 필요 시설 옵션 입력
-- 단순 수식 기반 예상 건설 비용 계산
-- placeholder 조감도 이미지 표시
+### 모노레포 구조
+- **pnpm workspaces**: 효율적인 패키지 관리
+- **apps/web**: Next.js 14 (App Router, TypeScript)
+- **apps/api**: Express + TypeScript REST API
+- **packages/db**: Prisma ORM + MySQL
+- **packages/ui**: shadcn/ui 컴포넌트 래퍼
 
-### 2. 계약 관리
-- 전자계약 서명 mock (체크박스/버튼 기반)
-- 계약서 미리보기 및 다운로드
+### 주요 기능
+- **인증**: NextAuth (Credentials Provider, OAuth 확장 가능)
+- **권한 관리**: 역할 기반 접근 제어(RBAC)
+- **테스트**: Vitest (단위), Playwright (E2E)
+- **국제화**: next-intl (한국어 기본)
+- **파일 업로드**: S3 호환 스토리지 (Signed URL)
 
-### 3. 설계 관리
-- 설계안 업로드 (파일 업로드 UI)
-- 피드백 작성 및 관리 시스템
+## 📦 프로젝트 구조
 
-### 4. 건설 진행 모니터링
-- 공정 단계별(착공 → 골조 → 설비 → 완공) 진행률 바
-- 현장 사진 갤러리
-- 일정 및 마일스톤 관리
+```
+5pro_new/
+├── apps/
+│   ├── api/          # Express API 서버
+│   └── web/          # Next.js 웹 애플리케이션
+├── packages/
+│   ├── db/           # Prisma 스키마 및 클라이언트
+│   └── ui/           # 공유 UI 컴포넌트
+├── package.json      # 루트 설정
+├── pnpm-workspace.yaml
+└── .env.example
+```
 
-### 5. HACCP 인증 관리
-- 단계별 체크리스트 (준비 → 심사 → 승인)
-- 예상 소요 기간/비용 표
-- 진행률 추적
+## 🚀 빠른 시작
 
-### 6. 통합 대시보드
-- 프로젝트 전체 현황 요약
-- 주요 지표 카드
-- 최근 활동 내역
+### 1. 환경 설정
 
-## 🛠 기술 스택
-
-- **Frontend**: Next.js 14 (React 18)
-- **Backend**: Express.js
-- **Styling**: TailwindCSS
-- **Language**: TypeScript
-- **Icons**: Lucide React
-
-## 📱 페이지 구성
-
-1. `/` - 메인 랜딩 (오프로 소개 + "견적 시뮬레이션 시작" 버튼)
-2. `/estimate` - 견적 입력 → 자동 계산 결과 표시
-3. `/contract` - 계약 mock 서명 페이지
-4. `/design` - 설계안 업로드 + 피드백 폼
-5. `/monitor` - 진행률 바 + 공정 이미지
-6. `/haccp` - HACCP 체크리스트
-7. `/dashboard` - 프로젝트 요약 (mock 데이터로 카드 구성)
-
-## 🚀 실행 방법
-
-### 🚀 빠른 시작 (추천!)
-
-#### 방법 1: 자동 실행 스크립트 사용
 ```bash
-# Windows에서
-start.bat
+# .env 파일 생성
+cp .env.example .env
 
-# 또는 수동으로
-npm run setup
-npm run dev:all
+# 환경 변수 수정
+# DATABASE_URL, NEXTAUTH_SECRET, S3 설정 등
 ```
 
-#### 방법 2: 개별 실행
+### 2. 설치 및 초기화
+
 ```bash
-# 1. 의존성 설치 및 초기 설정
-npm run setup
+# 의존성 설치
+pnpm install
 
-# 2. Express.js API 서버 실행 (터미널 1)
-npm run server
-
-# 3. Next.js 앱 실행 (터미널 2)
-npm run dev
+# 데이터베이스 마이그레이션 및 시드
+pnpm db:migrate
+pnpm db:seed
 ```
 
-### 🌐 정적 HTML 실행 (서버 없이)
+### 3. 개발 서버 실행
 
-#### 방법 1: Python 사용
 ```bash
-# open_offro.bat 파일을 더블클릭하거나
-open_offro.bat
+# API + Web 동시 실행
+pnpm dev
 
-# 또는 수동으로
-cd out
-python -m http.server 8080
+# 또는 개별 실행
+pnpm --filter @5pro/api dev
+pnpm --filter @5pro/web dev
 ```
 
-#### 방법 2: Node.js 사용
+### 4. 접속
+
+- **웹**: http://localhost:3000
+- **API**: http://localhost:4000
+- **Prisma Studio**: `pnpm db:studio`
+
+## 🔐 기본 계정
+
+```
+이메일: admin@5pro.local
+비밀번호: Admin!234
+```
+
+## 📊 데이터베이스 스키마
+
+주요 테이블:
+- `users`: 사용자
+- `roles`, `role_permissions`: 역할 및 권한
+- `partners`, `partner_achievements`: 파트너 관리
+- `estimates`, `estimate_versions`: 견적
+- `visual3d_requests`, `visual3d_results`: 3D 시각화
+- `projects`, `project_milestones`: 프로젝트
+- `project_env_logs`: 환경 모니터링
+- `project_live_feeds`: CCTV 스트림
+- `haccp_stages`: HACCP 단계
+- `contracts`, `contract_clauses`, `signatures`: 계약 및 전자서명
+- `leads`: 리드 관리
+- `catalog_items`: 자재 카탈로그
+- `regions`, `industry_presets`: 설정
+- `audit_logs`: 감사 로그
+
+## 🎯 API 엔드포인트
+
+### 인증
+- `POST /auth/login` - 로그인
+
+### RBAC
+- `GET /rbac/me` - 현재 사용자 정보
+
+### 리소스 CRUD
+- `/estimates` - 견적 관리
+- `/visual3d` - 3D 시각화
+- `/projects` - 프로젝트
+  - `/:id/milestones` - 마일스톤
+  - `/:id/env` - 환경 로그
+  - `/:id/live` - CCTV 피드
+  - `/:id/haccp` - HACCP 단계
+- `/contracts` - 계약
+  - `/:id/clauses` - 조항
+  - `/:id/sign` - 전자서명
+- `/partners` - 파트너
+- `/leads` - 리드
+- `/catalog` - 카탈로그
+- `/regions` - 지역
+- `/presets` - 업종 프리셋
+- `/files/sign` - 파일 업로드 URL 생성
+- `/audit-logs` - 감사 로그
+
+모든 엔드포인트는 페이지네이션, 필터링, 정렬 지원
+
+## 🧪 테스트
+
 ```bash
-# open_offro_node.bat 파일을 더블클릭하거나
-open_offro_node.bat
+# 단위 테스트
+pnpm test
 
-# 또는 수동으로
-cd out
-npx serve -s . -l 8080
+# E2E 테스트
+pnpm test:e2e
+
+# API 테스트만
+pnpm --filter @5pro/api test
 ```
 
-#### 방법 3: 직접 HTML 파일 열기
-`out` 폴더의 `index.html` 파일을 브라우저에서 직접 열어서 사용할 수 있습니다.
+## 📱 웹 페이지
 
-**접속**: 
-- 개발 모드: http://localhost:3000 (Next.js) + http://localhost:3001 (API)
-- 정적 모드: http://localhost:8080
+- `/admin` - 대시보드
+- `/admin/estimates` - 견적 관리
+- `/admin/visual3d` - 3D 시각화
+- `/admin/projects` - 프로젝트 목록
+  - `/admin/projects/[id]` - 프로젝트 상세 (탭: 개요, 마일스톤, 환경, LIVE, HACCP)
+- `/admin/contracts` - 계약 관리
+- `/admin/partners` - 파트너사
+- `/admin/leads` - 리드
+- `/admin/catalog` - 카탈로그
+- `/admin/settings` - 설정 (지역, 프리셋, 감사 로그)
 
-### 🔧 개발 환경 설정
+## 🔒 보안
 
-#### 필수 요구사항
-- Node.js 18.0.0 이상
-- npm 8.0.0 이상
+- NextAuth 미들웨어로 `/admin` 경로 보호
+- JWT 토큰 기반 인증
+- 역할별 권한 확인 (API 및 프론트엔드)
+- Helmet.js로 HTTP 헤더 보안
+- 모든 CRUD 작업 감사 로그 기록
 
-#### 초기 설정
+## 🛠 개발 스크립트
+
 ```bash
-# 프로젝트 클론 후
-cd 5pro
-
-# 의존성 설치 및 초기 설정
-npm run setup
-
-# 개발 서버 시작 (API + Next.js 동시 실행)
-npm run dev:all
+pnpm dev           # 개발 서버 실행 (API + Web)
+pnpm build         # 전체 빌드
+pnpm setup         # 초기 설정 (install + migrate + seed)
+pnpm db:migrate    # 데이터베이스 마이그레이션
+pnpm db:seed       # 시드 데이터 삽입
+pnpm db:studio     # Prisma Studio 실행
+pnpm lint          # 린트 실행
 ```
 
-#### 개별 서버 실행
-```bash
-# API 서버만 실행
-npm run server
+## 📦 시드 데이터
 
-# Next.js 앱만 실행
-npm run dev
+시드 스크립트는 다음을 생성합니다:
+- 관리자 계정 (admin@5pro.local)
+- 역할 및 권한 (admin, manager, user)
+- 지역 9개 (서울, 경기, 부산 등)
+- 업종 프리셋 4개 (김치공장, 제빵공장 등)
+- 파트너 5개 (DIAMOND~BRONZE 등급)
+- 파트너 성과 이력
+- 데모 프로젝트 (마일스톤, 환경 로그, HACCP 단계 포함)
+- 견적 및 버전
+- 3D 요청 및 결과
+- 계약 및 조항
+- 리드 3개
+- 카탈로그 품목 5개
+- 감사 로그 샘플
 
-# 빌드
-npm run build
+## 🌐 국제화
 
-# 프로덕션 실행
-npm start
+현재 한국어(ko-KR)만 지원. 추가 언어는 `apps/web/messages/` 디렉토리에 JSON 파일 추가.
 
-# 캐시 정리
-npm run clean
-```
+## 📄 라이선스
 
-## 📡 API 엔드포인트
-
-### 견적 시뮬레이션
-- `GET /api/estimate?size=100&region=서울&facilities=냉장시설,냉동시설`
-  - 예상 건설 비용 계산
-
-### 계약 관리
-- `POST /api/contract`
-  - 계약 체결 처리
-
-### 설계 관리
-- `POST /api/design`
-  - 설계안 파일 업로드
-- `POST /api/feedback`
-  - 피드백 제출
-
-### 진행 모니터링
-- `GET /api/progress`
-  - 건설 진행 상황 조회
-
-### HACCP 관리
-- `GET /api/haccp`
-  - HACCP 인증 상태 조회
-
-### 대시보드
-- `GET /api/dashboard`
-  - 프로젝트 전체 현황 조회
-
-## 📁 프로젝트 구조
-
-```
-C:\5pro\
-├── src/
-│   ├── app/                 # Next.js App Router
-│   │   ├── globals.css     # 전역 스타일
-│   │   ├── layout.tsx      # 루트 레이아웃
-│   │   ├── page.tsx        # 메인 페이지
-│   │   ├── estimate/       # 견적 시뮬레이션
-│   │   ├── contract/       # 계약 관리
-│   │   ├── design/         # 설계 관리
-│   │   ├── monitor/        # 진행 모니터링
-│   │   ├── haccp/          # HACCP 인증
-│   │   └── dashboard/      # 대시보드
-│   └── components/
-│       └── Navigation.tsx  # 하단 네비게이션
-├── server.js               # Express.js API 서버
-├── package.json
-├── next.config.js
-├── tailwind.config.js
-└── README.md
-```
-
-## 🎨 디자인 특징
-
-- **모바일 우선**: 모바일 웹에 최적화된 반응형 디자인
-- **관리자 대시보드 스타일**: 깔끔하고 직관적인 UI/UX
-- **TailwindCSS**: 유틸리티 기반 스타일링
-- **일관된 컬러 팔레트**: Primary Blue 계열 컬러 사용
-
-## 🔧 개발 환경 설정
-
-1. Node.js 18+ 설치
-2. 프로젝트 클론 또는 다운로드
-3. `npm install` 실행
-4. 두 개의 터미널에서 각각 서버 실행
-
-## 📝 주요 특징
-
-- **Mock 데이터**: 실제 데이터베이스 없이 Mock API로 동작
-- **파일 업로드**: Multer를 사용한 파일 업로드 처리
-- **진행률 추적**: 실시간 진행률 바와 상태 표시
-- **체크리스트**: HACCP 인증을 위한 단계별 체크리스트
-- **반응형 디자인**: 모바일과 데스크톱 모두 지원
-
-## 🚀 배포
-
-프로덕션 배포를 위해서는:
-
-1. `npm run build` - Next.js 앱 빌드
-2. Express.js 서버를 프로덕션 환경에 배포
-3. 환경 변수 설정 (데이터베이스 연결 등)
-
-## 📞 지원
-
-프로젝트 관련 문의사항이 있으시면 이슈를 등록해주세요.
+Private - 5PRO Internal Use Only
