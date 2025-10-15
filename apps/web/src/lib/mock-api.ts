@@ -2,6 +2,8 @@
 
 import {
   mockUser,
+  mockUsers,
+  mockUserStats,
   mockProjects,
   mockEstimates,
   mockVisual3D,
@@ -100,6 +102,23 @@ export class MockApiClient {
         data: mockAuditLogs,
         pagination: { page: 1, limit: 20, total: mockAuditLogs.length, totalPages: 1 },
       } as T;
+    }
+
+    if (path === '/users') {
+      return {
+        data: mockUsers,
+        pagination: { page: 1, limit: 10, total: mockUsers.length, totalPages: 1 },
+      } as T;
+    }
+
+    if (path === '/users/stats/overview') {
+      return mockUserStats as T;
+    }
+
+    if (path.startsWith('/users/') && path.split('/').length === 3) {
+      const id = path.split('/')[2];
+      const user = mockUsers.find((u) => u.id === id);
+      return user as T;
     }
 
     return {} as T;

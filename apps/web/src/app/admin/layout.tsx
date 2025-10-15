@@ -13,12 +13,14 @@ import {
   UserPlus, 
   Package, 
   Settings, 
-  LogOut 
+  LogOut,
+  UserCog
 } from 'lucide-react';
 import { Button } from '@5pro/ui';
 
 const navItems = [
   { href: '/admin', label: '대시보드', icon: LayoutDashboard },
+  { href: '/admin/users', label: '사용자 관리', icon: UserCog },
   { href: '/admin/estimates', label: '견적', icon: FileText },
   { href: '/admin/visual3d', label: '3D 시각화', icon: Box },
   { href: '/admin/projects', label: '프로젝트', icon: FolderKanban },

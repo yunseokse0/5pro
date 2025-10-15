@@ -16,6 +16,71 @@ export const mockUser = {
   },
 };
 
+export const mockUsers = [
+  {
+    id: '1',
+    email: 'admin@offro.com',
+    name: '김관리',
+    phone: '010-1234-5678',
+    status: 'active',
+    role: { id: '1', name: 'admin' },
+    createdAt: '2024-01-01',
+    lastLoginAt: '2025-01-19T19:30:00Z',
+    _count: { estimates: 15, projects: 15, contracts: 8 },
+  },
+  {
+    id: '2',
+    email: 'manager@offro.com',
+    name: '이매니저',
+    phone: '010-2345-6789',
+    status: 'active',
+    role: { id: '2', name: 'manager' },
+    createdAt: '2024-01-15',
+    lastLoginAt: '2025-01-19T00:20:00Z',
+    _count: { estimates: 8, projects: 8, contracts: 5 },
+  },
+  {
+    id: '3',
+    email: 'user@offro.com',
+    name: '박사용자',
+    phone: '010-3456-7890',
+    status: 'active',
+    role: { id: '3', name: 'user' },
+    createdAt: '2024-02-01',
+    lastLoginAt: '2025-01-17T18:15:00Z',
+    _count: { estimates: 3, projects: 3, contracts: 2 },
+  },
+  {
+    id: '4',
+    email: 'new@offro.com',
+    name: '최신규',
+    phone: '010-4567-8901',
+    status: 'pending',
+    role: { id: '3', name: 'user' },
+    createdAt: '2025-01-16',
+    lastLoginAt: '2025-01-16T23:45:00Z',
+    _count: { estimates: 0, projects: 0, contracts: 0 },
+  },
+  {
+    id: '5',
+    email: 'inactive@offro.com',
+    name: '정비활성',
+    phone: '010-5678-9012',
+    status: 'inactive',
+    role: { id: '3', name: 'user' },
+    createdAt: '2024-03-01',
+    lastLoginAt: '2024-12-01T20:30:00Z',
+    _count: { estimates: 1, projects: 1, contracts: 0 },
+  },
+];
+
+export const mockUserStats = {
+  totalUsers: 5,
+  activeUsers: 3,
+  pendingUsers: 1,
+  adminUsers: 1,
+};
+
 export const mockProjects = [
   {
     id: '1',

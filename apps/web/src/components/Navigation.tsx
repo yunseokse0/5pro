@@ -18,6 +18,11 @@ import {
 const Navigation = () => {
   const pathname = usePathname()
 
+  // 관리자 페이지에서는 하단 메뉴를 숨김
+  if (pathname?.startsWith('/admin')) {
+    return null
+  }
+
   const navItems = [
     { href: '/', icon: Home, label: '홈' },
     { href: '/estimate', icon: Calculator, label: '견적' },

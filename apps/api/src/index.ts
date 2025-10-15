@@ -17,6 +17,7 @@ import { regionsRouter } from './routes/regions';
 import { presetsRouter } from './routes/presets';
 import { filesRouter } from './routes/files';
 import { auditLogsRouter } from './routes/audit-logs';
+import { usersRouter } from './routes/users';
 
 dotenv.config();
 
@@ -47,6 +48,7 @@ app.use('/regions', regionsRouter);
 app.use('/presets', presetsRouter);
 app.use('/files', filesRouter);
 app.use('/audit-logs', auditLogsRouter);
+app.use('/users', usersRouter);
 
 // Health check
 app.get('/health', (req, res) => {
