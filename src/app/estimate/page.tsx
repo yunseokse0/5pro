@@ -1,8 +1,9 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { useEstimateStore } from '@/store/estimateStore';
-import { ArrowRight, ArrowLeft, Calculator, Download, Check } from 'lucide-react';
+import { ArrowRight, ArrowLeft, Calculator, Download, Check, Calendar } from 'lucide-react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement } from 'chart.js';
 import { Pie, Bar } from 'react-chartjs-2';
 
@@ -33,6 +34,7 @@ const FACILITIES = [
 export default function EstimatePage() {
   const { input, result, currentStep, setInput, setCurrentStep, calculateEstimate, reset } = useEstimateStore();
   const [selectedFacilities, setSelectedFacilities] = useState<string[]>([]);
+  const [haccpConsulting, setHaccpConsulting] = useState<string>('');
 
   const handleNext = () => {
     if (currentStep === 1 && !input.region) {
@@ -354,6 +356,93 @@ export default function EstimatePage() {
                 </div>
               </div>
 
+              {/* HACCP 컨설팅 옵션 */}
+              <div className="bg-purple-50 p-6 rounded-xl border-2 border-purple-200">
+                <h3 className="font-bold text-lg mb-4 flex items-center">
+                  <span className="px-3 py-1 bg-purple-500 text-white text-xs rounded-full mr-2">
+                    CONSULTING ONLY
+                  </span>
+                  HACCP 컨설팅 추가하기
+                </h3>
+                <div className="space-y-3">
+                  <label className="flex items-start space-x-3 p-4 bg-white rounded-lg cursor-pointer hover:bg-purple-50 border-2 border-transparent hover:border-purple-300 transition-all">
+                    <input
+                      type="radio"
+                      name="haccp"
+                      value="lite"
+                      checked={haccpConsulting === 'lite'}
+                      onChange={(e) => setHaccpConsulting(e.target.value)}
+                      className="mt-1"
+                    />
+                    <div className="flex-1">
+                      <div className="font-bold">Lite - 초기 진단 (300만원)</div>
+                      <div className="text-sm text-gray-600">진단 + 갭 분석 리포트</div>
+                    </div>
+                  </label>
+
+                  <label className="flex items-start space-x-3 p-4 bg-white rounded-lg cursor-pointer hover:bg-purple-50 border-2 border-transparent hover:border-purple-300 transition-all">
+                    <input
+                      type="radio"
+                      name="haccp"
+                      value="standard"
+                      checked={haccpConsulting === 'standard'}
+                      onChange={(e) => setHaccpConsulting(e.target.value)}
+                      className="mt-1"
+                    />
+                    <div className="flex-1">
+                      <div className="font-bold">Standard - 문서 코칭 (800만원)</div>
+                      <div className="text-sm text-gray-600">문서 템플릿 + 작성 코칭 + 교육 1회</div>
+                    </div>
+                  </label>
+
+                  <label className="flex items-start space-x-3 p-4 bg-white rounded-lg cursor-pointer hover:bg-purple-50 border-2 border-transparent hover:border-purple-300 transition-all">
+                    <input
+                      type="radio"
+                      name="haccp"
+                      value="pro"
+                      checked={haccpConsulting === 'pro'}
+                      onChange={(e) => setHaccpConsulting(e.target.value)}
+                      className="mt-1"
+                    />
+                    <div className="flex-1">
+                      <div className="font-bold">Pro - 모의심사 포함 (1500만원)</div>
+                      <div className="text-sm text-gray-600">모의심사 + 시정개선 코칭 + 교육 2회</div>
+                    </div>
+                  </label>
+
+                  <label className="flex items-start space-x-3 p-4 bg-white rounded-lg cursor-pointer hover:bg-gray-100 border-2 border-transparent hover:border-gray-300 transition-all">
+                    <input
+                      type="radio"
+                      name="haccp"
+                      value=""
+                      checked={haccpConsulting === ''}
+                      onChange={(e) => setHaccpConsulting(e.target.value)}
+                      className="mt-1"
+                    />
+                    <div className="flex-1">
+                      <div className="font-bold">추가 안 함</div>
+                    </div>
+                  </label>
+                </div>
+
+                {haccpConsulting && (
+                  <div className="mt-4 p-4 bg-purple-100 rounded-lg">
+                    <p className="text-sm text-purple-800 font-medium">
+                      ✓ HACCP 컨설팅 {haccpConsulting === 'lite' ? 'Lite' : haccpConsulting === 'standard' ? 'Standard' : 'Pro'} 패키지 선택됨
+                    </p>
+                    <p className="text-xs text-purple-700 mt-2">
+                      💡 대행이 아닌 컨설팅 서비스입니다
+                    </p>
+                  </div>
+                )}
+
+                <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
+                  <p className="text-xs text-yellow-800">
+                    ⚠️ 대행 업무 제외 (신청·심사 대응·운영 책임은 고객님께서 직접 수행)
+                  </p>
+                </div>
+              </div>
+
               {/* 액션 버튼 */}
               <div className="flex gap-4">
                 <button className="flex-1 px-6 py-4 bg-gradient-to-r from-[#007AFF] to-[#6A5AE0] text-white rounded-xl font-bold hover:shadow-xl transition-all">
@@ -367,6 +456,15 @@ export default function EstimatePage() {
                   다시 계산하기
                 </button>
               </div>
+
+              {haccpConsulting && (
+                <Link href="/consulting">
+                  <button className="w-full px-6 py-4 bg-purple-600 text-white rounded-xl font-bold hover:bg-purple-700 transition-all">
+                    <Calendar className="inline-block w-5 h-5 mr-2" />
+                    HACCP 컨설팅 상담 예약하기
+                  </button>
+                </Link>
+              )}
             </div>
           )}
 
