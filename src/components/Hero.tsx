@@ -43,17 +43,17 @@ export default function Hero() {
         </div>
         
         {/* 회원가입 유도 배너 */}
-        <div className="mt-12 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-6 text-white">
+        <div className="mt-12 bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-700 dark:to-purple-700 rounded-2xl p-6 text-white">
           <div className="text-center">
             <h3 className="text-xl font-bold mb-2">
-              🎁 지금 가입하고 <span className="text-yellow-300">무료 혜택</span>을 받아보세요!
+              🎁 지금 가입하고 <span className="text-yellow-300 dark:text-yellow-200">무료 혜택</span>을 받아보세요!
             </h3>
-            <p className="text-indigo-100 mb-4">
+            <p className="text-indigo-100 dark:text-indigo-200 mb-4">
               맞춤형 분석 리포트 + 전문가 가이드북 + 1:1 상담까지 모두 무료
             </p>
             <a 
               href="/signup"
-              className="inline-block px-6 py-3 bg-white text-indigo-600 font-bold rounded-xl hover:bg-gray-100 transition-all transform hover:-translate-y-1"
+              className="inline-block px-6 py-3 bg-white dark:bg-gray-100 text-indigo-600 dark:text-indigo-700 font-bold rounded-xl hover:bg-gray-100 dark:hover:bg-gray-200 transition-all transform hover:-translate-y-1"
             >
               무료 회원가입하기 →
             </a>
