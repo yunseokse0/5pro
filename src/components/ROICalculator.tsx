@@ -176,7 +176,7 @@ export default function ROICalculator() {
         {/* 헤더 섹션 */}
         <div className="text-center mb-12">
           <div className="inline-block px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full text-sm font-semibold mb-6">
-            💰 ROI 투자 회수 시뮬레이터
+            💰 투자 회수 시뮬레이터
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             언제 수익 전환이 가능할까?<br />
@@ -190,7 +190,7 @@ export default function ROICalculator() {
         <div className="grid lg:grid-cols-2 gap-8">
           {/* 입력 패널 */}
           <div className="p-8 rounded-2xl border bg-white shadow-lg">
-            <h3 className="text-xl font-bold text-gray-900 mb-2">ROI 계산기</h3>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">투자 회수 시뮬레이터</h3>
             <p className="text-gray-600 mb-6">
               오프로의 <b>AI 견적·HACCP 컨설팅·스마트 운영</b> 효과를 반영하여 투자 회수 속도를 추정합니다.
             </p>
@@ -268,9 +268,9 @@ export default function ROICalculator() {
                 <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl">📊</span>
                 </div>
-                <p className="text-gray-500">
-                  상단의 입력값을 채우면 투자 회수 기간과 ROI가 계산됩니다.
-                </p>
+              <p className="text-gray-500">
+                상단의 입력값을 채우면 투자 회수 기간과 수익률이 계산됩니다.
+              </p>
               </div>
             ) : (
               <>
@@ -319,7 +319,7 @@ export default function ROICalculator() {
                   />
 
                   <StatCard
-                    title="12개월 ROI"
+                    title="12개월 수익률"
                     value={`${isFinite(roi12m) ? roi12m.toFixed(1) : 0}%`}
                     sub="(12개월 기준)"
                     color="text-purple-600"
@@ -333,22 +333,22 @@ export default function ROICalculator() {
                   <a
                     href="/contact"
                     className="px-6 py-3 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 font-semibold transition-colors"
-                    aria-label="나의 공장 투자 회수 기간 계산 결과 상담"
+                    aria-label="내 공장 투자 회수 기간 확인하기"
                   >
-                    나의 공장 투자 회수 기간 상담 연결
+                    내 공장 투자 회수 기간 확인하기
                   </a>
                   <a
                     href="/signup"
                     className="px-6 py-3 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50 font-semibold transition-colors"
-                    aria-label="결과 저장을 위해 회원가입"
+                    aria-label="효율 시뮬레이터 실행"
                   >
-                    결과 저장 & 회원가입
+                    효율 시뮬레이터 실행
                   </a>
                 </div>
 
                 <div className="mt-6 p-4 bg-green-50 border border-green-200 rounded-lg">
                   <p className="text-sm text-green-800">
-                    <strong>💡 오프로의 가치:</strong> "오프로를 통해 공사비와 운영비를 동시에 절감하면, 기존 대비 더 빠르게 투자금을 회수할 수 있습니다."
+                    <strong>💡 오프로의 가치:</strong> "오프로를 통해 공사비와 운영비를 동시에 절감하면, 기존 대비 약 {paybackMonths === Infinity ? '빠르게' : `${Math.max(1, Math.floor(paybackMonths / 2))}개월 빠르게`} 투자금을 회수할 수 있습니다."
                   </p>
                 </div>
               </>
