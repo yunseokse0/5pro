@@ -36,6 +36,12 @@ importers:
       '@types/node':
         specifier: ^20.10.5
         version: 20.19.21
+      '@types/react':
+        specifier: ^18.2.0
+        version: 18.3.26
+      '@types/react-dom':
+        specifier: ^18.2.0
+        version: 18.3.7(@types/react@18.3.26)
       concurrently:
         specifier: ^8.2.2
         version: 8.2.2
