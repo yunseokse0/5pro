@@ -17,8 +17,11 @@ import {
   Cloud,
   AlertTriangle,
   TrendingUp,
-  Users,
-  Clock
+  Users2,
+  Clock,
+  Building2,
+  FileSignature,
+  Gauge
 } from 'lucide-react';
 
 export default function SmartFactoryPage() {
@@ -355,7 +358,7 @@ export default function SmartFactoryPage() {
                   type="submit"
                   className="px-12 py-4 bg-gradient-to-r from-[#007AFF] to-[#6A5AE0] text-white rounded-xl font-bold text-lg hover:shadow-xl transition-all transform hover:-translate-y-1"
                 >
-                  <Users className="inline-block w-5 h-5 mr-2" />
+                  <Users2 className="inline-block w-5 h-5 mr-2" />
                   무료 상담 신청하기
                 </button>
               </div>

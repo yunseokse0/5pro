@@ -6,13 +6,13 @@ import { usePathname } from 'next/navigation'
 import { 
   Home, 
   Calculator, 
-  FileText, 
-  MessageSquare, 
-  BarChart3, 
-  User,
+  FileSignature, 
+  ShieldCheck, 
+  Gauge, 
+  UserCheck,
   Phone,
-  Users,
-  Eye,
+  Users2,
+  Box,
   Cpu
 } from 'lucide-react'
 
@@ -27,13 +27,13 @@ const Navigation = () => {
   const navItems = [
     { href: '/', icon: Home, label: '홈' },
     { href: '/estimate', icon: Calculator, label: '견적' },
-    { href: '/3d-visualization', icon: Eye, label: '3D 조감도' },
+    { href: '/3d-visualization', icon: Box, label: '3D 조감도' },
     { href: '/smart-factory', icon: Cpu, label: '스마트팩토리' },
-    { href: '/consulting', icon: MessageSquare, label: 'HACCP' },
-    { href: '/partners', icon: Users, label: '파트너사' },
-    { href: '/contract', icon: FileText, label: '계약관리' },
-    { href: '/progress', icon: BarChart3, label: '진행상황' },
-    { href: '/login', icon: User, label: '로그인' },
+    { href: '/consulting', icon: ShieldCheck, label: 'HACCP' },
+    { href: '/partners', icon: Users2, label: '파트너사' },
+    { href: '/contract', icon: FileSignature, label: '계약관리' },
+    { href: '/progress', icon: Gauge, label: '진행상황' },
+    { href: '/login', icon: UserCheck, label: '로그인' },
   ]
 
   return (
@@ -45,14 +45,20 @@ const Navigation = () => {
             <Link
               key={href}
               href={href}
-              className={`flex flex-col items-center py-2 px-1 min-w-0 flex-1 ${
+              className={`flex flex-col items-center py-3 px-2 min-w-0 flex-1 transition-all duration-200 ${
                 isActive 
-                  ? 'text-primary-600' 
+                  ? 'text-blue-700' 
                   : 'text-gray-500 hover:text-gray-700'
               }`}
             >
-              <Icon size={20} className="mb-1" />
-              <span className="text-xs font-medium truncate">{label}</span>
+              <div className={`p-2 rounded-xl transition-all duration-200 ${
+                isActive 
+                  ? 'bg-gradient-to-br from-blue-50 to-indigo-100 shadow-sm' 
+                  : 'hover:bg-gray-50'
+              }`}>
+                <Icon size={20} className="mb-0" strokeWidth={2.2} />
+              </div>
+              <span className="text-xs font-medium truncate mt-1">{label}</span>
             </Link>
           )
         })}

@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowRight, Calculator, Zap, TrendingDown, CheckCircle2, Cpu, BarChart3, Wifi, Shield } from 'lucide-react';
+import { ArrowRight, Calculator, Zap, TrendingDown, CheckCircle2, Cpu, BarChart3, Wifi, Shield, Building2, FileSignature, Gauge, Users2, ShieldCheck, Box } from 'lucide-react';
 
 export default function HomePage() {
   return (
@@ -324,23 +324,23 @@ export default function HomePage() {
           </div>
           <div className="grid md:grid-cols-5 gap-6">
             {[
-              { step: '1', title: '견적 요청', desc: '지역·규모 입력' },
-              { step: '2', title: '3D 설계', desc: '조감도 생성' },
-              { step: '3', title: '계약 체결', desc: '전자계약 진행' },
-              { step: '4', title: '시공 관리', desc: '실시간 모니터링' },
-              { step: '5', title: '완공 인도', desc: '품질 보증' },
+              { step: '1', title: '견적 요청', desc: '지역·규모 입력', icon: Calculator },
+              { step: '2', title: '3D 설계', desc: '조감도 생성', icon: Box },
+              { step: '3', title: '계약 체결', desc: '전자계약 진행', icon: FileSignature },
+              { step: '4', title: '시공 관리', desc: '실시간 모니터링', icon: Gauge },
+              { step: '5', title: '완공 인도', desc: '품질 보증', icon: ShieldCheck },
             ].map((item, idx) => (
               <div key={idx} className="relative">
-                <div className="bg-gray-50 p-6 rounded-2xl border-2 border-gray-200 hover:border-blue-500 transition-all">
+                <div className="bg-white p-6 rounded-2xl border-2 border-gray-200 hover:border-blue-500 transition-all shadow-sm hover:shadow-md">
                   <div className="w-12 h-12 bg-gradient-to-br from-[#007AFF] to-[#6A5AE0] rounded-xl flex items-center justify-center text-white font-bold text-xl mb-4">
-                    {item.step}
+                    <item.icon className="w-6 h-6" strokeWidth={2.2} />
                   </div>
-                  <h3 className="font-bold text-lg mb-2">{item.title}</h3>
+                  <h3 className="font-bold text-lg mb-2 text-gray-800">{item.title}</h3>
                   <p className="text-sm text-gray-600">{item.desc}</p>
                 </div>
                 {idx < 4 && (
                   <div className="hidden md:block absolute top-1/2 -right-3 transform -translate-y-1/2">
-                    <ArrowRight className="w-6 h-6 text-gray-300" />
+                    <ArrowRight className="w-6 h-6 text-gray-300" strokeWidth={2} />
                   </div>
                 )}
               </div>
