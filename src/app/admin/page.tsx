@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { projectStorage, ProjectData } from '../../lib/storage'
 import { projectCalculator } from '../../lib/calculator'
 import { 

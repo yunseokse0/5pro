@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Settings, Loader2 } from 'lucide-react'
 
 interface FactoryOptions {
