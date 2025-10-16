@@ -96,7 +96,8 @@ export default function AdminDashboard() {
     .slice(0, 5)
 
   return (
-    <div className="space-y-6">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-6">
+      <div className="max-w-7xl mx-auto space-y-6">
       {/* Header */}
       <div className="flex justify-between items-start">
         <div>
@@ -110,64 +111,64 @@ export default function AdminDashboard() {
 
       {/* Stats Grid */}
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        <div className="bg-white overflow-hidden shadow rounded-lg">
+        <div className="bg-white dark:bg-gray-800 overflow-hidden shadow rounded-lg">
           <div className="p-5">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <Factory className="h-6 w-6 text-gray-400" />
+                <Factory className="h-6 w-6 text-gray-400 dark:text-gray-500" />
               </div>
               <div className="ml-5 w-0 flex-1">
                 <dl>
-                  <dt className="text-sm font-medium text-gray-500 truncate">총 프로젝트</dt>
-                  <dd className="text-lg font-medium text-gray-900">{stats.totalProjects}</dd>
+                  <dt className="text-sm font-medium text-gray-500 dark:text-gray-400 truncate">총 프로젝트</dt>
+                  <dd className="text-lg font-medium text-gray-900 dark:text-white">{stats.totalProjects}</dd>
                 </dl>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="bg-white overflow-hidden shadow rounded-lg">
+        <div className="bg-white dark:bg-gray-800 overflow-hidden shadow rounded-lg">
           <div className="p-5">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <TrendingUp className="h-6 w-6 text-green-400" />
+                <TrendingUp className="h-6 w-6 text-green-400 dark:text-green-500" />
               </div>
               <div className="ml-5 w-0 flex-1">
                 <dl>
-                  <dt className="text-sm font-medium text-gray-500 truncate">진행중인 프로젝트</dt>
-                  <dd className="text-lg font-medium text-gray-900">{stats.activeProjects}</dd>
+                  <dt className="text-sm font-medium text-gray-500 dark:text-gray-400 truncate">진행중인 프로젝트</dt>
+                  <dd className="text-lg font-medium text-gray-900 dark:text-white">{stats.activeProjects}</dd>
                 </dl>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="bg-white overflow-hidden shadow rounded-lg">
+        <div className="bg-white dark:bg-gray-800 overflow-hidden shadow rounded-lg">
           <div className="p-5">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <DollarSign className="h-6 w-6 text-blue-400" />
+                <DollarSign className="h-6 w-6 text-blue-400 dark:text-blue-500" />
               </div>
               <div className="ml-5 w-0 flex-1">
                 <dl>
-                  <dt className="text-sm font-medium text-gray-500 truncate">총 매출</dt>
-                  <dd className="text-lg font-medium text-gray-900">{formatCurrency(stats.totalRevenue)}</dd>
+                  <dt className="text-sm font-medium text-gray-500 dark:text-gray-400 truncate">총 매출</dt>
+                  <dd className="text-lg font-medium text-gray-900 dark:text-white">{formatCurrency(stats.totalRevenue)}</dd>
                 </dl>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="bg-white overflow-hidden shadow rounded-lg">
+        <div className="bg-white dark:bg-gray-800 overflow-hidden shadow rounded-lg">
           <div className="p-5">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <Shield className="h-6 w-6 text-purple-400" />
+                <Shield className="h-6 w-6 text-purple-400 dark:text-purple-500" />
               </div>
               <div className="ml-5 w-0 flex-1">
                 <dl>
-                  <dt className="text-sm font-medium text-gray-500 truncate">HACCP 승인</dt>
-                  <dd className="text-lg font-medium text-gray-900">{stats.haccpApproved}</dd>
+                  <dt className="text-sm font-medium text-gray-500 dark:text-gray-400 truncate">HACCP 승인</dt>
+                  <dd className="text-lg font-medium text-gray-900 dark:text-white">{stats.haccpApproved}</dd>
                 </dl>
               </div>
             </div>
@@ -178,22 +179,22 @@ export default function AdminDashboard() {
       {/* Charts and Tables */}
       <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
         {/* Recent Projects */}
-        <div className="bg-white shadow rounded-lg">
+        <div className="bg-white dark:bg-gray-800 shadow rounded-lg">
           <div className="px-4 py-5 sm:p-6">
-            <h3 className="text-lg leading-6 font-medium text-gray-900 mb-4">최근 프로젝트</h3>
+            <h3 className="text-lg leading-6 font-medium text-gray-900 dark:text-white mb-4">최근 프로젝트</h3>
             <div className="flow-root">
-              <ul className="-my-5 divide-y divide-gray-200">
+              <ul className="-my-5 divide-y divide-gray-200 dark:divide-gray-700">
                 {recentProjects.map((project) => (
                   <li key={project.id} className="py-4">
                     <div className="flex items-center space-x-4">
                       <div className="flex-shrink-0">
-                        <Factory className="h-8 w-8 text-gray-400" />
+                        <Factory className="h-8 w-8 text-gray-400 dark:text-gray-500" />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <p className="text-sm font-medium text-gray-900 truncate">
+                        <p className="text-sm font-medium text-gray-900 dark:text-white truncate">
                           {project.name}
                         </p>
-                        <p className="text-sm text-gray-500">
+                        <p className="text-sm text-gray-500 dark:text-gray-400">
                           {project.location.province} {project.location.city} • {project.size}평
                         </p>
                       </div>
@@ -211,9 +212,9 @@ export default function AdminDashboard() {
         </div>
 
         {/* Upcoming Deadlines */}
-        <div className="bg-white shadow rounded-lg">
+        <div className="bg-white dark:bg-gray-800 shadow rounded-lg">
           <div className="px-4 py-5 sm:p-6">
-            <h3 className="text-lg leading-6 font-medium text-gray-900 mb-4">다가오는 마감일</h3>
+            <h3 className="text-lg leading-6 font-medium text-gray-900 dark:text-white mb-4">다가오는 마감일</h3>
             <div className="flow-root">
               <ul className="-my-5 divide-y divide-gray-200">
                 {upcomingDeadlines.map((project) => (
@@ -245,49 +246,49 @@ export default function AdminDashboard() {
       </div>
 
       {/* Project Status Overview */}
-      <div className="bg-white shadow rounded-lg">
+      <div className="bg-white dark:bg-gray-800 shadow rounded-lg">
         <div className="px-4 py-5 sm:p-6">
-          <h3 className="text-lg leading-6 font-medium text-gray-900 mb-4">프로젝트 현황</h3>
+          <h3 className="text-lg leading-6 font-medium text-gray-900 dark:text-white mb-4">프로젝트 현황</h3>
           <div className="overflow-hidden">
-            <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
+            <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+              <thead className="bg-gray-50 dark:bg-gray-700">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                     프로젝트명
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                     위치
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                     규모
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                     예산
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                     상태
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                     HACCP
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                     마감일
                   </th>
                 </tr>
               </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
+              <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
                 {projects.map((project) => (
-                  <tr key={project.id} className="hover:bg-gray-50">
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                  <tr key={project.id} className="hover:bg-gray-50 dark:hover:bg-gray-700">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
                       {project.name}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
                       {project.location.province} {project.location.city}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
                       {project.size}평
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
                       {formatCurrency(project.budget.total)}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
@@ -316,28 +317,28 @@ export default function AdminDashboard() {
       </div>
 
       {/* Quick Actions */}
-      <div className="bg-white shadow rounded-lg">
+      <div className="bg-white dark:bg-gray-800 shadow rounded-lg">
         <div className="px-4 py-5 sm:p-6">
-          <h3 className="text-lg leading-6 font-medium text-gray-900 mb-4">빠른 작업</h3>
+          <h3 className="text-lg leading-6 font-medium text-gray-900 dark:text-white mb-4">빠른 작업</h3>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            <a href="/estimate" className="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-blue-500 rounded-lg border border-gray-300 hover:border-gray-400 hover:shadow-md transition-all">
+            <a href="/estimate" className="relative group bg-white dark:bg-gray-700 p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-blue-500 rounded-lg border border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500 hover:shadow-md transition-all">
               <div>
-                <span className="rounded-lg inline-flex p-3 bg-blue-50 text-blue-700 ring-4 ring-white">
+                <span className="rounded-lg inline-flex p-3 bg-blue-50 dark:bg-blue-900 text-blue-700 dark:text-blue-300 ring-4 ring-white dark:ring-gray-700">
                   <Factory className="h-6 w-6" />
                 </span>
               </div>
               <div className="mt-8">
-                <h3 className="text-lg font-medium">
+                <h3 className="text-lg font-medium text-gray-900 dark:text-white">
                   <span className="absolute inset-0" aria-hidden="true" />
                   새 프로젝트 생성
                 </h3>
-                <p className="mt-2 text-sm text-gray-500">
+                <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
                   새로운 식품공장 프로젝트를 시작하세요
                 </p>
               </div>
             </a>
 
-            <a href="/admin/haccp" className="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-green-500 rounded-lg border border-gray-300 hover:border-gray-400 hover:shadow-md transition-all">
+            <a href="/admin/haccp" className="relative group bg-white dark:bg-gray-700 p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-green-500 rounded-lg border border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500 hover:shadow-md transition-all">
               <div>
                 <span className="rounded-lg inline-flex p-3 bg-green-50 text-green-700 ring-4 ring-white">
                   <Shield className="h-6 w-6" />
@@ -412,6 +413,7 @@ export default function AdminDashboard() {
             </button>
           </div>
         </div>
+      </div>
       </div>
     </div>
   )
