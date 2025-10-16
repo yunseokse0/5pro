@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { projectStorage, ProjectData } from '../../lib/storage'
 import { projectCalculator } from '../../lib/calculator'
+import ThemeToggle from '@/components/ThemeToggle'
 import { 
   Factory, 
   Users, 
@@ -97,11 +98,14 @@ export default function AdminDashboard() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div>
-        <h1 className="text-2xl font-bold text-gray-900">관리자 대시보드</h1>
-        <p className="mt-1 text-sm text-gray-500">
-          오프로 플랫폼 전체 현황을 한눈에 확인하세요
-        </p>
+      <div className="flex justify-between items-start">
+        <div>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">관리자 대시보드</h1>
+          <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+            오프로 플랫폼 전체 현황을 한눈에 확인하세요
+          </p>
+        </div>
+        <ThemeToggle variant="button" />
       </div>
 
       {/* Stats Grid */}

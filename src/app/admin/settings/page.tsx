@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
+import ThemeToggle from '@/components/ThemeToggle'
 import { 
   Settings, 
   Save, 
@@ -145,40 +146,43 @@ export default function SystemSettings() {
       {/* Header */}
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">시스템 설정</h1>
-          <p className="mt-1 text-sm text-gray-500">
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">시스템 설정</h1>
+          <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
             플랫폼의 전반적인 설정을 관리하세요
           </p>
         </div>
-        <div className="flex space-x-3">
-          <button
-            onClick={exportSettings}
-            className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50"
-          >
-            <Database className="h-4 w-4 mr-2" />
-            설정 내보내기
-          </button>
-          <button
-            onClick={resetSettings}
-            className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50"
-          >
-            <RefreshCw className="h-4 w-4 mr-2" />
-            초기화
-          </button>
-          <button
-            onClick={saveSettings}
-            disabled={isLoading}
-            className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 disabled:opacity-50"
-          >
-            {isLoading ? (
-              <RefreshCw className="h-4 w-4 mr-2 animate-spin" />
-            ) : (
-              <Save className="h-4 w-4 mr-2" />
-            )}
-            {saveStatus === 'saving' ? '저장 중...' : 
-             saveStatus === 'saved' ? '저장됨' : 
-             saveStatus === 'error' ? '오류' : '저장'}
-          </button>
+        <div className="flex items-center space-x-4">
+          <ThemeToggle variant="button" />
+          <div className="flex space-x-3">
+            <button
+              onClick={exportSettings}
+              className="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700"
+            >
+              <Database className="h-4 w-4 mr-2" />
+              설정 내보내기
+            </button>
+            <button
+              onClick={resetSettings}
+              className="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700"
+            >
+              <RefreshCw className="h-4 w-4 mr-2" />
+              초기화
+            </button>
+            <button
+              onClick={saveSettings}
+              disabled={isLoading}
+              className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 disabled:opacity-50"
+            >
+              {isLoading ? (
+                <RefreshCw className="h-4 w-4 mr-2 animate-spin" />
+              ) : (
+                <Save className="h-4 w-4 mr-2" />
+              )}
+              {saveStatus === 'saving' ? '저장 중...' : 
+               saveStatus === 'saved' ? '저장됨' : 
+               saveStatus === 'error' ? '오류' : '저장'}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -206,8 +210,19 @@ export default function SystemSettings() {
       )}
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+        {/* 테마 설정 */}
+        <div className="bg-white dark:bg-gray-800 shadow rounded-lg">
+          <div className="px-4 py-5 sm:p-6">
+            <h3 className="text-lg leading-6 font-medium text-gray-900 dark:text-white mb-4 flex items-center">
+              <Settings className="h-5 w-5 mr-2" />
+              테마 설정
+            </h3>
+            <ThemeToggle variant="dropdown" />
+          </div>
+        </div>
+
         {/* 일반 설정 */}
-        <div className="bg-white shadow rounded-lg">
+        <div className="bg-white dark:bg-gray-800 shadow rounded-lg">
           <div className="px-4 py-5 sm:p-6">
             <h3 className="text-lg leading-6 font-medium text-gray-900 mb-4 flex items-center">
               <Globe className="h-5 w-5 mr-2" />
