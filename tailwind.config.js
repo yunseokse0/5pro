@@ -4,6 +4,7 @@ module.exports = {
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './apps/web/src/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
@@ -20,6 +21,11 @@ module.exports = {
           100: '#f1f5f9',
           500: '#64748b',
           600: '#475569',
+        },
+        brand: {
+          navy: '#101828',
+          blue: '#007AFF',
+          purple: '#6A5AE0',
         }
       },
       screens: {
