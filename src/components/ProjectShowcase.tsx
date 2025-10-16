@@ -44,17 +44,17 @@ export default function ProjectShowcase() {
   ];
 
   return (
-    <section className="px-6 md:px-12 py-20 bg-white">
+    <section className="px-6 md:px-12 py-20 bg-white dark:bg-gray-800">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <div className="inline-block px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-semibold mb-6">
+          <div className="inline-block px-4 py-2 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-full text-sm font-semibold mb-6">
             🏭 완공 사례
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             200+ 완공 사례의 BIM 캡처와<br />
-            <span className="text-green-600">HACCP 인증 데이터</span>
+            <span className="text-green-600 dark:text-green-400">HACCP 인증 데이터</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             각 프로젝트의 면적, 기간, 절감액을 상세 데이터로 공개합니다.<br />
             BIM 캡처와 HACCP 인증 과정을 투명하게 공유하여 고객의 신뢰를 확보합니다.
           </p>
@@ -62,44 +62,44 @@ export default function ProjectShowcase() {
 
         <div className="grid md:grid-cols-3 gap-8">
           {projects.map((project) => (
-            <div key={project.id} className="bg-gray-50 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all">
+            <div key={project.id} className="bg-gray-50 dark:bg-gray-700 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all">
               <div className="p-6">
                 <div className="flex items-center justify-between mb-4">
                   <div className="text-3xl">{project.image}</div>
                   {project.haccp && (
-                    <div className="flex items-center px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-semibold">
+                    <div className="flex items-center px-3 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-full text-sm font-semibold">
                       <CheckCircle className="w-4 h-4 mr-1" />
                       HACCP 인증
                     </div>
                   )}
                 </div>
                 
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{project.name}</h3>
-                <p className="text-gray-600 mb-4">{project.description}</p>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{project.name}</h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
                 
                 <div className="grid grid-cols-2 gap-4 mb-4">
-                  <div className="text-center p-3 bg-white rounded-lg">
-                    <Building className="w-5 h-5 text-indigo-600 mx-auto mb-1" />
-                    <div className="text-sm text-gray-600">면적</div>
-                    <div className="font-bold text-gray-900">{project.area}</div>
+                  <div className="text-center p-3 bg-white dark:bg-gray-600 rounded-lg">
+                    <Building className="w-5 h-5 text-indigo-600 dark:text-indigo-400 mx-auto mb-1" />
+                    <div className="text-sm text-gray-600 dark:text-gray-300">면적</div>
+                    <div className="font-bold text-gray-900 dark:text-white">{project.area}</div>
                   </div>
-                  <div className="text-center p-3 bg-white rounded-lg">
-                    <Calendar className="w-5 h-5 text-green-600 mx-auto mb-1" />
-                    <div className="text-sm text-gray-600">기간</div>
-                    <div className="font-bold text-gray-900">{project.duration}</div>
+                  <div className="text-center p-3 bg-white dark:bg-gray-600 rounded-lg">
+                    <Calendar className="w-5 h-5 text-green-600 dark:text-green-400 mx-auto mb-1" />
+                    <div className="text-sm text-gray-600 dark:text-gray-300">기간</div>
+                    <div className="font-bold text-gray-900 dark:text-white">{project.duration}</div>
                   </div>
                 </div>
                 
-                <div className="text-center p-4 bg-gradient-to-r from-green-50 to-blue-50 rounded-lg mb-4">
-                  <DollarSign className="w-6 h-6 text-green-600 mx-auto mb-2" />
-                  <div className="text-sm text-gray-600">절감액</div>
-                  <div className="text-2xl font-bold text-green-600">{project.savings}</div>
+                <div className="text-center p-4 bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 rounded-lg mb-4">
+                  <DollarSign className="w-6 h-6 text-green-600 dark:text-green-400 mx-auto mb-2" />
+                  <div className="text-sm text-gray-600 dark:text-gray-300">절감액</div>
+                  <div className="text-2xl font-bold text-green-600 dark:text-green-400">{project.savings}</div>
                 </div>
                 
                 <div className="space-y-2 mb-6">
                   {project.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-center text-sm text-gray-600">
-                      <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                    <div key={idx} className="flex items-center text-sm text-gray-600 dark:text-gray-300">
+                      <CheckCircle className="w-4 h-4 text-green-500 dark:text-green-400 mr-2" />
                       {feature}
                     </div>
                   ))}
@@ -118,11 +118,11 @@ export default function ProjectShowcase() {
         </div>
 
         <div className="text-center mt-12">
-          <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl p-8 border border-indigo-200">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+          <div className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-2xl p-8 border border-indigo-200 dark:border-indigo-700">
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
               비슷한 규모의 프로젝트 견적 받기
             </h3>
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-600 dark:text-gray-300 mb-6">
               200+ 프로젝트 데이터를 바탕으로 귀하의 공장 규모에 맞는<br />
               정확한 견적과 투자 회수 시뮬레이션을 제공합니다.
             </p>
@@ -135,7 +135,7 @@ export default function ProjectShowcase() {
               </a>
               <a
                 href="/consulting"
-                className="px-8 py-3 border border-indigo-300 text-indigo-700 font-semibold rounded-xl hover:bg-indigo-50 transition-all"
+                className="px-8 py-3 border border-indigo-300 dark:border-indigo-600 text-indigo-700 dark:text-indigo-300 font-semibold rounded-xl hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-all"
               >
                 HACCP 인증 과정 상세 보기
               </a>

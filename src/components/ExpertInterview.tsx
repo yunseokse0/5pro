@@ -25,17 +25,17 @@ export default function ExpertInterview() {
   ];
 
   return (
-    <section className="px-6 md:px-12 py-20 bg-gray-50">
+    <section className="px-6 md:px-12 py-20 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <div className="inline-block px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full text-sm font-semibold mb-6">
+          <div className="inline-block px-4 py-2 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 rounded-full text-sm font-semibold mb-6">
             👨‍💼 전문가 인터뷰
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             20년 경력 전문가가 직접 검증하는<br />
-            <span className="text-indigo-600">HACCP 검증과 스마트팩토리 구축</span>
+            <span className="text-indigo-600 dark:text-indigo-400">HACCP 검증과 스마트팩토리 구축</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             200+ 프로젝트 경험을 바탕으로 HACCP 인증 성공률 95%를 달성한 전문가들이<br />
             직접 설계부터 검증까지 책임집니다.
           </p>
@@ -43,15 +43,15 @@ export default function ExpertInterview() {
 
         <div className="grid md:grid-cols-2 gap-8">
           {experts.map((expert, index) => (
-            <div key={index} className="bg-white rounded-2xl shadow-lg p-8 border border-gray-200">
+            <div key={index} className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border border-gray-200 dark:border-gray-700">
               <div className="flex items-start space-x-4 mb-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-full flex items-center justify-center text-2xl">
+                <div className="w-16 h-16 bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-indigo-900/50 dark:to-purple-900/50 rounded-full flex items-center justify-center text-2xl">
                   {expert.image}
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold text-gray-900">{expert.name}</h3>
-                  <p className="text-indigo-600 font-semibold">{expert.title}</p>
-                  <div className="flex items-center space-x-4 mt-2 text-sm text-gray-600">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">{expert.name}</h3>
+                  <p className="text-indigo-600 dark:text-indigo-400 font-semibold">{expert.title}</p>
+                  <div className="flex items-center space-x-4 mt-2 text-sm text-gray-600 dark:text-gray-300">
                     <span className="flex items-center">
                       <Calendar className="w-4 h-4 mr-1" />
                       {expert.experience} 경력
@@ -64,14 +64,14 @@ export default function ExpertInterview() {
                 </div>
               </div>
 
-              <blockquote className="text-gray-700 italic mb-6 leading-relaxed">
+              <blockquote className="text-gray-700 dark:text-gray-300 italic mb-6 leading-relaxed">
                 "{expert.quote}"
               </blockquote>
 
               <div className="space-y-2">
                 {expert.achievements.map((achievement, idx) => (
-                  <div key={idx} className="flex items-center text-sm text-gray-600">
-                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                  <div key={idx} className="flex items-center text-sm text-gray-600 dark:text-gray-300">
+                    <CheckCircle className="w-4 h-4 text-green-500 dark:text-green-400 mr-2" />
                     {achievement}
                   </div>
                 ))}
@@ -81,11 +81,11 @@ export default function ExpertInterview() {
         </div>
 
         <div className="text-center mt-12">
-          <div className="bg-white rounded-2xl shadow-lg p-8 border border-gray-200 max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border border-gray-200 dark:border-gray-700 max-w-4xl mx-auto">
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
               전문가와 1:1 상담하기
             </h3>
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-600 dark:text-gray-300 mb-6">
               20년 경력의 HACCP 전문가가 직접 귀하의 프로젝트를 검토하고<br />
               맞춤형 솔루션을 제안해드립니다.
             </p>
@@ -98,7 +98,7 @@ export default function ExpertInterview() {
               </a>
               <a
                 href="/estimate"
-                className="px-8 py-3 border border-gray-300 text-gray-700 font-semibold rounded-xl hover:bg-gray-50 transition-all"
+                className="px-8 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-semibold rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700 transition-all"
               >
                 무료 견적 상담받기
               </a>
