@@ -132,7 +132,7 @@ export default function EstimatePage() {
                 }`}>
                   {currentStep > step.num ? <Check className="w-6 h-6" /> : step.num}
                 </div>
-                <div className="ml-2 text-sm font-medium text-gray-700 hidden sm:block">
+                <div className="ml-2 text-sm font-medium text-gray-700 hidden sm:block whitespace-nowrap">
                   {step.label}
                 </div>
                 {idx < 3 && (
