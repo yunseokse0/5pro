@@ -4,21 +4,18 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { 
-  LayoutDashboard, 
-  Factory, 
-  Users, 
-  BarChart3, 
-  Settings, 
-  FileText,
-  Shield,
-  Calendar,
-  DollarSign,
-  TrendingUp,
-  Menu,
-  X,
-  LogOut,
-  Bell
-} from 'lucide-react'
+  HomeIcon,
+  CalculatorIcon,
+  BuildingOfficeIcon,
+  ShieldCheckIcon,
+  UsersIcon,
+  ChartBarIcon,
+  Cog6ToothIcon,
+  Bars3Icon,
+  XMarkIcon,
+  ArrowRightOnRectangleIcon,
+  BellIcon
+} from '@heroicons/react/24/outline'
 
 export default function AdminLayout({
   children,
@@ -29,15 +26,13 @@ export default function AdminLayout({
   const pathname = usePathname()
 
   const navigation = [
-    { name: '대시보드', href: '/admin', icon: LayoutDashboard },
-    { name: '프로젝트 관리', href: '/admin/projects', icon: Factory },
-    { name: '사용자 관리', href: '/admin/users', icon: Users },
-    { name: '견적 관리', href: '/admin/estimates', icon: FileText },
-    { name: 'HACCP 관리', href: '/admin/haccp', icon: Shield },
-    { name: '일정 관리', href: '/admin/schedule', icon: Calendar },
-    { name: '통계 분석', href: '/admin/analytics', icon: BarChart3 },
-    { name: '수익 관리', href: '/admin/revenue', icon: DollarSign },
-    { name: '시스템 설정', href: '/admin/settings', icon: Settings },
+    { name: '대시보드', href: '/admin', icon: HomeIcon },
+    { name: '견적 관리', href: '/admin/estimates', icon: CalculatorIcon },
+    { name: '프로젝트 관리', href: '/admin/projects', icon: BuildingOfficeIcon },
+    { name: 'HACCP 관리', href: '/admin/haccp', icon: ShieldCheckIcon },
+    { name: '사용자 관리', href: '/admin/users', icon: UsersIcon },
+    { name: '통계 분석', href: '/admin/analytics', icon: ChartBarIcon },
+    { name: '시스템 설정', href: '/admin/settings', icon: Cog6ToothIcon },
   ]
 
   const isActive = (href: string) => {
@@ -59,7 +54,7 @@ export default function AdminLayout({
               onClick={() => setSidebarOpen(false)}
               className="text-gray-400 hover:text-gray-600"
             >
-              <X className="h-6 w-6" />
+              <XMarkIcon className="h-6 w-6" />
             </button>
           </div>
           <nav className="flex-1 px-4 py-4 space-y-1">
@@ -69,10 +64,10 @@ export default function AdminLayout({
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`group flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors ${
+                  className={`group flex items-center px-3 py-2 text-sm font-medium rounded-md transition-all duration-150 ${
                     isActive(item.href)
-                      ? 'bg-blue-100 text-blue-700'
-                      : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                      ? 'bg-indigo-50 text-indigo-700 ring-1 ring-indigo-200'
+                      : 'text-gray-600 hover:bg-indigo-50 hover:text-indigo-600'
                   }`}
                   onClick={() => setSidebarOpen(false)}
                 >
@@ -98,10 +93,10 @@ export default function AdminLayout({
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`group flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors ${
+                  className={`group flex items-center px-3 py-2 text-sm font-medium rounded-md transition-all duration-150 ${
                     isActive(item.href)
-                      ? 'bg-blue-100 text-blue-700'
-                      : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                      ? 'bg-indigo-50 text-indigo-700 ring-1 ring-indigo-200'
+                      : 'text-gray-600 hover:bg-indigo-50 hover:text-indigo-600'
                   }`}
                 >
                   <Icon className="mr-3 h-5 w-5 flex-shrink-0" />
@@ -119,10 +114,10 @@ export default function AdminLayout({
         <div className="sticky top-0 z-10 flex-shrink-0 flex h-16 bg-white border-b border-gray-200">
           <button
             type="button"
-            className="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 lg:hidden"
+            className="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 lg:hidden"
             onClick={() => setSidebarOpen(true)}
           >
-            <Menu className="h-6 w-6" />
+            <Bars3Icon className="h-6 w-6" />
           </button>
           <div className="flex-1 px-4 flex justify-between">
             <div className="flex-1 flex">
@@ -137,9 +132,9 @@ export default function AdminLayout({
             <div className="ml-4 flex items-center md:ml-6">
               <button
                 type="button"
-                className="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                className="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
-                <Bell className="h-6 w-6" />
+                <BellIcon className="h-6 w-6" />
               </button>
               <div className="ml-3 relative">
                 <div className="flex items-center space-x-3">
@@ -148,7 +143,7 @@ export default function AdminLayout({
                     <div className="text-gray-500">admin@offro.com</div>
                   </div>
                   <button className="text-gray-400 hover:text-gray-600">
-                    <LogOut className="h-5 w-5" />
+                    <ArrowRightOnRectangleIcon className="h-5 w-5" />
                   </button>
                 </div>
               </div>
