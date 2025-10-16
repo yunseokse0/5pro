@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowRight, Calculator, Zap, TrendingDown, CheckCircle2, Cpu, BarChart3, Wifi, Shield, Building2, FileSignature, Gauge, Users2, ShieldCheck, Box } from 'lucide-react';
+import { ArrowRight, Calculator, Zap, TrendingDown, CheckCircle2, Cpu, BarChart3, Wifi, Shield, Building2, FileSignature, Gauge, Users2, ShieldCheck, Box, TrendingUp } from 'lucide-react';
 
 export default function HomePage() {
   return (
