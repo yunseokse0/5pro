@@ -43,13 +43,13 @@ export default function AdminLayout({
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Mobile sidebar */}
       <div className={`fixed inset-0 z-50 lg:hidden ${sidebarOpen ? 'block' : 'hidden'}`}>
         <div className="fixed inset-0 bg-gray-600 bg-opacity-75" onClick={() => setSidebarOpen(false)} />
-        <div className="relative flex w-64 flex-col bg-white shadow-xl">
+        <div className="relative flex w-64 flex-col bg-white dark:bg-gray-800 shadow-xl">
           <div className="flex h-16 items-center justify-between px-4">
-            <h1 className="text-xl font-bold text-gray-900">오프로 관리자</h1>
+            <h1 className="text-xl font-bold text-gray-900 dark:text-white">오프로 관리자</h1>
             <button
               onClick={() => setSidebarOpen(false)}
               className="text-gray-400 hover:text-gray-600"
@@ -66,8 +66,8 @@ export default function AdminLayout({
                   href={item.href}
                   className={`group flex items-center px-3 py-2 text-sm font-medium rounded-md transition-all duration-150 ${
                     isActive(item.href)
-                      ? 'bg-indigo-50 text-indigo-700 ring-1 ring-indigo-200'
-                      : 'text-gray-600 hover:bg-indigo-50 hover:text-indigo-600'
+                      ? 'bg-indigo-50 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 ring-1 ring-indigo-200 dark:ring-indigo-700'
+                      : 'text-gray-600 dark:text-gray-300 hover:bg-indigo-50 dark:hover:bg-indigo-900/50 hover:text-indigo-600 dark:hover:text-indigo-400'
                   }`}
                   onClick={() => setSidebarOpen(false)}
                 >
@@ -82,9 +82,9 @@ export default function AdminLayout({
 
       {/* Desktop sidebar */}
       <div className="hidden lg:fixed lg:inset-y-0 lg:flex lg:w-64 lg:flex-col">
-        <div className="flex flex-col flex-grow bg-white border-r border-gray-200 pt-5 pb-4 overflow-y-auto">
+        <div className="flex flex-col flex-grow bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 pt-5 pb-4 overflow-y-auto">
           <div className="flex items-center flex-shrink-0 px-4">
-            <h1 className="text-xl font-bold text-gray-900">오프로 관리자</h1>
+            <h1 className="text-xl font-bold text-gray-900 dark:text-white">오프로 관리자</h1>
           </div>
           <nav className="mt-8 flex-1 px-4 space-y-1">
             {navigation.map((item) => {
@@ -95,8 +95,8 @@ export default function AdminLayout({
                   href={item.href}
                   className={`group flex items-center px-3 py-2 text-sm font-medium rounded-md transition-all duration-150 ${
                     isActive(item.href)
-                      ? 'bg-indigo-50 text-indigo-700 ring-1 ring-indigo-200'
-                      : 'text-gray-600 hover:bg-indigo-50 hover:text-indigo-600'
+                      ? 'bg-indigo-50 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 ring-1 ring-indigo-200 dark:ring-indigo-700'
+                      : 'text-gray-600 dark:text-gray-300 hover:bg-indigo-50 dark:hover:bg-indigo-900/50 hover:text-indigo-600 dark:hover:text-indigo-400'
                   }`}
                 >
                   <Icon className="mr-3 h-5 w-5 flex-shrink-0" />
@@ -111,10 +111,10 @@ export default function AdminLayout({
       {/* Main content */}
       <div className="lg:pl-64 flex flex-col flex-1">
         {/* Top bar */}
-        <div className="sticky top-0 z-10 flex-shrink-0 flex h-16 bg-white border-b border-gray-200">
+        <div className="sticky top-0 z-10 flex-shrink-0 flex h-16 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
           <button
             type="button"
-            className="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 lg:hidden"
+            className="px-4 border-r border-gray-200 dark:border-gray-700 text-gray-500 dark:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 lg:hidden"
             onClick={() => setSidebarOpen(true)}
           >
             <Bars3Icon className="h-6 w-6" />
@@ -122,7 +122,7 @@ export default function AdminLayout({
           <div className="flex-1 px-4 flex justify-between">
             <div className="flex-1 flex">
               <div className="w-full flex md:ml-0">
-                <div className="relative w-full text-gray-400 focus-within:text-gray-600">
+                <div className="relative w-full text-gray-400 dark:text-gray-500 focus-within:text-gray-600 dark:focus-within:text-gray-300">
                   <div className="absolute inset-y-0 left-0 flex items-center pointer-events-none">
                     <span className="sr-only">검색</span>
                   </div>
@@ -132,17 +132,17 @@ export default function AdminLayout({
             <div className="ml-4 flex items-center md:ml-6">
               <button
                 type="button"
-                className="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                className="bg-white dark:bg-gray-700 p-1 rounded-full text-gray-400 dark:text-gray-500 hover:text-gray-500 dark:hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
                 <BellIcon className="h-6 w-6" />
               </button>
               <div className="ml-3 relative">
                 <div className="flex items-center space-x-3">
                   <div className="text-sm">
-                    <div className="font-medium text-gray-700">관리자</div>
-                    <div className="text-gray-500">admin@offro.com</div>
+                    <div className="font-medium text-gray-700 dark:text-gray-300">관리자</div>
+                    <div className="text-gray-500 dark:text-gray-400">admin@offro.com</div>
                   </div>
-                  <button className="text-gray-400 hover:text-gray-600">
+                  <button className="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300">
                     <ArrowRightOnRectangleIcon className="h-5 w-5" />
                   </button>
                 </div>

@@ -5,17 +5,21 @@ import { projectStorage, ProjectData } from '../../lib/storage'
 import { projectCalculator } from '../../lib/calculator'
 import ThemeToggle from '@/components/ThemeToggle'
 import { 
-  Factory, 
-  Users, 
-  DollarSign, 
+  Building2, 
+  UserCheck, 
+  Banknote, 
   TrendingUp, 
   Calendar,
-  AlertCircle,
-  CheckCircle,
+  AlertTriangle,
+  CheckCircle2,
   Clock,
   BarChart3,
   FileText,
-  Shield
+  ShieldCheck,
+  PlusCircle,
+  ClipboardCheck,
+  PieChart,
+  Download
 } from 'lucide-react'
 
 export default function AdminDashboard() {
@@ -115,7 +119,7 @@ export default function AdminDashboard() {
           <div className="p-5">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <Factory className="h-6 w-6 text-gray-400 dark:text-gray-500" />
+                <Building2 className="h-6 w-6 text-gray-400 dark:text-gray-500" />
               </div>
               <div className="ml-5 w-0 flex-1">
                 <dl>
@@ -147,7 +151,7 @@ export default function AdminDashboard() {
           <div className="p-5">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <DollarSign className="h-6 w-6 text-blue-400 dark:text-blue-500" />
+                <Banknote className="h-6 w-6 text-blue-400 dark:text-blue-500" />
               </div>
               <div className="ml-5 w-0 flex-1">
                 <dl>
@@ -163,7 +167,7 @@ export default function AdminDashboard() {
           <div className="p-5">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <Shield className="h-6 w-6 text-purple-400 dark:text-purple-500" />
+                <ShieldCheck className="h-6 w-6 text-purple-400 dark:text-purple-500" />
               </div>
               <div className="ml-5 w-0 flex-1">
                 <dl>
@@ -188,7 +192,7 @@ export default function AdminDashboard() {
                   <li key={project.id} className="py-4">
                     <div className="flex items-center space-x-4">
                       <div className="flex-shrink-0">
-                        <Factory className="h-8 w-8 text-gray-400 dark:text-gray-500" />
+                        <PlusCircle className="h-8 w-8 text-gray-400 dark:text-gray-500" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <p className="text-sm font-medium text-gray-900 dark:text-white truncate">
@@ -298,11 +302,11 @@ export default function AdminDashboard() {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                       {project.haccp.status === 'approved' ? (
-                        <CheckCircle className="h-5 w-5 text-green-500" />
+                        <CheckCircle2 className="h-5 w-5 text-green-500" />
                       ) : project.haccp.status === 'review' ? (
                         <Clock className="h-5 w-5 text-yellow-500" />
                       ) : (
-                        <AlertCircle className="h-5 w-5 text-gray-400" />
+                        <AlertTriangle className="h-5 w-5 text-gray-400" />
                       )}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
@@ -324,7 +328,7 @@ export default function AdminDashboard() {
             <a href="/estimate" className="relative group bg-white dark:bg-gray-700 p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-blue-500 rounded-lg border border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500 hover:shadow-md transition-all">
               <div>
                 <span className="rounded-lg inline-flex p-3 bg-blue-50 dark:bg-blue-900 text-blue-700 dark:text-blue-300 ring-4 ring-white dark:ring-gray-700">
-                  <Factory className="h-6 w-6" />
+                  <PlusCircle className="h-6 w-6" />
                 </span>
               </div>
               <div className="mt-8">
@@ -341,7 +345,7 @@ export default function AdminDashboard() {
             <a href="/admin/haccp" className="relative group bg-white dark:bg-gray-700 p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-green-500 rounded-lg border border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500 hover:shadow-md transition-all">
               <div>
                 <span className="rounded-lg inline-flex p-3 bg-green-50 text-green-700 ring-4 ring-white">
-                  <Shield className="h-6 w-6" />
+                  <ClipboardCheck className="h-6 w-6" />
                 </span>
               </div>
               <div className="mt-8">
@@ -358,7 +362,7 @@ export default function AdminDashboard() {
             <a href="/admin/analytics" className="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-purple-500 rounded-lg border border-gray-300 hover:border-gray-400 hover:shadow-md transition-all">
               <div>
                 <span className="rounded-lg inline-flex p-3 bg-purple-50 text-purple-700 ring-4 ring-white">
-                  <BarChart3 className="h-6 w-6" />
+                  <PieChart className="h-6 w-6" />
                 </span>
               </div>
               <div className="mt-8">
@@ -398,7 +402,7 @@ export default function AdminDashboard() {
             >
               <div>
                 <span className="rounded-lg inline-flex p-3 bg-orange-50 text-orange-700 ring-4 ring-white">
-                  <FileText className="h-6 w-6" />
+                  <Download className="h-6 w-6" />
                 </span>
               </div>
               <div className="mt-8">
