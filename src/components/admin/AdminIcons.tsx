@@ -43,7 +43,6 @@ import {
   
   // 통계 및 분석
   ChartPieIcon,
-  TrendingUpIcon,
   CurrencyDollarIcon,
   
   // 기타
