@@ -396,14 +396,14 @@ export default function ROICalculator() {
 
                 <div className="mt-8 flex flex-wrap gap-3">
                   <a
-                    href="/contact"
+                    href="/estimate"
                     className="px-6 py-3 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 font-semibold transition-colors"
                     aria-label="내 공장 투자 회수 기간 확인하기"
                   >
                     내 공장 투자 회수 기간 확인하기
                   </a>
                   <a
-                    href="/signup"
+                    href="/smart-factory"
                     className="px-6 py-3 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50 font-semibold transition-colors"
                     aria-label="효율 시뮬레이터 실행"
                   >
