@@ -76,8 +76,52 @@ export default function SignupPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert('회원가입이 완료되었습니다!\nHACCP 가이드북과 ROI 리포트를 이메일로 발송해드리겠습니다.');
-    console.log('Signup data:', formData);
+    
+    // 폼 유효성 검사
+    if (!formData.name || !formData.email || !formData.phone || !formData.company) {
+      alert('필수 항목을 모두 입력해주세요.');
+      return;
+    }
+
+    // 이메일 형식 검사
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      alert('올바른 이메일 형식을 입력해주세요.');
+      return;
+    }
+
+    // 전화번호 형식 검사
+    const phoneRegex = /^010-\d{4}-\d{4}$/;
+    if (!phoneRegex.test(formData.phone)) {
+      alert('올바른 전화번호 형식을 입력해주세요. (010-1234-5678)');
+      return;
+    }
+
+    try {
+      // 로컬 스토리지에 사용자 데이터 저장
+      const userData = {
+        ...formData,
+        id: `user_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
+        createdAt: new Date().toISOString(),
+        isActive: true
+      };
+
+      // 기존 사용자 데이터 가져오기
+      const existingUsers = JSON.parse(localStorage.getItem('offro_users') || '[]');
+      existingUsers.push(userData);
+      localStorage.setItem('offro_users', JSON.stringify(existingUsers));
+
+      // 현재 사용자로 설정
+      localStorage.setItem('offro_current_user', JSON.stringify(userData));
+
+      alert('회원가입이 완료되었습니다!\nHACCP 가이드북과 ROI 리포트를 이메일로 발송해드리겠습니다.');
+      
+      // 메인 페이지로 리다이렉트
+      window.location.href = '/';
+    } catch (error) {
+      console.error('회원가입 오류:', error);
+      alert('회원가입 중 오류가 발생했습니다. 다시 시도해주세요.');
+    }
   };
 
   const handleInterestChange = (interest: string) => {

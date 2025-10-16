@@ -316,7 +316,7 @@ export default function AdminDashboard() {
         <div className="px-4 py-5 sm:p-6">
           <h3 className="text-lg leading-6 font-medium text-gray-900 mb-4">빠른 작업</h3>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            <button className="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-blue-500 rounded-lg border border-gray-300 hover:border-gray-400">
+            <a href="/estimate" className="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-blue-500 rounded-lg border border-gray-300 hover:border-gray-400 hover:shadow-md transition-all">
               <div>
                 <span className="rounded-lg inline-flex p-3 bg-blue-50 text-blue-700 ring-4 ring-white">
                   <Factory className="h-6 w-6" />
@@ -331,9 +331,9 @@ export default function AdminDashboard() {
                   새로운 식품공장 프로젝트를 시작하세요
                 </p>
               </div>
-            </button>
+            </a>
 
-            <button className="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-green-500 rounded-lg border border-gray-300 hover:border-gray-400">
+            <a href="/admin/haccp" className="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-green-500 rounded-lg border border-gray-300 hover:border-gray-400 hover:shadow-md transition-all">
               <div>
                 <span className="rounded-lg inline-flex p-3 bg-green-50 text-green-700 ring-4 ring-white">
                   <Shield className="h-6 w-6" />
@@ -348,9 +348,9 @@ export default function AdminDashboard() {
                   대기중인 HACCP 인증을 검토하세요
                 </p>
               </div>
-            </button>
+            </a>
 
-            <button className="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-purple-500 rounded-lg border border-gray-300 hover:border-gray-400">
+            <a href="/admin/analytics" className="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-purple-500 rounded-lg border border-gray-300 hover:border-gray-400 hover:shadow-md transition-all">
               <div>
                 <span className="rounded-lg inline-flex p-3 bg-purple-50 text-purple-700 ring-4 ring-white">
                   <BarChart3 className="h-6 w-6" />
@@ -365,9 +365,32 @@ export default function AdminDashboard() {
                   프로젝트 상세 통계를 확인하세요
                 </p>
               </div>
-            </button>
+            </a>
 
-            <button className="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-orange-500 rounded-lg border border-gray-300 hover:border-gray-400">
+            <button 
+              onClick={() => {
+                // 간단한 보고서 생성 기능
+                const reportData = {
+                  totalProjects: stats.totalProjects,
+                  activeProjects: stats.activeProjects,
+                  completedProjects: stats.completedProjects,
+                  totalRevenue: stats.totalRevenue,
+                  haccpApproved: stats.haccpApproved,
+                  generatedAt: new Date().toLocaleString('ko-KR')
+                };
+                
+                const blob = new Blob([JSON.stringify(reportData, null, 2)], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `오프로_보고서_${new Date().toISOString().split('T')[0]}.json`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+              }}
+              className="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-orange-500 rounded-lg border border-gray-300 hover:border-gray-400 hover:shadow-md transition-all"
+            >
               <div>
                 <span className="rounded-lg inline-flex p-3 bg-orange-50 text-orange-700 ring-4 ring-white">
                   <FileText className="h-6 w-6" />
