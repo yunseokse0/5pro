@@ -124,6 +124,10 @@ export default function AdminEstimatesPage() {
     return <Icon className="w-4 h-4" strokeWidth={2} />;
   };
 
+  const getStatusConfig = (status: string) => {
+    return statusConfig[status as keyof typeof statusConfig] || statusConfig.draft;
+  };
+
   return (
     <div className="p-6 space-y-6">
       {/* Header */}
@@ -323,9 +327,9 @@ export default function AdminEstimatesPage() {
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${statusConfig[estimate.status].color}`}>
-                      {getStatusIcon(estimate.status)}
-                      <span className="ml-1">{statusConfig[estimate.status].label}</span>
+                    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getStatusConfig(estimate.status).color}`}>
+                      {getStatusIcon(estimate.status as keyof typeof statusConfig)}
+                      <span className="ml-1">{getStatusConfig(estimate.status).label}</span>
                     </span>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
