@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowRight, Calculator, Zap, TrendingDown, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Calculator, Zap, TrendingDown, CheckCircle2, Cpu, BarChart3, Wifi, Shield } from 'lucide-react';
 
 export default function HomePage() {
   return (
@@ -221,6 +221,91 @@ export default function HomePage() {
               <span className="text-blue-600 hover:text-blue-700 font-medium underline">
                 HACCP 컨설팅 자세히 보기 →
               </span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 스마트 팩토리 솔루션 */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-block px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 rounded-full text-sm font-bold text-blue-800 mb-4">
+              🏭 스마트 팩토리 솔루션
+            </div>
+            <h2 className="text-4xl font-bold text-[#101828] mb-4">
+              4차 산업혁명 시대의
+              <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+                지능형 공장 구축
+              </span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              IoT, AI, 빅데이터를 활용한 스마트 팩토리로 생산성과 품질을 동시에 향상시키세요
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+            {[
+              {
+                icon: Cpu,
+                title: 'IoT 센서 시스템',
+                desc: '실시간 데이터 수집 및 모니터링',
+                color: 'from-blue-500 to-blue-600'
+              },
+              {
+                icon: BarChart3,
+                title: 'AI 데이터 분석',
+                desc: '지능형 생산성 분석 및 예측',
+                color: 'from-purple-500 to-purple-600'
+              },
+              {
+                icon: Wifi,
+                title: '무선 통신 네트워크',
+                desc: '안정적인 산업용 무선 인프라',
+                color: 'from-green-500 to-green-600'
+              },
+              {
+                icon: Shield,
+                title: '보안 시스템',
+                desc: '사이버 보안 및 물리적 보안',
+                color: 'from-orange-500 to-orange-600'
+              }
+            ].map((item, idx) => (
+              <div key={idx} className="text-center group">
+                <div className={`w-16 h-16 bg-gradient-to-r ${item.color} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform`}>
+                  <item.icon className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-[#101828] mb-2">{item.title}</h3>
+                <p className="text-gray-600">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-2xl p-8">
+            <div className="grid md:grid-cols-3 gap-8 text-center">
+              <div>
+                <div className="text-3xl font-bold text-blue-600 mb-2">30%</div>
+                <div className="text-gray-700">생산성 향상</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-green-600 mb-2">50%</div>
+                <div className="text-gray-700">고장률 감소</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-purple-600 mb-2">25%</div>
+                <div className="text-gray-700">에너지 비용 절약</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center mt-8">
+            <Link href="/smart-factory">
+              <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-bold text-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
+                <Cpu className="inline-block w-5 h-5 mr-2" />
+                스마트 팩토리 자세히 보기
+                <ArrowRight className="inline-block w-5 h-5 ml-2" />
+              </button>
             </Link>
           </div>
         </div>
