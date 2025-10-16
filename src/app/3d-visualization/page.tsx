@@ -1,7 +1,18 @@
 'use client'
 
 import { useState } from 'react'
-import { Settings, Loader2 } from 'lucide-react'
+import Link from 'next/link'
+import { toast, Toaster } from 'react-hot-toast'
+import { 
+  Cog6ToothIcon as Settings, 
+  ArrowPathIcon as Loader2, 
+  CubeIcon,
+  BuildingOfficeIcon,
+  CogIcon,
+  CheckCircleIcon,
+  ExclamationTriangleIcon,
+  InformationCircleIcon
+} from '@heroicons/react/24/outline'
 
 interface FactoryOptions {
   size: string
@@ -34,7 +45,6 @@ const SIZE_OPTIONS = [
   { value: '500', label: '500평', area: '1650㎡' },
   { value: '1000', label: '1000평', area: '3300㎡' }
 ]
-
 
 export default function Smart3DVisualization() {
   const [options, setOptions] = useState<FactoryOptions>({
@@ -154,12 +164,19 @@ Focus on architectural structure and layout clarity.`
         setIsGeminiImage(generateData.isGeminiImage || false)
         setGenerationProgress(100) // 완료
         console.log('이미지 설정 완료')
+        
+        // 성공 토스트 메시지
+        toast.success('3D 조감도가 생성되었습니다!', {
+          duration: 4000,
+          icon: '🎉',
+        })
       } else {
         throw new Error('이미지 URL을 받지 못했습니다.')
       }
     } catch (err) {
       console.error('생성 오류:', err)
       setError(err instanceof Error ? err.message : '알 수 없는 오류가 발생했습니다.')
+      toast.error('3D 조감도 생성에 실패했습니다. 다시 시도해주세요.')
     } finally {
       clearInterval(progressInterval)
       setIsGenerating(false)
@@ -167,27 +184,42 @@ Focus on architectural structure and layout clarity.`
     }
   }
 
-
   return (
     <div className="min-h-screen bg-gray-50 py-8 px-4">
-      <div className="max-w-4xl mx-auto">
-        <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
-          <div className="flex items-center mb-6">
-            <Settings className="h-8 w-8 text-blue-600 mr-3" />
-            <h1 className="text-2xl font-bold text-gray-900">스마트 3D 조감도 생성기</h1>
+      <Toaster position="top-right" />
+      <div className="max-w-6xl mx-auto">
+        {/* 헤더 섹션 */}
+        <div className="text-center mb-8">
+          <div className="inline-block px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full text-sm font-semibold mb-4">
+            🏭 HACCP 검증형 3D 시뮬레이터
           </div>
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            스마트 3D 조감도 생성기
+          </h1>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            HACCP 기준에 맞춰 자동으로 동선을 배치하는 3D 조감도 시뮬레이터입니다.<br />
+            식품안전관리인증을 위한 최적의 공장 레이아웃을 미리 확인하세요.
+          </p>
+        </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {/* 설정 패널 */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* 좌측 설정 영역 */}
+          <div className="bg-white rounded-2xl shadow-lg p-6">
+            <div className="flex items-center mb-6">
+              <CogIcon className="h-6 w-6 text-indigo-600 mr-3" />
+              <h2 className="text-xl font-bold text-gray-900">설정 영역</h2>
+            </div>
+
             <div className="space-y-6">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-4">
+                <label className="block text-sm font-medium text-gray-700 mb-4 flex items-center">
+                  <BuildingOfficeIcon className="h-4 w-4 text-indigo-600 mr-2" />
                   공장 평수
                 </label>
                 
                 {/* 현재 선택된 평수 표시 */}
                 <div className="text-center mb-4">
-                  <div className="text-2xl font-bold text-blue-600 mb-1">
+                  <div className="text-3xl font-bold text-indigo-600 mb-1">
                     {Math.round(parseFloat(options.size))}평
                   </div>
                   <div className="text-sm text-gray-500">
@@ -206,7 +238,7 @@ Focus on architectural structure and layout clarity.`
                     onChange={(e) => handleOptionChange('size', e.target.value)}
                     className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
                     style={{
-                      background: `linear-gradient(to right, #3b82f6 0%, #3b82f6 ${((parseFloat(options.size) - 50) / (2000 - 50)) * 100}%, #e5e7eb ${((parseFloat(options.size) - 50) / (2000 - 50)) * 100}%, #e5e7eb 100%)`
+                      background: `linear-gradient(to right, #4f46e5 0%, #4f46e5 ${((parseFloat(options.size) - 50) / (2000 - 50)) * 100}%, #e5e7eb ${((parseFloat(options.size) - 50) / (2000 - 50)) * 100}%, #e5e7eb 100%)`
                     }}
                   />
                   
@@ -227,8 +259,8 @@ Focus on architectural structure and layout clarity.`
                         onClick={() => handleOptionChange('size', size.toString())}
                         className={`px-3 py-1 text-xs rounded-full border transition-all ${
                           Math.round(parseFloat(options.size)) === size
-                            ? 'bg-blue-600 text-white border-blue-600'
-                            : 'bg-white text-gray-600 border-gray-300 hover:border-blue-300'
+                            ? 'bg-indigo-600 text-white border-indigo-600'
+                            : 'bg-white text-gray-600 border-gray-300 hover:border-indigo-300'
                         }`}
                       >
                         {size}평
@@ -239,7 +271,8 @@ Focus on architectural structure and layout clarity.`
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 mb-3 flex items-center">
+                  <Settings className="h-4 w-4 text-indigo-600 mr-2" />
                   업종 종류
                 </label>
                 <div className="grid grid-cols-2 gap-2">
@@ -261,7 +294,8 @@ Focus on architectural structure and layout clarity.`
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-3">
+                <label className="block text-sm font-medium text-gray-700 mb-3 flex items-center">
+                  <CheckCircleIcon className="h-4 w-4 text-indigo-600 mr-2" />
                   추가 옵션
                 </label>
                 <div className="grid grid-cols-2 gap-3">
@@ -337,7 +371,7 @@ Focus on architectural structure and layout clarity.`
               <button
                 onClick={handleGenerate}
                 disabled={isGenerating}
-                className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                className="w-full bg-indigo-600 text-white py-4 px-6 rounded-xl font-semibold hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center transition-all transform hover:-translate-y-1 hover:shadow-lg"
               >
                 {isGenerating ? (
                   <>
@@ -345,16 +379,26 @@ Focus on architectural structure and layout clarity.`
                     생성 중... {Math.round(generationProgress)}%
                   </>
                 ) : (
-                  '3D 조감도 생성'
+                  <>
+                    <CubeIcon className="h-5 w-5 mr-2" />
+                    3D 조감도 생성
+                  </>
                 )}
               </button>
+
+              {/* 평균 30% 설계 효율 개선 배너 */}
+              <div className="text-center">
+                <div className="text-xs text-gray-400 bg-gray-50 rounded-lg py-2 px-4">
+                  평균 30% 설계 효율 개선
+                </div>
+              </div>
 
               {/* 진행률 바 */}
               {isGenerating && (
                 <div className="mt-4">
                   <div className="w-full bg-gray-200 rounded-full h-2">
                     <div 
-                      className="bg-blue-600 h-2 rounded-full transition-all duration-300 ease-out"
+                      className="bg-indigo-600 h-2 rounded-full transition-all duration-300 ease-out"
                       style={{ width: `${generationProgress}%` }}
                     ></div>
                   </div>
@@ -367,38 +411,97 @@ Focus on architectural structure and layout clarity.`
                 </div>
               )}
             </div>
+          </div>
 
-            {/* 결과 패널 */}
+          {/* 우측 프리뷰 패널 */}
+          <div className="bg-white rounded-2xl shadow-lg p-6">
+            <div className="flex items-center mb-6">
+              <CubeIcon className="h-6 w-6 text-indigo-600 mr-3" />
+              <h2 className="text-xl font-bold text-gray-900">3D 조감도 프리뷰</h2>
+            </div>
+
             <div className="space-y-4">
               {error && (
                 <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-                  <p className="text-red-600 text-sm">{error}</p>
+                  <div className="flex items-center">
+                    <ExclamationTriangleIcon className="h-5 w-5 text-red-600 mr-2" />
+                    <p className="text-red-600 text-sm">{error}</p>
+                  </div>
                 </div>
               )}
 
               {generatedImage ? (
                 <div className="space-y-4">
-                  <div className="bg-gray-100 rounded-lg p-4">
+                  <div className="bg-gray-100 rounded-xl p-4 aspect-video flex items-center justify-center">
                     <img
                       src={generatedImage}
                       alt="Generated 3D Visualization"
-                      className="w-full h-auto rounded-lg cursor-pointer hover:opacity-90 transition-opacity"
+                      className="w-full h-full object-contain rounded-lg cursor-pointer hover:opacity-90 transition-opacity"
                       onClick={() => setShowImageModal(true)}
                     />
                   </div>
                   
-                  <div className="text-center text-sm text-gray-600 mt-4">
+                  <div className="text-center text-sm text-gray-600">
                     이미지를 클릭하면 크게 볼 수 있습니다
+                  </div>
+
+                  {/* HACCP 구역별 색상 구분 안내 */}
+                  <div className="bg-indigo-50 rounded-lg p-4">
+                    <h3 className="text-sm font-semibold text-indigo-800 mb-3 flex items-center">
+                      <InformationCircleIcon className="h-4 w-4 mr-2" />
+                      HACCP 구역별 색상 구분 안내
+                    </h3>
+                    <div className="grid grid-cols-3 gap-2 text-xs">
+                      <div className="flex items-center">
+                        <div className="w-3 h-3 bg-green-500 rounded mr-2"></div>
+                        <span className="text-gray-700">청결구역</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-3 h-3 bg-red-500 rounded mr-2"></div>
+                        <span className="text-gray-700">오염구역</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-3 h-3 bg-gray-400 rounded mr-2"></div>
+                        <span className="text-gray-700">일반구역</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 후속 행동 CTA */}
+                  <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg p-4 text-center">
+                    <p className="text-sm text-gray-700 mb-3">
+                      이제 견적 단계로 이동해보세요 ▸
+                    </p>
+                    <Link 
+                      href="/estimate"
+                      className="inline-block px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors text-sm font-medium"
+                    >
+                      견적 받기
+                    </Link>
                   </div>
                 </div>
               ) : (
-                <div className="bg-gray-100 rounded-lg p-8 text-center">
-                  <Settings className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-                  <p className="text-gray-500">설정을 완료하고 '3D 조감도 생성' 버튼을 클릭하세요</p>
+                <div className="bg-gray-100 rounded-xl p-8 text-center aspect-video flex flex-col items-center justify-center">
+                  {isGenerating ? (
+                    <>
+                      <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-indigo-600 mb-4"></div>
+                      <p className="text-gray-600">3D 조감도 생성 중...</p>
+                    </>
+                  ) : (
+                    <>
+                      <CubeIcon className="h-16 w-16 text-gray-400 mx-auto mb-4" />
+                      <p className="text-gray-500">설정을 완료하고 '3D 조감도 생성' 버튼을 클릭하세요</p>
+                    </>
+                  )}
                 </div>
               )}
             </div>
           </div>
+        </div>
+
+        {/* 하단 정보 배너 */}
+        <div className="bg-indigo-50 text-indigo-700 rounded-lg py-3 px-4 text-sm text-center mt-6">
+          지금까지 200+ 식품공장이 OFRO의 3D 시뮬레이터로 설계되었습니다.
         </div>
       </div>
 
