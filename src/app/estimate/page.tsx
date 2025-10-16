@@ -431,14 +431,14 @@ export default function EstimatePage() {
                       ✓ HACCP 컨설팅 {haccpConsulting === 'lite' ? 'Lite' : haccpConsulting === 'standard' ? 'Standard' : 'Pro'} 패키지 선택됨
                     </p>
                     <p className="text-xs text-purple-700 mt-2">
-                      💡 대행이 아닌 컨설팅 서비스입니다
+                      💡 전문가와 함께 준비하는 컨설팅 서비스입니다
                     </p>
                   </div>
                 )}
 
-                <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
-                  <p className="text-xs text-yellow-800">
-                    ⚠️ 대행 업무 제외 (신청·심사 대응·운영 책임은 고객님께서 직접 수행)
+                <div className="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
+                  <p className="text-xs text-blue-800">
+                    💡 컨설팅을 통해 귀하의 팀이 직접 실행할 수 있도록 가이드합니다
                   </p>
                 </div>
               </div>

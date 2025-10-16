@@ -28,10 +28,10 @@ export default function HomePage() {
                 데이터 기반 정확한 견적으로 <strong className="text-yellow-300">평균 30% 비용 절감</strong>
               </p>
               <div className="inline-block px-4 py-2 bg-purple-500/20 backdrop-blur-sm rounded-full text-sm border border-purple-300/30 mb-4">
-                <span className="text-purple-200">HACCP 컨설팅 제공 (대행 제외)</span>
+                <span className="text-purple-200">HACCP 컨설팅 제공</span>
               </div>
               <p className="text-sm text-blue-200 mb-6">
-                컨설팅(자문·교육·사전점검)은 지원, 대행은 제공하지 않습니다.
+                컨설팅(자문·교육·사전점검)을 통해 함께 준비합니다.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/estimate">
@@ -160,33 +160,41 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="inline-block px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-bold mb-4">
-              CONSULTING ONLY
+              HACCP 컨설팅
             </div>
             <h2 className="text-4xl font-bold text-[#101828] mb-4">
-              무엇을 하고/안 하는지 한눈에
+              전문가와 함께하는 HACCP 준비
             </h2>
             <p className="text-xl text-gray-600 mb-2">
-              우리는 '함께 준비하는 컨설팅'만 제공합니다
+              체계적인 컨설팅으로 성공적인 인증을 달성하세요
             </p>
             <p className="text-sm text-gray-500">
-              대리 제출·대응 등 '대행' 업무는 제공하지 않습니다
+              함께 준비하고, 스스로 성공하는 인증 준비 과정
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* 우리가 하는 것 */}
-            <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-2xl border-2 border-green-200">
-              <h3 className="text-2xl font-bold text-green-800 mb-6 flex items-center">
-                <span className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white mr-3">
-                  ✅
-                </span>
-                우리가 하는 것 (컨설팅)
-              </h3>
+          <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-2xl border-2 border-green-200 max-w-4xl mx-auto">
+            <h3 className="text-2xl font-bold text-green-800 mb-6 flex items-center justify-center">
+              <span className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white mr-3">
+                ✅
+              </span>
+              우리가 제공하는 컨설팅 서비스
+            </h3>
+            <div className="grid md:grid-cols-2 gap-6">
               <div className="space-y-4">
                 {[
                   '초기 진단 & 갭 분석 (현장/프로세스/문서 수준)',
                   'HACCP 플로우차트/공정 FMEA/PRP 체크리스트 코칭',
                   '문서 템플릿 제공 & 작성 코칭 (표준서·절차서·기록지)',
+                ].map((item, idx) => (
+                  <div key={idx} className="flex items-start space-x-3">
+                    <CheckCircle2 className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-700">{item}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="space-y-4">
+                {[
                   '사전 모의심사(Pre-Audit) 및 개선안 제시',
                   '내부교육·정기 점검 방법론 제공',
                   '설계/동선/자재·인원 흐름 컨설팅 (시뮬레이터 연동)',
@@ -198,42 +206,20 @@ export default function HomePage() {
                 ))}
               </div>
             </div>
-
-            {/* 우리가 하지 않는 것 */}
-            <div className="bg-gradient-to-br from-red-50 to-orange-50 p-8 rounded-2xl border-2 border-red-200">
-              <h3 className="text-2xl font-bold text-red-800 mb-6 flex items-center">
-                <span className="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center text-white mr-3">
-                  ❌
-                </span>
-                우리가 하지 않는 것 (대행)
-              </h3>
-              <div className="space-y-4">
-                {[
-                  '대리 신청/서류 대리 작성 및 제출',
-                  '심사 대응 대리 출석·대변',
-                  '운영 책임·시정조치 이행 대행',
-                  '대행을 전제로 한 결과 보장',
-                ].map((item, idx) => (
-                  <div key={idx} className="flex items-start space-x-3">
-                    <div className="w-5 h-5 bg-red-500 rounded-full flex items-center justify-center text-white text-xs flex-shrink-0 mt-0.5">
-                      ✕
-                    </div>
-                    <span className="text-gray-700">{item}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-6 p-4 bg-white/50 rounded-xl">
-                <p className="text-sm text-gray-600 italic">
-                  "우리는 '함께 준비하는 컨설팅'만 제공합니다."
-                </p>
-              </div>
+            <div className="mt-8 p-6 bg-white/70 rounded-xl text-center">
+              <p className="text-lg text-gray-800 font-medium mb-2">
+                💡 함께 준비하는 컨설팅
+              </p>
+              <p className="text-sm text-gray-600">
+                전문가가 옆에서 가이드하며, 귀하의 팀이 직접 실행할 수 있도록 돕습니다
+              </p>
             </div>
           </div>
 
           <div className="text-center mt-8">
-            <Link href="/consulting#not-offered">
+            <Link href="/consulting">
               <span className="text-blue-600 hover:text-blue-700 font-medium underline">
-                우리가 하지 않는 일 자세히 보기 →
+                HACCP 컨설팅 자세히 보기 →
               </span>
             </Link>
           </div>

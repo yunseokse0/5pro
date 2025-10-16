@@ -27,42 +27,54 @@ export default function ConsultingPage() {
       <section className="bg-gradient-to-br from-[#101828] to-[#6A5AE0] text-white py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="inline-block px-4 py-2 bg-purple-500/30 rounded-full text-sm font-bold mb-6">
-            CONSULTING ONLY
+            HACCP 컨설팅
           </div>
           <h1 className="text-5xl font-bold mb-6">
-            HACCP 컨설팅
+            전문가와 함께하는 HACCP 준비
           </h1>
           <p className="text-xl text-blue-100 mb-8">
             함께 준비하고, 스스로 성공하는 인증 준비 과정
           </p>
           <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 inline-block">
             <p className="text-lg font-medium">
-              💡 컨설팅(자문·교육·사전점검)은 지원
-            </p>
-            <p className="text-lg font-medium">
-              ❌ 대행은 제공하지 않습니다
+              💡 컨설팅(자문·교육·사전점검)을 통해 함께 준비합니다
             </p>
           </div>
         </div>
       </section>
 
-      {/* 무엇을 하고/안 하는지 */}
+      {/* 컨설팅 서비스 */}
       <section id="services" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-[#101828] mb-4">
-              무엇을 하고/안 하는지 한눈에
+              우리가 제공하는 컨설팅 서비스
             </h2>
+            <p className="text-xl text-gray-600">
+              전문가와 함께 체계적으로 준비하는 HACCP 인증 과정
+            </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8">
-            {/* 우리가 하는 것 */}
-            <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-2xl border-2 border-green-200">
-              <h3 className="text-2xl font-bold text-green-800 mb-6">
-                ✅ 우리가 하는 것 (컨설팅)
-              </h3>
+          <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-2xl border-2 border-green-200 max-w-5xl mx-auto">
+            <h3 className="text-2xl font-bold text-green-800 mb-8 text-center">
+              ✅ 전문 컨설팅 서비스
+            </h3>
+            <div className="grid md:grid-cols-2 gap-6">
               <div className="space-y-4">
-                {HACCP_CONSULTING.weOffer.map((item, idx) => (
+                {HACCP_CONSULTING.weOffer.slice(0, 3).map((item, idx) => (
+                  <div key={idx} className="bg-white p-4 rounded-xl">
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle2 className="w-6 h-6 text-green-600 mt-0.5 flex-shrink-0" />
+                      <div>
+                        <div className="font-bold text-gray-900">{item.title}</div>
+                        <div className="text-sm text-gray-600 mt-1">{item.description}</div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="space-y-4">
+                {HACCP_CONSULTING.weOffer.slice(3).map((item, idx) => (
                   <div key={idx} className="bg-white p-4 rounded-xl">
                     <div className="flex items-start space-x-3">
                       <CheckCircle2 className="w-6 h-6 text-green-600 mt-0.5 flex-shrink-0" />
@@ -75,30 +87,13 @@ export default function ConsultingPage() {
                 ))}
               </div>
             </div>
-
-            {/* 우리가 하지 않는 것 */}
-            <div id="not-offered" className="bg-gradient-to-br from-red-50 to-orange-50 p-8 rounded-2xl border-2 border-red-200">
-              <h3 className="text-2xl font-bold text-red-800 mb-6">
-                ❌ 우리가 하지 않는 것 (대행)
-              </h3>
-              <div className="space-y-4">
-                {HACCP_CONSULTING.weDoNot.map((item, idx) => (
-                  <div key={idx} className="bg-white p-4 rounded-xl">
-                    <div className="flex items-start space-x-3">
-                      <AlertCircle className="w-6 h-6 text-red-600 mt-0.5 flex-shrink-0" />
-                      <div>
-                        <div className="font-bold text-gray-900">{item.title}</div>
-                        <div className="text-sm text-gray-600 mt-1">{item.description}</div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-6 p-4 bg-white/70 rounded-xl border-2 border-red-300">
-                <p className="text-sm text-gray-700 font-medium">
-                  ⚠️ 대행을 전제로 한 서비스를 원하신다면, 타 업체를 이용해주세요.
-                </p>
-              </div>
+            <div className="mt-8 p-6 bg-white/70 rounded-xl text-center">
+              <p className="text-lg text-gray-800 font-medium mb-2">
+                💡 함께 준비하는 컨설팅
+              </p>
+              <p className="text-sm text-gray-600">
+                전문가가 옆에서 가이드하며, 귀하의 팀이 직접 실행할 수 있도록 돕습니다
+              </p>
             </div>
           </div>
         </div>
