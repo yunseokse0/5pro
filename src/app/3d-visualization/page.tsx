@@ -489,7 +489,18 @@ Focus on architectural structure and layout clarity.`
                     </>
                   ) : (
                     <>
-                      <CubeIcon className="h-16 w-16 text-gray-400 mx-auto mb-4" />
+                      <div className="w-full h-full flex items-center justify-center mb-4">
+                        <img 
+                          src="/imgs/5PROLINE.png" 
+                          alt="오프로 3D 조감도 예시" 
+                          className="max-w-full max-h-full object-contain"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                            e.currentTarget.nextElementSibling.style.display = 'block';
+                          }}
+                        />
+                        <CubeIcon className="h-16 w-16 text-gray-400 mx-auto mb-4 hidden" />
+                      </div>
                       <p className="text-gray-500">설정을 완료하고 '3D 조감도 생성' 버튼을 클릭하세요</p>
                     </>
                   )}
