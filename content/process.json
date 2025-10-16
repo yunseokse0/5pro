@@ -1,0 +1,33 @@
+[
+  {
+    "step": 1,
+    "title": "AI 견적 요청",
+    "desc": "입력값 기반 95% 정확도 자동 견적",
+    "icon": "calculator"
+  },
+  {
+    "step": 2,
+    "title": "3D 설계 & 스마트 구상",
+    "desc": "동선·구역·운영 효율까지 고려한 설계",
+    "icon": "cube"
+  },
+  {
+    "step": 3,
+    "title": "계약 & PM",
+    "desc": "일정·비용·ROI 명확화, 대시보드 공유",
+    "icon": "document"
+  },
+  {
+    "step": 4,
+    "title": "시공 & 스마트 인프라",
+    "desc": "설비/제어/센서 통합 구축",
+    "icon": "cog"
+  },
+  {
+    "step": 5,
+    "title": "완공 인도 & 운영 교육",
+    "desc": "시스템 활용·데이터 분석·유지보수 가이드",
+    "icon": "academic-cap"
+  }
+]
+

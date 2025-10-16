@@ -1,0 +1,27 @@
+[
+  {
+    "id": "project-1",
+    "title": "○○식품 통합 공장",
+    "summary": "300평 규모, 스마트 센서 통합",
+    "after": "/images/project-1.jpg",
+    "location": "경기도",
+    "year": "2024"
+  },
+  {
+    "id": "project-2",
+    "title": "△△제과 HACCP 인증",
+    "summary": "HACCP 컨설팅 + 시설 개선",
+    "after": "/images/project-2.jpg",
+    "location": "충청남도",
+    "year": "2023"
+  },
+  {
+    "id": "project-3",
+    "title": "××냉동식품 스마트팩토리",
+    "summary": "실시간 모니터링 시스템 구축",
+    "after": "/images/project-3.jpg",
+    "location": "전라북도",
+    "year": "2024"
+  }
+]
+

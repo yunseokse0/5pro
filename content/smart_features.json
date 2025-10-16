@@ -1,0 +1,24 @@
+[
+  {
+    "id": "productivity",
+    "title": "생산성 향상",
+    "problem": "생산 지연·병목",
+    "solution": "IoT 실시간 생산 모니터링",
+    "result": "생산효율 20%↑, 작업시간 25% 단축"
+  },
+  {
+    "id": "quality",
+    "title": "품질 안정화",
+    "problem": "수작업 기록·불량률",
+    "solution": "센서 기반 자동 검사 + HACCP 기록 자동화",
+    "result": "불량률 40%↓, 기록시간 70% 절감"
+  },
+  {
+    "id": "efficiency",
+    "title": "재고·에너지 효율",
+    "problem": "과잉 생산·낭비",
+    "solution": "재고·에너지 실시간 최적화",
+    "result": "월 15% 에너지 절감"
+  }
+]
+
