@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { Building, Calendar, DollarSign, CheckCircle, ArrowRight } from 'lucide-react';
 
 export default function ProjectShowcase() {
