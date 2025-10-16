@@ -98,31 +98,31 @@ export default function SignupPage() {
             📊 데이터 기반 리드 확보
           </div>
           <h1 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight mb-6">
-            지금 가입하고 내 공장 설계 데이터를 저장하세요
+            지금 가입하면, 나의 공장 설립 견적과 운영 효율 분석을 한 번에 저장할 수 있습니다.
           </h1>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
-            회원가입 시 HACCP 가이드북 + 효율 분석 리포트 제공
+            견적 결과, 투자 회수 시뮬레이터, 공정 관리 리포트를 모두 내 계정에서 관리하세요.
             <br className="hidden md:block" />
-            내 프로젝트 ROI 보고서를 자동으로 받아보세요
+            오프로 회원은 맞춤형 HACCP 컨설팅 및 공장 운영 데이터를 무료로 조회할 수 있습니다.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link 
               href="#signup"
               className="px-6 py-3 rounded-lg bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition-colors min-h-[44px] flex items-center"
             >
-              무료 회원가입하고 내 프로젝트 관리 시작하기
+              무료 가입하고 결과 저장하기
             </Link>
             <Link 
               href="#benefits"
               className="px-6 py-3 rounded-lg border border-gray-300 text-gray-700 font-semibold hover:bg-gray-50 transition-colors min-h-[44px] flex items-center"
             >
-              가이드북 + ROI 리포트 받기 (회원 전용)
+              내 공장 설립 리포트 받아보기
             </Link>
             <Link 
               href="#demo"
               className="px-6 py-3 rounded-lg bg-indigo-50 text-indigo-700 font-semibold hover:bg-indigo-100 transition-colors min-h-[44px] flex items-center"
             >
-              내 데이터 기반 효율 분석 받기 (로그인 필요)
+              상담 예약과 데이터 저장 한 번에
             </Link>
           </div>
         </div>
@@ -333,7 +333,7 @@ export default function SignupPage() {
                   className="px-12 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl font-bold text-lg hover:shadow-xl transition-all transform hover:-translate-y-1"
                 >
                   <Users className="inline-block w-5 h-5 mr-2" />
-                  무료 회원가입하고 혜택 받기
+                  무료 가입하고 결과 저장하기
                 </button>
               </div>
             </form>

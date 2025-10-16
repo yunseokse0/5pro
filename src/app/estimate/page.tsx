@@ -111,12 +111,12 @@ export default function EstimatePage() {
             💰 1억 규모 스마트팩토리 포함 견적
           </div>
           <h1 className="text-4xl font-bold text-[#101828] mb-4">
-            AI가 계산하는 95% 정확도의 즉시 견적
+            단 5분이면, HACCP 검증 설계가 포함된 정확한 공사 견적을 받을 수 있습니다.
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            HACCP 설비와 스마트팩토리 인프라까지 반영되어 추가비용 걱정이 없습니다.
+            오프로의 AI 견적 시스템은 HACCP 필수 설비와 운영 효율까지 반영합니다.
             <br className="hidden md:block" />
-            면적·생산량·제품유형만 입력하면 1억 규모 이상의 운영 효율 시스템까지 포함된 총사업비를 확인할 수 있습니다.
+            지금 입력하면, 평균 30% 절감 가능한 맞춤형 공사 견적을 확인할 수 있습니다.
           </p>
         </div>
 
@@ -157,7 +157,7 @@ export default function EstimatePage() {
             <div className="space-y-8">
               <div>
                 <h2 className="text-2xl font-bold mb-2 text-[#101828]">지역을 선택하세요</h2>
-                <p className="text-gray-600 mb-6">단 5분 투자로 설립비 30% 절감 + 운영비 효율 20% 향상 가능성을 확인하세요</p>
+                <p className="text-gray-600 mb-6">공사비·위생 설비·운영효율을 한 번에 계산하는 유일한 식품공장 견적 서비스</p>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                   {REGIONS.map((region) => (
                     <button
@@ -452,7 +452,7 @@ export default function EstimatePage() {
               <div className="flex gap-4">
                 <button className="flex-1 px-6 py-4 bg-gradient-to-r from-[#007AFF] to-[#6A5AE0] text-white rounded-xl font-bold hover:shadow-xl transition-all">
                   <Download className="inline-block w-5 h-5 mr-2" />
-                  스마트팩토리 포함 통합 견적 확인
+                  내 공장 견적 자동 계산하기 (무료)
                 </button>
                 <button 
                   onClick={handleReset}

@@ -79,31 +79,31 @@ export default function ConsultingPage() {
             🧾 HACCP 전문 컨설팅
           </div>
           <h1 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight mb-6">
-            설계부터 인증까지, HACCP을 시스템으로 관리합니다
+            HACCP 인증은 문서가 아니라 설계에서 시작됩니다.
           </h1>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
-            수기 기록은 이제 그만 — 자동화된 HACCP 관리로 심사 부담 0%
+            설계 단계에서부터 HACCP 전담 전문가가 직접 검증합니다.
             <br className="hidden md:block" />
-            HACCP 인증과 스마트 운영, 함께 설계해야 진짜 효율이 완성됩니다
+            수기로 기록하던 HACCP 관리, 이제 자동화된 데이터로 안전하게 관리하세요.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link 
               href="#contact"
               className="px-6 py-3 rounded-lg bg-purple-600 text-white font-semibold hover:bg-purple-700 transition-colors min-h-[44px] flex items-center"
             >
-              HACCP 인증 + 스마트 운영 통합 컨설팅 문의
+              HACCP 통합 설계 상담 신청
             </Link>
             <Link 
               href="#diagnosis"
               className="px-6 py-3 rounded-lg border border-gray-300 text-gray-700 font-semibold hover:bg-gray-50 transition-colors min-h-[44px] flex items-center"
             >
-              내 공장 HACCP 인증 준비 진단 요청
+              인증 성공을 위한 맞춤 컨설팅 문의
             </Link>
             <Link 
               href="#demo"
               className="px-6 py-3 rounded-lg bg-purple-50 text-purple-700 font-semibold hover:bg-purple-100 transition-colors min-h-[44px] flex items-center"
             >
-              전문가와 HACCP 운영 자동화 상담 예약
+              HACCP 자동 기록 시스템 확인
             </Link>
           </div>
         </div>

@@ -128,25 +128,25 @@ export default function SmartFactoryPage() {
               💰 1억 규모 스마트팩토리 구축
             </div>
                 <h1 className="text-5xl font-bold mb-6">
-                  운영비 절감과 품질 향상을 동시에 실현하는<br />
+                  짓고 끝이 아니라, 운영까지 효율화하는<br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-purple-200">
-                    스마트팩토리 솔루션 (1억 규모 이상)
+                    스마트 공장 솔루션
                   </span>
                 </h1>
                 <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-                  공장 설립의 마지막 단계, 스마트 운영의 시작입니다.<br />
-                  데이터가 흐르는 공장 — 생산·품질·재고를 하나로 연결합니다.
+                  MES 기반 통합 관리로 생산·품질·재고를 한눈에 확인하세요.<br />
+                  데이터가 품질을 만들고, 효율이 비용을 줄입니다.
                 </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="#solutions">
                 <button className="px-8 py-4 bg-white text-[#101828] rounded-xl font-bold text-lg hover:bg-gray-100 transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
                   <Eye className="inline-block w-5 h-5 mr-2" />
-                  스마트팩토리 구축 상담 (1억 규모 이상 프로젝트)
+                  스마트 운영 효율 시뮬레이터 실행
                 </button>
               </Link>
               <Link href="#consultation">
                 <button className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 rounded-xl font-bold text-lg hover:bg-white/20 transition-all">
-                  운영 효율·품질 개선 시뮬레이션 요청
+                  내 공장 투자 회수 기간 확인하기
                   <ArrowRight className="inline-block w-5 h-5 ml-2" />
                 </button>
               </Link>
@@ -456,7 +456,7 @@ export default function SmartFactoryPage() {
                   className="px-12 py-4 bg-gradient-to-r from-[#007AFF] to-[#6A5AE0] text-white rounded-xl font-bold text-lg hover:shadow-xl transition-all transform hover:-translate-y-1"
                 >
                   <Users2 className="inline-block w-5 h-5 mr-2" />
-                  스마트팩토리 데모 요청하기
+                  스마트팩토리 도입 효과 계산하기
                 </button>
               </div>
             </form>
@@ -476,18 +476,18 @@ export default function SmartFactoryPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="#consultation">
               <button className="px-8 py-4 bg-white text-[#007AFF] rounded-xl font-bold text-lg hover:bg-gray-100 transition-all shadow-xl">
-                스마트팩토리 데모 요청하기
+                스마트 운영 효율 시뮬레이터 실행
               </button>
             </Link>
             <Link href="/estimate">
               <button className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 rounded-xl font-bold text-lg hover:bg-white/20 transition-all">
-                내 공장의 운영 효율 분석 받기
+                내 공장 투자 회수 기간 확인하기
                 <ArrowRight className="inline-block w-5 h-5 ml-2" />
               </button>
             </Link>
             <Link href="/estimate">
               <button className="px-8 py-4 bg-purple-500/20 backdrop-blur-sm text-white border-2 border-purple-300/30 rounded-xl font-bold text-lg hover:bg-purple-500/30 transition-all">
-                ROI 효율 보고서 다운로드
+                스마트팩토리 도입 효과 계산하기
                 <ArrowRight className="inline-block w-5 h-5 ml-2" />
               </button>
             </Link>
