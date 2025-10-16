@@ -104,40 +104,68 @@ export default function Smart3DVisualization() {
 
 CRITICAL REQUIREMENTS - MUST INCLUDE:
 
-1. ZONE COLOR CODING (MANDATORY):
-   - Raw Material Area: RED background with "RAW MATERIALS" label
-   - Preparation Area: ORANGE background with "PREPARATION" label  
-   - Processing Area: GREEN background with "CLEAN PROCESSING" label
-   - Packaging Area: BLUE background with "CLEAN PACKAGING" label
-   - Waste Area: DARK RED background with "WASTE" label
+1. ZONE COLOR CODING (MANDATORY - VERY VISIBLE):
+   - Raw Material Area: BRIGHT RED background with large "RAW MATERIALS" label
+   - Preparation Area: BRIGHT ORANGE background with large "PREPARATION" label  
+   - Processing Area: BRIGHT GREEN background with large "CLEAN PROCESSING" label
+   - Packaging Area: BRIGHT BLUE background with large "CLEAN PACKAGING" label
+   - Waste Area: DARK RED background with large "WASTE" label
+   - Each zone must have distinct, bright colors that are clearly visible
 
-2. HACCP FLOW ARROWS (MANDATORY):
-   - Thick GREEN arrows showing correct flow: Raw → Prep → Processing → Packaging
-   - Thick RED arrows showing contamination risks: Cross-flow paths
-   - RED X marks at dangerous intersections
-   - Arrow labels: "CLEAN FLOW" and "CONTAMINATION RISK"
+2. HACCP FLOW ARROWS (MANDATORY - VERY PROMINENT):
+   - THICK BOLD GREEN arrows (minimum 20px wide) showing correct flow: Raw → Prep → Processing → Packaging
+   - THICK BOLD RED arrows (minimum 20px wide) showing contamination risks: Cross-flow paths
+   - LARGE RED X marks at dangerous intersections
+   - Arrow labels in large bold text: "CLEAN FLOW" and "CONTAMINATION RISK"
+   - Arrows must be clearly visible on the floor surface
+   - Add directional arrows on conveyor belts and walkways
 
-3. SOFTWARE UI OVERLAY (MANDATORY):
+3. FLOOR PATHWAY MARKINGS (MANDATORY):
+   - Green painted lines on floor showing clean flow paths
+   - Red painted lines on floor showing restricted areas
+   - Yellow safety lines marking boundaries
+   - Clear walkway markings with arrows
+
+4. SOFTWARE UI OVERLAY (MANDATORY):
    - Top menu bar: "HACCP ANALYSIS | FLOW VALIDATION | ZONE MONITORING"
    - Side panel with data: "Temperature: 4°C | Humidity: 60% | HACCP Status: COMPLIANT ✓"
    - Zone status indicators: "CLEAN ZONE ✓" "RISK ZONE ⚠"
+   - Flow diagram overlay showing the HACCP flow
 
-4. EQUIPMENT & DETAILS:
-   - Conveyor belts connecting zones
+5. EQUIPMENT & DETAILS:
+   - Conveyor belts connecting zones with visible flow direction
    - Hand washing stations at zone entrances
    - Air shower units
    - Temperature monitoring displays
+   - Clear signage on all equipment
    - Zone separation barriers
 
-5. VISUAL STYLE:
+6. HACCP FLOW VISUALIZATION (CRITICAL):
+   - Show clear product flow from raw materials to finished goods
+   - Display personnel flow paths with different colored lines
+   - Indicate cross-contamination prevention measures
+   - Show air flow direction with arrows
+   - Display waste flow paths in red
+   - Add HACCP control points with numbered markers
+
+7. VISUAL STYLE:
    - Isometric 3D view from above
    - Clean, technical appearance
+   - High contrast colors for visibility
+   - Professional CAD-like rendering
    - High contrast colors for zones
    - Professional software interface look
    - Factory size: ${sizePyeong}평 (${sizeArea}㎡)
    - Sections: ${sectionsText}
 
-The image must clearly show HACCP compliance validation with visible color-coded zones and flow arrows. This is for a food safety management system interface.`
+IMPORTANT: The generated image MUST include:
+- Bright, clearly visible color-coded floor zones (RED, ORANGE, GREEN, BLUE)
+- Thick, bold arrows on the floor showing product flow paths
+- Clear HACCP flow indicators and directional markings
+- Visible walkway lines and safety boundaries
+- Professional software interface overlay with HACCP data
+
+This is for a food safety management system interface. The HACCP flow paths and color coding are the most important visual elements and must be prominently displayed.`
   }
 
   const handleGenerate = async () => {
@@ -477,40 +505,57 @@ The image must clearly show HACCP compliance validation with visible color-coded
                   </div>
 
                   {/* HACCP 구역별 색상 구분 안내 */}
-                  <div className="bg-indigo-50 rounded-lg p-4">
-                    <h3 className="text-sm font-semibold text-indigo-800 mb-3 flex items-center">
+                  <div className="bg-indigo-50 dark:bg-indigo-900/20 rounded-lg p-4 border border-indigo-200 dark:border-indigo-700">
+                    <h3 className="text-sm font-semibold text-indigo-800 dark:text-indigo-300 mb-3 flex items-center">
                       <InformationCircleIcon className="h-4 w-4 mr-2" />
                       HACCP 구역별 색상 구분 안내
                     </h3>
-                    <div className="space-y-2 text-xs">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center">
-                          <div className="w-3 h-3 bg-green-500 rounded mr-2"></div>
-                          <span className="text-gray-700">청결구역 (가공, 포장)</span>
+                    <div className="space-y-3 text-xs">
+                      <div className="grid grid-cols-1 gap-2">
+                        <div className="flex items-center justify-between p-2 bg-white dark:bg-gray-800 rounded border">
+                          <div className="flex items-center">
+                            <div className="w-4 h-4 bg-red-500 rounded mr-3 border-2 border-red-700"></div>
+                            <span className="text-gray-700 dark:text-gray-300 font-medium">원료구역 (RAW MATERIALS)</span>
+                          </div>
+                          <span className="text-red-600 font-bold">위험</span>
                         </div>
-                        <span className="text-green-600 font-medium">→</span>
-                      </div>
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center">
-                          <div className="w-3 h-3 bg-orange-500 rounded mr-2"></div>
-                          <span className="text-gray-700">오염구역 (원료, 폐기물)</span>
+                        <div className="flex items-center justify-between p-2 bg-white dark:bg-gray-800 rounded border">
+                          <div className="flex items-center">
+                            <div className="w-4 h-4 bg-orange-500 rounded mr-3 border-2 border-orange-700"></div>
+                            <span className="text-gray-700 dark:text-gray-300 font-medium">준비구역 (PREPARATION)</span>
+                          </div>
+                          <span className="text-orange-600 font-bold">주의</span>
                         </div>
-                        <span className="text-red-600 font-medium">✗</span>
-                      </div>
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center">
-                          <div className="w-3 h-3 bg-yellow-400 rounded mr-2"></div>
-                          <span className="text-gray-700">중립구역 (사무실, 탈의실)</span>
+                        <div className="flex items-center justify-between p-2 bg-white dark:bg-gray-800 rounded border">
+                          <div className="flex items-center">
+                            <div className="w-4 h-4 bg-green-500 rounded mr-3 border-2 border-green-700"></div>
+                            <span className="text-gray-700 dark:text-gray-300 font-medium">청결구역 (CLEAN PROCESSING)</span>
+                          </div>
+                          <span className="text-green-600 font-bold">안전</span>
                         </div>
-                        <span className="text-gray-600 font-medium">○</span>
+                        <div className="flex items-center justify-between p-2 bg-white dark:bg-gray-800 rounded border">
+                          <div className="flex items-center">
+                            <div className="w-4 h-4 bg-blue-500 rounded mr-3 border-2 border-blue-700"></div>
+                            <span className="text-gray-700 dark:text-gray-300 font-medium">포장구역 (CLEAN PACKAGING)</span>
+                          </div>
+                          <span className="text-blue-600 font-bold">안전</span>
+                        </div>
                       </div>
                     </div>
-                    <div className="mt-3 pt-3 border-t border-indigo-200">
-                      <div className="flex items-center text-xs text-indigo-700">
-                        <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
-                        <span>정상 동선</span>
-                        <div className="w-2 h-2 bg-red-500 rounded-full mr-2 ml-4"></div>
-                        <span>교차 오염 위험</span>
+                    <div className="mt-4 pt-3 border-t border-indigo-200 dark:border-indigo-700">
+                      <div className="space-y-2">
+                        <div className="flex items-center text-xs text-indigo-700 dark:text-indigo-300">
+                          <div className="w-3 h-3 bg-green-500 rounded-full mr-2 border border-green-700"></div>
+                          <span className="font-medium">정상 동선 (CLEAN FLOW)</span>
+                        </div>
+                        <div className="flex items-center text-xs text-indigo-700 dark:text-indigo-300">
+                          <div className="w-3 h-3 bg-red-500 rounded-full mr-2 border border-red-700"></div>
+                          <span className="font-medium">교차 오염 위험 (CONTAMINATION RISK)</span>
+                        </div>
+                        <div className="flex items-center text-xs text-indigo-700 dark:text-indigo-300">
+                          <div className="w-3 h-3 bg-yellow-400 rounded-full mr-2 border border-yellow-600"></div>
+                          <span className="font-medium">안전 경계선 (SAFETY BOUNDARY)</span>
+                        </div>
                       </div>
                     </div>
                   </div>
