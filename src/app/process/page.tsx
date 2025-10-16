@@ -24,13 +24,13 @@ export default function Process() {
     <main className="px-6 md:px-12 py-16">
       <section className="max-w-6xl mx-auto text-center">
         <div className="inline-block px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full text-sm font-semibold mb-6">
-          ⚙️ 5PRO 프로세스
+          ⚙️ 오프로 프로세스
         </div>
         <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
           한 번의 설립, 10년의 운영 효율을 설계하다
         </h1>
         <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-12">
-          5PRO의 5단계는 공장 설립에서 운영 자동화까지<br className="hidden md:block" />
+          오프로의 5단계는 공장 설립에서 운영 자동화까지<br className="hidden md:block" />
           모두 고려한 스마트팩토리 여정입니다.
         </p>
         
@@ -62,7 +62,7 @@ export default function Process() {
 
         <div className="mt-16 bg-gradient-to-r from-indigo-50 to-purple-50 p-8 rounded-2xl max-w-4xl mx-auto">
           <blockquote className="text-xl text-gray-800 italic mb-4">
-            "5PRO는 짓는 공장이 아니라,<br />
+            "오프로는 짓는 공장이 아니라,<br />
             운영 가능한 시스템을 함께 만드는 파트너입니다."
           </blockquote>
         </div>

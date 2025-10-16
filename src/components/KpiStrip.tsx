@@ -15,7 +15,7 @@ export default function KpiStrip() {
             "지금 짓는 공장, 10년 뒤에도 경쟁력이 있을까요?"
           </h2>
           <p className="text-gray-700 mt-3">
-            5PRO는 단순한 시공을 넘어<br className="sm:hidden" />
+            오프로는 단순한 시공을 넘어<br className="sm:hidden" />
             설계–컨설팅–스마트 운영까지 모두 연결된 데이터 기반 솔루션으로<br className="hidden sm:block" />
             미래까지 준비하는 공장을 완성합니다.
           </p>

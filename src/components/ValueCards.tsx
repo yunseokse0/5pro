@@ -16,7 +16,7 @@ export default function ValueCards() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            5PRO의 핵심 가치
+            오프로의 핵심 가치
           </h2>
           <p className="text-lg text-gray-600">
             미래형 식품공장 플랫폼으로 설립부터 운영까지 통합 지원합니다

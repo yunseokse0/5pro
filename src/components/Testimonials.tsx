@@ -12,7 +12,7 @@ export default function Testimonials() {
             고객의 목소리
           </h2>
           <p className="text-lg text-gray-600">
-            5PRO와 함께한 고객사들의 실제 경험
+            오프로와 함께한 고객사들의 실제 경험
           </p>
         </div>
         <div className="grid md:grid-cols-3 gap-6">

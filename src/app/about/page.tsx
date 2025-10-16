@@ -35,7 +35,7 @@ export default function About() {
         {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-block px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full text-sm font-semibold mb-6">
-            👨‍💼 About 5PRO
+            👨‍💼 About 오프로
           </div>
           <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
             HACCP 컨설팅 전문,<br />
@@ -86,14 +86,14 @@ export default function About() {
         {/* Philosophy */}
         <div className="bg-gradient-to-r from-indigo-50 to-purple-50 p-8 md:p-12 rounded-2xl mb-16">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">
-            5PRO의 철학
+            오프로의 철학
           </h2>
           <blockquote className="text-lg text-gray-700 text-center italic mb-6">
             "복잡한 절차를 단순하게 만드는 것,<br />
             그것이 진짜 컨설팅입니다."
           </blockquote>
           <p className="text-gray-700 leading-relaxed max-w-2xl mx-auto text-center">
-            5PRO는 단순한 대행 서비스가 아닌, 고객사의 역량 강화를 목표로 합니다.
+            오프로는 단순한 대행 서비스가 아닌, 고객사의 역량 강화를 목표로 합니다.
             전문가의 체계적인 가이드와 교육을 통해 HACCP 시스템을 완벽하게 이해하고
             스스로 운영할 수 있도록 함께 준비합니다.
           </p>
@@ -115,7 +115,7 @@ export default function About() {
         {/* CTA */}
         <div className="text-center">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
-            5PRO와 함께 시작하세요
+            오프로와 함께 시작하세요
           </h2>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link 

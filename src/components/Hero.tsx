@@ -12,12 +12,14 @@ export default function Hero() {
         <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
           짓고 끝이 아닙니다.
           <br />
-          <span className="text-indigo-600">운영 효율까지 책임지는</span> 스마트 식품공장 플랫폼
+          <span className="text-indigo-600">운영까지 설계하는</span> 스마트 식품공장 플랫폼, 오프로
         </h1>
         <p className="mt-6 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
           30% 절감, 95% 정확도 — 설립부터 운영까지 완전한 솔루션
           <br className="hidden md:block" />
-          HACCP 인증과 스마트 운영을 한 번에, 5PRO로 완성하세요.
+          HACCP 기반 설계 + 실시간 운영 시스템 + 3D 조감도 시뮬레이션.
+          <br className="hidden md:block" />
+          데이터로 예산을 투명하게, 시공 전부터 운영 효율을 검증합니다.
         </p>
         <div className="inline-block px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-semibold mt-6 mb-4">
           💰 1억 규모 스마트팩토리 구축

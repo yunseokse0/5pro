@@ -29,6 +29,7 @@ const Navigation = () => {
     { href: '/estimate', icon: Calculator, label: '견적' },
     { href: '/smart-factory', icon: Cpu, label: '스마트팩토리' },
     { href: '/consulting', icon: ShieldCheck, label: 'HACCP' },
+    { href: '/3d', icon: Box, label: '3D 조감도' },
     { href: '/signup', icon: UserCheck, label: '회원가입' },
   ]
 

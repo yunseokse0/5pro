@@ -12,7 +12,7 @@ export default function ProjectShowcase() {
             완공 사례
           </h2>
           <p className="text-lg text-gray-600">
-            다양한 식품 제조 환경에서 검증된 5PRO의 솔루션
+            다양한 식품 제조 환경에서 검증된 오프로의 솔루션
           </p>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
