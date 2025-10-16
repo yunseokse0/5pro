@@ -598,10 +598,6 @@ This is for a food safety management system interface. The HACCP flow paths and 
           </div>
         </div>
 
-        {/* 하단 정보 배너 */}
-        <div className="bg-indigo-50 text-indigo-700 rounded-lg py-3 px-4 text-sm text-center mt-6">
-          지금까지 200+ 식품공장이 OFRO의 3D 시뮬레이터로 설계되었습니다.
-        </div>
       </div>
 
       {/* 이미지 확대 모달 */}
