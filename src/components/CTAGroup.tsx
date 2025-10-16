@@ -20,7 +20,7 @@ export default function CTAGroup() {
         스마트 운영 시스템 상담
       </Link>
       <Link 
-        href="/3d" 
+        href="/3d-visualization" 
         className="px-5 py-3 rounded-lg bg-indigo-50 text-indigo-700 font-semibold hover:bg-indigo-100 transition-colors min-h-[44px] flex items-center"
         aria-label="스마트팩토리 시스템 구축 상담"
       >

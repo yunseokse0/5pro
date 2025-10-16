@@ -9,7 +9,7 @@ export default function Section3D() {
             설계 변경 비용을 줄이고, 완공 후 운영 효율을 미리 확인하세요.
           </p>
           <div className="mt-6 flex gap-3">
-            <a href="/3d" className="px-5 py-3 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700">3D 미리보기</a>
+            <a href="/3d-visualization" className="px-5 py-3 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700">3D 미리보기</a>
             <a href="/smart-factory" className="px-5 py-3 rounded-lg border hover:bg-white">운영 시뮬레이션 보기</a>
           </div>
         </div>
