@@ -37,7 +37,6 @@ import {
   XMarkIcon,
   
   // HACCP 관련
-  ShieldCheckIcon as HaccpIcon,
   DocumentCheckIcon,
   ClipboardDocumentListIcon,
   
@@ -70,11 +69,9 @@ import {
   PencilIcon as PencilIconSolid,
   TrashIcon as TrashIconSolid,
   EyeIcon as EyeIconSolid,
-  HaccpIcon as HaccpIconSolid,
   DocumentCheckIcon as DocumentCheckIconSolid,
   ClipboardDocumentListIcon as ClipboardDocumentListIconSolid,
   ChartPieIcon as ChartPieIconSolid,
-  TrendingUpIcon as TrendingUpIconSolid,
   CurrencyDollarIcon as CurrencyDollarIconSolid,
 } from '@heroicons/react/24/solid';
 
@@ -85,7 +82,7 @@ export const adminIcons = {
     dashboard: HomeIcon,
     estimates: CalculatorIcon,
     projects: BuildingOfficeIcon,
-    haccp: HaccpIcon,
+    haccp: ShieldCheckIcon,
     users: UsersIcon,
     analytics: ChartBarIcon,
     settings: Cog6ToothIcon,
@@ -117,7 +114,7 @@ export const adminIcons = {
   
   // HACCP 관련
   haccp: {
-    main: HaccpIcon,
+    main: ShieldCheckIcon,
     document: DocumentCheckIcon,
     checklist: ClipboardDocumentListIcon,
     approval: ShieldCheckIcon,
@@ -127,7 +124,6 @@ export const adminIcons = {
   analytics: {
     chart: ChartBarIcon,
     pie: ChartPieIcon,
-    trending: TrendingUpIcon,
     revenue: CurrencyDollarIcon,
   },
   
@@ -151,7 +147,7 @@ export const adminIconsSolid = {
     dashboard: HomeIconSolid,
     estimates: CalculatorIconSolid,
     projects: BuildingOfficeIconSolid,
-    haccp: HaccpIconSolid,
+    haccp: ShieldCheckIconSolid,
     users: UsersIconSolid,
     analytics: ChartBarIconSolid,
     settings: Cog6ToothIconSolid,
@@ -213,7 +209,7 @@ export const commonIconSets = {
     { name: '대시보드', icon: HomeIcon, href: '/admin' },
     { name: '견적 관리', icon: CalculatorIcon, href: '/admin/estimates' },
     { name: '프로젝트 관리', icon: BuildingOfficeIcon, href: '/admin/projects' },
-    { name: 'HACCP 관리', icon: HaccpIcon, href: '/admin/haccp' },
+    { name: 'HACCP 관리', icon: ShieldCheckIcon, href: '/admin/haccp' },
     { name: '사용자 관리', icon: UsersIcon, href: '/admin/users' },
     { name: '통계 분석', icon: ChartBarIcon, href: '/admin/analytics' },
     { name: '시스템 설정', icon: Cog6ToothIcon, href: '/admin/settings' },
