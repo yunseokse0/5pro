@@ -126,16 +126,16 @@ export default function SmartFactoryPage() {
             <div className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-bold mb-6">
               🏭 스마트 팩토리 솔루션
             </div>
-            <h1 className="text-5xl font-bold mb-6">
-              미래를 준비하는
-              <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-purple-200">
-                스마트 팩토리
-              </span>
-            </h1>
-            <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-              IoT, AI, 빅데이터를 활용한 4차 산업혁명 시대의 지능형 공장 구축
-            </p>
+                <h1 className="text-5xl font-bold mb-6">
+                  5PRO 스마트팩토리
+                  <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-purple-200">
+                    공장 운영 효율을 혁신하는 통합 시스템
+                  </span>
+                </h1>
+                <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+                  데이터로 움직이는 공장, 관리의 정확도를 높이고 비용을 줄입니다
+                </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="#solutions">
                 <button className="px-8 py-4 bg-white text-[#101828] rounded-xl font-bold text-lg hover:bg-gray-100 transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
@@ -154,28 +154,103 @@ export default function SmartFactoryPage() {
         </div>
       </section>
 
-      {/* Benefits Section */}
+      {/* 핵심 기능 3대 축 */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-[#101828] mb-4">
-              스마트 팩토리의 효과
+              핵심 기능 3대 축
             </h2>
-            <p className="text-xl text-gray-600">
-              데이터 기반 의사결정으로 경쟁력을 확보하세요
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              문제 → 솔루션 → 효과로 구성된 체계적인 스마트팩토리 솔루션
             </p>
           </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {benefits.map((benefit, idx) => (
-              <div key={idx} className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#007AFF] to-[#6A5AE0] rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <benefit.icon className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-[#101828] mb-2">{benefit.title}</h3>
-                <p className="text-gray-600">{benefit.description}</p>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="bg-gray-50 p-8 rounded-2xl shadow-lg">
+              <div className="p-4 bg-blue-100 rounded-full inline-flex mb-6">
+                <TrendingUp className="w-8 h-8 text-blue-600" />
               </div>
-            ))}
+              <h3 className="text-2xl font-bold text-[#101828] mb-4">생산성 향상</h3>
+              <div className="space-y-4">
+                <div className="p-4 bg-red-50 rounded-lg">
+                  <h4 className="font-semibold text-red-800 mb-2">문제</h4>
+                  <p className="text-red-700">생산 지연과 비효율적인 작업 흐름</p>
+                </div>
+                <div className="p-4 bg-blue-50 rounded-lg">
+                  <h4 className="font-semibold text-blue-800 mb-2">솔루션</h4>
+                  <p className="text-blue-700">IoT 기반 실시간 생산 모니터링</p>
+                </div>
+                <div className="p-4 bg-green-50 rounded-lg">
+                  <h4 className="font-semibold text-green-800 mb-2">효과</h4>
+                  <p className="text-green-700">평균 20% 이상 생산성 향상</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gray-50 p-8 rounded-2xl shadow-lg">
+              <div className="p-4 bg-green-100 rounded-full inline-flex mb-6">
+                <ShieldCheck className="w-8 h-8 text-green-600" />
+              </div>
+              <h3 className="text-2xl font-bold text-[#101828] mb-4">품질 안정화</h3>
+              <div className="space-y-4">
+                <div className="p-4 bg-red-50 rounded-lg">
+                  <h4 className="font-semibold text-red-800 mb-2">문제</h4>
+                  <p className="text-red-700">잦은 불량과 기록 누락</p>
+                </div>
+                <div className="p-4 bg-blue-50 rounded-lg">
+                  <h4 className="font-semibold text-blue-800 mb-2">솔루션</h4>
+                  <p className="text-blue-700">센서 기반 자동 품질 검사 및 HACCP 기록 자동화</p>
+                </div>
+                <div className="p-4 bg-green-50 rounded-lg">
+                  <h4 className="font-semibold text-green-800 mb-2">효과</h4>
+                  <p className="text-green-700">품질 불량률 40% 감소, 문서 작성 시간 70% 단축</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gray-50 p-8 rounded-2xl shadow-lg">
+              <div className="p-4 bg-orange-100 rounded-full inline-flex mb-6">
+                <Zap className="w-8 h-8 text-orange-600" />
+              </div>
+              <h3 className="text-2xl font-bold text-[#101828] mb-4">재고·에너지 효율 관리</h3>
+              <div className="space-y-4">
+                <div className="p-4 bg-red-50 rounded-lg">
+                  <h4 className="font-semibold text-red-800 mb-2">문제</h4>
+                  <p className="text-red-700">과잉 생산과 불필요한 에너지 낭비</p>
+                </div>
+                <div className="p-4 bg-blue-50 rounded-lg">
+                  <h4 className="font-semibold text-blue-800 mb-2">솔루션</h4>
+                  <p className="text-blue-700">실시간 재고 파악 + 에너지 사용 최적화</p>
+                </div>
+                <div className="p-4 bg-green-50 rounded-lg">
+                  <h4 className="font-semibold text-green-800 mb-2">효과</h4>
+                  <p className="text-green-700">월평균 15% 에너지 절감</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 데이터 기반 이점 */}
+      <section className="py-20 bg-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-[#101828] mb-4">
+              데이터 기반 이점
+            </h2>
+            <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-8 rounded-2xl max-w-4xl mx-auto">
+              <blockquote className="text-xl text-gray-800 italic mb-6">
+                "24/7 실시간 모니터링으로<br />
+                공장 운영의 모든 데이터를 한눈에."
+              </blockquote>
+              <p className="text-lg text-gray-700">
+                생산 현황, 품질 검사, 재고 및 에너지 사용을<br />
+                한 대시보드에서 관리하고,<br />
+                HACCP 기록과 연계하여 문서 작업을 자동화합니다.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -359,7 +434,7 @@ export default function SmartFactoryPage() {
                   className="px-12 py-4 bg-gradient-to-r from-[#007AFF] to-[#6A5AE0] text-white rounded-xl font-bold text-lg hover:shadow-xl transition-all transform hover:-translate-y-1"
                 >
                   <Users2 className="inline-block w-5 h-5 mr-2" />
-                  무료 상담 신청하기
+                  스마트팩토리 데모 요청하기
                 </button>
               </div>
             </form>
@@ -371,20 +446,21 @@ export default function SmartFactoryPage() {
       <section className="py-20 bg-gradient-to-r from-[#007AFF] to-[#6A5AE0] text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-6">
-            지금 시작하세요
+            우리 공장 효율 분석 받기
           </h2>
           <p className="text-xl mb-8 text-blue-100">
-            스마트 팩토리로 미래를 준비하고 경쟁력을 확보하세요
+            ROI 보고서와 함께 맞춤형 스마트팩토리 솔루션을 제안해드립니다
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="#consultation">
               <button className="px-8 py-4 bg-white text-[#007AFF] rounded-xl font-bold text-lg hover:bg-gray-100 transition-all shadow-xl">
-                무료 상담 신청
+                스마트팩토리 데모 요청하기
               </button>
             </Link>
             <Link href="/estimate">
               <button className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 rounded-xl font-bold text-lg hover:bg-white/20 transition-all">
-                견적 요청하기
+                ROI 보고서 다운로드
+                <ArrowRight className="inline-block w-5 h-5 ml-2" />
               </button>
             </Link>
           </div>
