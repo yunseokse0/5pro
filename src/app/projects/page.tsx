@@ -155,48 +155,48 @@ export default function ProjectsPage() {
 
         {/* 통계 카드 */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
-          <div className="bg-white rounded-2xl shadow-lg p-6 text-center">
-            <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <BuildingOfficeIcon className="w-8 h-8 text-indigo-600" />
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 text-center">
+            <div className="w-16 h-16 bg-indigo-100 dark:bg-indigo-900 rounded-full flex items-center justify-center mx-auto mb-4">
+              <BuildingOfficeIcon className="w-8 h-8 text-indigo-600 dark:text-indigo-400" />
             </div>
-            <div className="text-3xl font-bold text-gray-900 mb-2">200+</div>
-            <div className="text-gray-600">완공 프로젝트</div>
+            <div className="text-3xl font-bold text-gray-900 dark:text-white mb-2">200+</div>
+            <div className="text-gray-600 dark:text-gray-300">완공 프로젝트</div>
           </div>
-          <div className="bg-white rounded-2xl shadow-lg p-6 text-center">
-            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <CheckCircleIcon className="w-8 h-8 text-green-600" />
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 text-center">
+            <div className="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mx-auto mb-4">
+              <CheckCircleIcon className="w-8 h-8 text-green-600 dark:text-green-400" />
             </div>
-            <div className="text-3xl font-bold text-gray-900 mb-2">95%</div>
-            <div className="text-gray-600">HACCP 인증 성공률</div>
+            <div className="text-3xl font-bold text-gray-900 dark:text-white mb-2">95%</div>
+            <div className="text-gray-600 dark:text-gray-300">HACCP 인증 성공률</div>
           </div>
-          <div className="bg-white rounded-2xl shadow-lg p-6 text-center">
-            <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <CurrencyDollarIcon className="w-8 h-8 text-purple-600" />
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 text-center">
+            <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mx-auto mb-4">
+              <CurrencyDollarIcon className="w-8 h-8 text-purple-600 dark:text-purple-400" />
             </div>
-            <div className="text-3xl font-bold text-gray-900 mb-2">25%</div>
-            <div className="text-gray-600">평균 비용 절감</div>
+            <div className="text-3xl font-bold text-gray-900 dark:text-white mb-2">25%</div>
+            <div className="text-gray-600 dark:text-gray-300">평균 비용 절감</div>
           </div>
-          <div className="bg-white rounded-2xl shadow-lg p-6 text-center">
-            <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <CalendarIcon className="w-8 h-8 text-orange-600" />
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 text-center">
+            <div className="w-16 h-16 bg-orange-100 dark:bg-orange-900 rounded-full flex items-center justify-center mx-auto mb-4">
+              <CalendarIcon className="w-8 h-8 text-orange-600 dark:text-orange-400" />
             </div>
-            <div className="text-3xl font-bold text-gray-900 mb-2">20년</div>
-            <div className="text-gray-600">전문가 경력</div>
+            <div className="text-3xl font-bold text-gray-900 dark:text-white mb-2">20년</div>
+            <div className="text-gray-600 dark:text-gray-300">전문가 경력</div>
           </div>
         </div>
 
         {/* 필터 섹션 */}
-        <div className="bg-white rounded-2xl shadow-lg p-6 mb-8">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 mb-8">
           <div className="flex flex-col md:flex-row gap-4">
             <div className="flex-1">
               <div className="relative">
-                <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-500 w-5 h-5" />
                 <input
                   type="text"
                   placeholder="프로젝트명, 업종, 지역으로 검색..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                  className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
                 />
               </div>
             </div>
@@ -204,7 +204,7 @@ export default function ProjectsPage() {
               <select
                 value={statusFilter}
                 onChange={(e) => setStatusFilter(e.target.value)}
-                className="px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                className="px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
               >
                 <option value="all">모든 상태</option>
                 <option value="completed">완료</option>
@@ -214,7 +214,7 @@ export default function ProjectsPage() {
               <select
                 value={typeFilter}
                 onChange={(e) => setTypeFilter(e.target.value)}
-                className="px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                className="px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
               >
                 <option value="all">모든 업종</option>
                 <option value="김치공장">김치공장</option>

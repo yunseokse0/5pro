@@ -51,7 +51,7 @@ export default function SmartFactoryPage() {
       description: '실시간 데이터 수집 및 모니터링',
       icon: Cpu,
       features: ['온도/습도 모니터링', '진동 센서', '압력 센서', '유량 센서'],
-      price: '500만원~'
+      price: '상담'
     },
     {
       id: 'data-analytics',
@@ -59,7 +59,7 @@ export default function SmartFactoryPage() {
       description: 'AI 기반 생산성 분석 및 예측',
       icon: BarChart3,
       features: ['실시간 대시보드', '예측 분석', '품질 관리', '설비 효율성'],
-      price: '800만원~'
+      price: '상담'
     },
     {
       id: 'wireless-network',
@@ -67,7 +67,7 @@ export default function SmartFactoryPage() {
       description: '안정적인 산업용 무선 인프라',
       icon: Wifi,
       features: ['Wi-Fi 6', '5G 연결', 'LoRaWAN', '산업용 이더넷'],
-      price: '300만원~'
+      price: '상담'
     },
     {
       id: 'security-system',
@@ -75,7 +75,7 @@ export default function SmartFactoryPage() {
       description: '사이버 보안 및 물리적 보안',
       icon: Shield,
       features: ['접근 제어', 'CCTV 통합', '화재 감지', '침입 방지'],
-      price: '400만원~'
+      price: '상담'
     },
     {
       id: 'energy-management',
@@ -83,7 +83,7 @@ export default function SmartFactoryPage() {
       description: '전력 사용량 최적화 및 절약',
       icon: Zap,
       features: ['전력 모니터링', '피크 시간 관리', '재생 에너지', '비용 분석'],
-      price: '600만원~'
+      price: '상담'
     },
     {
       id: 'predictive-maintenance',
@@ -91,7 +91,7 @@ export default function SmartFactoryPage() {
       description: '설비 고장 예측 및 정비 최적화',
       icon: Settings,
       features: ['고장 예측', '정비 스케줄링', '부품 관리', '수명 예측'],
-      price: '700만원~'
+      price: '상담'
     }
   ];
 
@@ -119,7 +119,7 @@ export default function SmartFactoryPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-[#101828] to-[#6A5AE0] text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -291,22 +291,24 @@ export default function SmartFactoryPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {solutions.map((solution) => (
-              <div key={solution.id} className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-all">
+              <div key={solution.id} className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 hover:shadow-xl transition-all">
                 <div className="w-12 h-12 bg-gradient-to-br from-[#007AFF] to-[#6A5AE0] rounded-xl flex items-center justify-center mb-6">
                   <solution.icon className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-[#101828] mb-2">{solution.title}</h3>
-                <p className="text-gray-600 mb-4">{solution.description}</p>
+                <h3 className="text-2xl font-bold text-[#101828] dark:text-white mb-2">{solution.title}</h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4">{solution.description}</p>
                 <div className="space-y-2 mb-6">
                   {solution.features.map((feature, idx) => (
                     <div key={idx} className="flex items-center">
                       <CheckCircle2 className="w-4 h-4 text-green-500 mr-2" />
-                      <span className="text-sm text-gray-700">{feature}</span>
+                      <span className="text-sm text-gray-700 dark:text-gray-300">{feature}</span>
                     </div>
                   ))}
                 </div>
-                <div className="text-right">
-                  <span className="text-2xl font-bold text-[#007AFF]">{solution.price}</span>
+                <div className="text-center">
+                  <span className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-lg font-semibold text-lg">
+                    {solution.price}
+                  </span>
                 </div>
               </div>
             ))}

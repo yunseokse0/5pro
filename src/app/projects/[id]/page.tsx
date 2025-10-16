@@ -40,10 +40,10 @@ const mockProjectDetails = {
     savings: '3.8억원',
     features: ['HACCP 인증 완료', 'BIM 기반 설계', '공사비 25% 절감', '운영비 18% 절감'],
     gallery: [
-      '/imgs/project-kimchi-1.jpg',
-      '/imgs/project-kimchi-2.jpg',
-      '/imgs/project-kimchi-3.jpg',
-      '/imgs/project-kimchi-4.jpg'
+      '/imgs/projects/kimchi/project-kimchi-1.jpg',
+      '/imgs/projects/kimchi/project-kimchi-2.jpg',
+      '/imgs/projects/kimchi/project-kimchi-3.jpg',
+      '/imgs/projects/kimchi/project-kimchi-4.jpg'
     ],
     timeline: [
       { phase: '기획 및 설계', duration: '2개월', status: 'completed', startDate: '2023-01-15', endDate: '2023-03-15' },
@@ -94,9 +94,9 @@ const mockProjectDetails = {
     savings: '2.4억원',
     features: ['스마트팩토리 구축', '품질 오류 0%', '공사비 22% 절감', 'MES 시스템 연동'],
     gallery: [
-      '/imgs/project-bakery-1.jpg',
-      '/imgs/project-bakery-2.jpg',
-      '/imgs/project-bakery-3.jpg'
+      '/imgs/projects/bakery/project-bakery-1.jpg',
+      '/imgs/projects/bakery/project-bakery-2.jpg',
+      '/imgs/projects/bakery/project-bakery-3.jpg'
     ],
     timeline: [
       { phase: '기획 및 설계', duration: '2개월', status: 'completed', startDate: '2024-01-01', endDate: '2024-02-28' },
