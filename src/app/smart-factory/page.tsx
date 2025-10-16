@@ -7,6 +7,7 @@ import {
   BarChart3, 
   Wifi, 
   Shield, 
+  ShieldCheck,
   Zap, 
   Eye, 
   Settings, 
