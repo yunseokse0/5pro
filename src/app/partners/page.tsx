@@ -252,7 +252,7 @@ export default function PartnersPage() {
             {Object.entries(gradeSystem).map(([key, grade]) => (
               <div key={key} className={`${grade.bgColor} ${grade.borderColor} border-2 rounded-lg p-4 text-center`}>
                 <div className={`inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r ${grade.color} text-white mb-3`}>
-                  {React.createElement(grade.icon, { className: "w-6 h-6" })}
+                  <grade.icon className="w-6 h-6" />
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">{grade.name}</h3>
                 <p className="text-xs text-gray-600">{grade.requirements}</p>

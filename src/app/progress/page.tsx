@@ -214,7 +214,10 @@ export default function ProgressPage() {
                     </div>
                     <div className="text-right">
                       <div className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(project.status)}`}>
-                        {React.createElement(getStatusIcon(project.status), { className: "w-4 h-4 mr-1" })}
+                        {(() => {
+                          const IconComponent = getStatusIcon(project.status);
+                          return <IconComponent className="w-4 h-4 mr-1" />;
+                        })()}
                         {project.status === 'in-progress' ? '진행 중' : project.status === 'completed' ? '완료' : '계획'}
                       </div>
                     </div>
@@ -361,7 +364,10 @@ export default function ProgressPage() {
                       <div key={phase.id}>
                         <div className="flex items-center p-4 border border-gray-200 rounded-lg">
                           <div className={`w-12 h-12 rounded-full flex items-center justify-center mr-4 ${getStatusColor(phase.status)}`}>
-                            {React.createElement(getStatusIcon(phase.status), { className: "w-6 h-6" })}
+                            {(() => {
+                              const IconComponent = getStatusIcon(phase.status);
+                              return <IconComponent className="w-6 h-6" />;
+                            })()}
                           </div>
                           <div className="flex-1">
                             <div className="flex items-center justify-between">
@@ -545,7 +551,10 @@ export default function ProgressPage() {
                     {milestones.map((milestone, index) => (
                       <div key={index} className="relative flex items-start pb-8">
                         <div className={`w-8 h-8 rounded-full flex items-center justify-center mr-4 ${getStatusColor(milestone.status)} relative z-10`}>
-                          {React.createElement(getStatusIcon(milestone.status), { className: "w-4 h-4" })}
+                          {(() => {
+                            const IconComponent = getStatusIcon(milestone.status);
+                            return <IconComponent className="w-4 h-4" />;
+                          })()}
                         </div>
                         <div className="flex-1">
                           <div className="flex items-center justify-between">

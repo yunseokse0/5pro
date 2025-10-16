@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { z } from 'zod';
-import { prisma, PartnerGrade } from '@5pro/db';
+import { prisma } from '@5pro/db';
+import { PartnerGrade } from '@prisma/client';
 import { authenticate, authorize } from '../middleware/auth';
 import { auditLog } from '../middleware/audit';
 import { ApiError } from '../middleware/error';

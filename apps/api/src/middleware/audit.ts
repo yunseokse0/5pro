@@ -24,7 +24,7 @@ export const auditLog = (action: string, resource: string) => {
               ipAddress: req.ip,
             },
           })
-          .catch((err) => console.error('Audit log error:', err));
+          .catch((err: any) => console.error('Audit log error:', err));
       }
 
       return originalSend.call(this, data);
