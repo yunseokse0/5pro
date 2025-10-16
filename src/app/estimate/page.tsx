@@ -178,23 +178,44 @@ export default function EstimatePage() {
               <div>
                 <h2 className="text-2xl font-bold mb-2 text-[#101828]">부지 면적을 설정하세요</h2>
                 <p className="text-gray-600 mb-6">슬라이더를 움직여 원하는 규모를 선택하세요</p>
-                <div className="space-y-4">
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-600">면적</span>
-                    <span className="text-3xl font-bold text-blue-600">{input.size}평</span>
+                <div className="space-y-6">
+                  <div className="text-center">
+                    <div className="inline-block px-6 py-3 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl border border-blue-200">
+                      <span className="text-4xl font-bold text-blue-600">{input.size}평</span>
+                      <div className="text-sm text-gray-600 mt-1">({Math.round(input.size * 3.3)}㎡)</div>
+                    </div>
                   </div>
-                  <input
-                    type="range"
-                    min="50"
-                    max="1000"
-                    value={input.size}
-                    onChange={(e) => setInput({ size: parseInt(e.target.value) })}
-                    className="slider w-full"
-                  />
-                  <div className="flex justify-between text-sm text-gray-500">
-                    <span>50평</span>
-                    <span>300평</span>
-                    <span>1000평</span>
+                  
+                  <div className="relative">
+                    <input
+                      type="range"
+                      min="50"
+                      max="1000"
+                      value={input.size}
+                      onChange={(e) => setInput({ size: parseInt(e.target.value) })}
+                      className="slider w-full"
+                    />
+                    <div className="flex justify-between text-sm text-gray-500 mt-2">
+                      <span className="px-2 py-1 bg-gray-100 rounded">50평</span>
+                      <span className="px-2 py-1 bg-gray-100 rounded">300평</span>
+                      <span className="px-2 py-1 bg-gray-100 rounded">1000평</span>
+                    </div>
+                  </div>
+                  
+                  <div className="grid grid-cols-4 gap-2">
+                    {[100, 300, 500, 1000].map((size) => (
+                      <button
+                        key={size}
+                        onClick={() => setInput({ size })}
+                        className={`px-3 py-2 rounded-lg text-sm font-medium transition-all ${
+                          input.size === size
+                            ? 'bg-blue-600 text-white shadow-lg'
+                            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                        }`}
+                      >
+                        {size}평
+                      </button>
+                    ))}
                   </div>
                 </div>
               </div>
