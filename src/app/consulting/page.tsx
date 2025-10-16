@@ -2,393 +2,229 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { CheckCircle2, AlertCircle, Calendar, Send } from 'lucide-react';
-import { HACCP_CONSULTING, HACCP_PACKAGES, HACCP_PROCESS, HACCP_FAQ } from '@/lib/policies';
+import { CheckCircle, Shield, FileText, ClipboardList, Users, Clock, ArrowRight, Download, Calendar } from 'lucide-react';
+
+const HACCP_SERVICES = [
+  {
+    title: "HACCP 전담 전문가의 현장 진단 및 문서 코칭",
+    desc: "20년 경력 전문가가 직접 현장을 방문하여 HACCP 준비 상태를 진단하고, 필요한 문서 작성을 단계별로 코칭합니다.",
+    icon: Users,
+    features: ["현장 방문 진단", "문서 작성 가이드", "1:1 맞춤 코칭"]
+  },
+  {
+    title: "인증 기준에 맞춘 설비·동선 설계",
+    desc: "HACCP 인증 기준을 완벽히 반영한 공장 설계로 심사 통과율을 극대화하고, 운영 효율까지 고려합니다.",
+    icon: Shield,
+    features: ["HACCP 기준 설계", "동선 최적화", "설비 배치 검증"]
+  },
+  {
+    title: "HACCP 기록 자동화 시스템 세팅",
+    desc: "수기 기록의 번거로움을 해결하는 자동화 시스템을 구축하여 심사 부담을 0%로 만듭니다.",
+    icon: FileText,
+    features: ["자동 기록 생성", "클라우드 저장", "실시간 모니터링"]
+  }
+];
+
+const EFFICIENCY_SERVICES = [
+  {
+    title: "품질·생산 데이터 자동 수집",
+    desc: "IoT 센서를 통한 실시간 데이터 수집으로 정확한 HACCP 기록을 자동 생성합니다.",
+    icon: ClipboardList,
+    features: ["IoT 센서 연동", "실시간 데이터 수집", "자동 기록 생성"]
+  },
+  {
+    title: "모의심사(Pre-Audit) + 개선 리포트 제공",
+    desc: "실제 심사 전 모의심사를 통해 부족한 부분을 미리 파악하고 개선 방안을 제시합니다.",
+    icon: CheckCircle,
+    features: ["모의심사 실시", "개선사항 리포트", "심사 대비 완료"]
+  },
+  {
+    title: "인증 이후 운영 매뉴얼까지 관리",
+    desc: "인증 획득 후에도 지속적인 운영 관리를 위한 매뉴얼과 시스템을 제공합니다.",
+    icon: Clock,
+    features: ["운영 매뉴얼 제공", "지속 관리 지원", "갱신 심사 대비"]
+  }
+];
+
+const DATA_SERVICES = [
+  {
+    title: "업종별 규정 데이터베이스 자동 반영",
+    desc: "식품 제조업 업종별 HACCP 규정을 데이터베이스화하여 자동으로 적용합니다.",
+    icon: FileText,
+    features: ["업종별 규정 DB", "자동 업데이트", "맞춤형 가이드"]
+  },
+  {
+    title: "HACCP 운영 리포트 자동 생성",
+    desc: "수집된 데이터를 바탕으로 심사관이 요구하는 모든 리포트를 자동 생성합니다.",
+    icon: ClipboardList,
+    features: ["자동 리포트 생성", "심사 기준 맞춤", "정확도 100%"]
+  },
+  {
+    title: "클라우드 기반 기록 보관",
+    desc: "모든 HACCP 관련 기록을 안전하게 클라우드에 보관하여 언제든지 접근 가능합니다.",
+    icon: Shield,
+    features: ["클라우드 저장", "무제한 용량", "보안 강화"]
+  }
+];
 
 export default function ConsultingPage() {
-  const [formData, setFormData] = useState({
-    name: '',
-    company: '',
-    phone: '',
-    email: '',
-    package: '',
-    message: '',
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    alert('상담 신청이 접수되었습니다!\n24시간 내 연락드리겠습니다.');
-    console.log('Consulting request:', formData);
-  };
+  const [selectedService, setSelectedService] = useState<string>('');
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-[#101828] to-[#6A5AE0] text-white py-20">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <div className="inline-block px-4 py-2 bg-purple-500/30 rounded-full text-sm font-bold mb-6">
-            HACCP 컨설팅
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-indigo-50">
+      {/* Hero Section */}
+      <section className="px-6 md:px-12 py-20 bg-gradient-to-b from-white to-gray-50">
+        <div className="max-w-6xl mx-auto text-center">
+          <div className="inline-block px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-semibold mb-6">
+            🧾 HACCP 전문 컨설팅
           </div>
-          <h1 className="text-5xl font-bold mb-6">
-            전문가와 함께하는 HACCP 준비
+          <h1 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight mb-6">
+            설계부터 인증까지, HACCP을 시스템으로 관리합니다
           </h1>
-          <p className="text-xl text-blue-100 mb-8">
-            함께 준비하고, 스스로 성공하는 인증 준비 과정
+          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
+            수기 기록은 이제 그만 — 자동화된 HACCP 관리로 심사 부담 0%
+            <br className="hidden md:block" />
+            HACCP 인증과 스마트 운영, 함께 설계해야 진짜 효율이 완성됩니다
           </p>
-          <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 inline-block">
-            <p className="text-lg font-medium">
-              💡 컨설팅(자문·교육·사전점검)을 통해 함께 준비합니다
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* 컨설팅 서비스 */}
-      <section id="services" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-[#101828] mb-4">
-              우리가 제공하는 컨설팅 서비스
-            </h2>
-            <p className="text-xl text-gray-600">
-              전문가와 함께 체계적으로 준비하는 HACCP 인증 과정
-            </p>
-          </div>
-
-          <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-2xl border-2 border-green-200 max-w-5xl mx-auto">
-            <h3 className="text-2xl font-bold text-green-800 mb-8 text-center">
-              ✅ 전문 컨설팅 서비스
-            </h3>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="space-y-4">
-                {HACCP_CONSULTING.weOffer.slice(0, 3).map((item, idx) => (
-                  <div key={idx} className="bg-white p-4 rounded-xl">
-                    <div className="flex items-start space-x-3">
-                      <CheckCircle2 className="w-6 h-6 text-green-600 mt-0.5 flex-shrink-0" />
-                      <div>
-                        <div className="font-bold text-gray-900">{item.title}</div>
-                        <div className="text-sm text-gray-600 mt-1">{item.description}</div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="space-y-4">
-                {HACCP_CONSULTING.weOffer.slice(3).map((item, idx) => (
-                  <div key={idx} className="bg-white p-4 rounded-xl">
-                    <div className="flex items-start space-x-3">
-                      <CheckCircle2 className="w-6 h-6 text-green-600 mt-0.5 flex-shrink-0" />
-                      <div>
-                        <div className="font-bold text-gray-900">{item.title}</div>
-                        <div className="text-sm text-gray-600 mt-1">{item.description}</div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="mt-8 p-6 bg-white/70 rounded-xl text-center">
-              <p className="text-lg text-gray-800 font-medium mb-2">
-                💡 함께 준비하는 컨설팅
-              </p>
-              <p className="text-sm text-gray-600">
-                전문가가 옆에서 가이드하며, 귀하의 팀이 직접 실행할 수 있도록 돕습니다
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 컨설팅 프로세스 */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-[#101828] mb-4">
-              HACCP 준비 절차
-            </h2>
-            <p className="text-xl text-gray-600">
-              5단계 컨설팅 코스로 체계적으로 준비하세요
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-5 gap-4">
-            {HACCP_PROCESS.map((step, idx) => (
-              <div key={idx} className="relative">
-                <div className="bg-white p-6 rounded-2xl border-2 border-gray-200 hover:border-blue-500 transition-all h-full">
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#007AFF] to-[#6A5AE0] rounded-xl flex items-center justify-center text-white font-bold text-xl mb-4">
-                    {step.step}
-                  </div>
-                  <h3 className="font-bold text-lg mb-2">{step.title}</h3>
-                  <p className="text-sm text-gray-600 mb-3">{step.description}</p>
-                  <div className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${
-                    step.role === '컨설턴트' ? 'bg-blue-100 text-blue-700' :
-                    step.role === '고객' ? 'bg-gray-100 text-gray-700' :
-                    'bg-purple-100 text-purple-700'
-                  }`}>
-                    {step.role}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 패키지 */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-[#101828] mb-4">
-              컨설팅 패키지
-            </h2>
-            <p className="text-xl text-gray-600">
-              프로젝트 단계에 맞는 패키지를 선택하세요
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {HACCP_PACKAGES.map((pkg) => (
-              <div key={pkg.id} className={`bg-white rounded-2xl border-2 p-8 hover:shadow-xl transition-all ${
-                pkg.id === 'standard' ? 'border-blue-500 transform scale-105' : 'border-gray-200'
-              }`}>
-                {pkg.id === 'standard' && (
-                  <div className="inline-block px-3 py-1 bg-blue-500 text-white text-xs font-bold rounded-full mb-4">
-                    추천
-                  </div>
-                )}
-                <h3 className="text-2xl font-bold mb-2">{pkg.name}</h3>
-                <div className="text-4xl font-bold text-blue-600 mb-6">{pkg.price}</div>
-                
-                <div className="space-y-3 mb-6">
-                  <div className="text-sm font-semibold text-gray-700 mb-2">포함 사항:</div>
-                  {pkg.includes.map((item, idx) => (
-                    <div key={idx} className="flex items-start space-x-2">
-                      <CheckCircle2 className="w-4 h-4 text-green-600 mt-0.5" />
-                      <span className="text-sm text-gray-700">{item}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="space-y-3 mb-6">
-                  <div className="text-sm font-semibold text-red-700 mb-2">미포함 (대행):</div>
-                  {pkg.excludes.map((item, idx) => (
-                    <div key={idx} className="flex items-start space-x-2">
-                      <AlertCircle className="w-4 h-4 text-red-600 mt-0.5" />
-                      <span className="text-sm text-gray-700">{item}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="bg-gray-50 p-3 rounded-lg mb-6">
-                  <div className="text-xs text-gray-600">추천 대상</div>
-                  <div className="font-medium text-gray-900">{pkg.recommended}</div>
-                </div>
-
-                <button className="w-full py-3 bg-gradient-to-r from-[#007AFF] to-[#6A5AE0] text-white rounded-xl font-bold hover:shadow-lg transition-all">
-                  선택하기
-                </button>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-8 text-center">
-            <div className="inline-block px-6 py-3 bg-yellow-50 border-2 border-yellow-300 rounded-xl">
-              <p className="text-sm font-bold text-yellow-800">
-                ⚠️ 모든 패키지는 대행 업무를 포함하지 않습니다
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-[#101828] mb-4">
-              자주 묻는 질문
-            </h2>
-          </div>
-
-          <div className="space-y-4">
-            {HACCP_FAQ.map((faq, idx) => (
-              <details key={idx} className="bg-white p-6 rounded-xl border border-gray-200 hover:border-blue-300 transition-all group">
-                <summary className="font-bold text-lg text-gray-900 cursor-pointer flex items-center justify-between">
-                  <span>Q. {faq.question}</span>
-                  <span className="text-blue-500 group-open:rotate-180 transition-transform">▼</span>
-                </summary>
-                <div className="mt-4 text-gray-700 leading-relaxed pl-4 border-l-4 border-blue-500">
-                  {faq.answer}
-                </div>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 상담 신청 폼 */}
-      <section className="py-20 bg-white">
-        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-[#101828] mb-4">
-              HACCP 컨설팅 상담 신청
-            </h2>
-            <p className="text-xl text-gray-600">
-              전문가가 24시간 내 연락드립니다
-            </p>
-          </div>
-
-          <form onSubmit={handleSubmit} className="bg-white p-8 rounded-2xl border-2 border-gray-200 shadow-lg space-y-6">
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  담당자명 *
-                </label>
-                <input
-                  type="text"
-                  required
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="input-field"
-                  placeholder="홍길동"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  회사명 *
-                </label>
-                <input
-                  type="text"
-                  required
-                  value={formData.company}
-                  onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                  className="input-field"
-                  placeholder="식품공장(주)"
-                />
-              </div>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  전화번호 *
-                </label>
-                <input
-                  type="tel"
-                  required
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="input-field"
-                  placeholder="010-1234-5678"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  이메일 *
-                </label>
-                <input
-                  type="email"
-                  required
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="input-field"
-                  placeholder="contact@example.com"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                희망 패키지
-              </label>
-              <select
-                value={formData.package}
-                onChange={(e) => setFormData({ ...formData, package: e.target.value })}
-                className="input-field"
-              >
-                <option value="">선택하세요</option>
-                <option value="lite">Lite - 초기 진단 (300만원)</option>
-                <option value="standard">Standard - 문서 코칭 (800만원)</option>
-                <option value="pro">Pro - 모의심사 포함 (1500만원)</option>
-              </select>
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                문의 내용
-              </label>
-              <textarea
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                className="input-field"
-                rows={4}
-                placeholder="프로젝트 현황, 궁금한 점 등을 자유롭게 작성해주세요"
-              />
-            </div>
-
-            <div className="bg-yellow-50 p-4 rounded-xl border border-yellow-200">
-              <p className="text-sm text-yellow-800">
-                ⚠️ <strong>안내:</strong> 컨설팅만 제공하며, 대행(대리 신청·심사 대응·운영 책임)은 제공하지 않습니다.
-              </p>
-            </div>
-
-            <button
-              type="submit"
-              className="w-full py-4 bg-gradient-to-r from-[#007AFF] to-[#6A5AE0] text-white rounded-xl font-bold text-lg hover:shadow-xl transition-all"
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Link 
+              href="#contact"
+              className="px-6 py-3 rounded-lg bg-purple-600 text-white font-semibold hover:bg-purple-700 transition-colors min-h-[44px] flex items-center"
             >
-              <Send className="inline-block w-5 h-5 mr-2" />
-              상담 신청하기
-            </button>
-          </form>
+              HACCP 인증 + 스마트 운영 통합 컨설팅 문의
+            </Link>
+            <Link 
+              href="#diagnosis"
+              className="px-6 py-3 rounded-lg border border-gray-300 text-gray-700 font-semibold hover:bg-gray-50 transition-colors min-h-[44px] flex items-center"
+            >
+              내 공장 HACCP 인증 준비 진단 요청
+            </Link>
+            <Link 
+              href="#demo"
+              className="px-6 py-3 rounded-lg bg-purple-50 text-purple-700 font-semibold hover:bg-purple-100 transition-colors min-h-[44px] flex items-center"
+            >
+              전문가와 HACCP 운영 자동화 상담 예약
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* 전문성 강화 섹션 */}
+      <section className="px-6 md:px-12 py-16 bg-white">
+        <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-[#101828] mb-4">
-              자주 묻는 질문
-            </h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">전문성 강화</h2>
+            <p className="text-xl text-gray-600">20년 경력 전문가의 체계적인 HACCP 지원</p>
           </div>
-
-          <div className="space-y-4">
-            {HACCP_FAQ.map((faq, idx) => (
-              <details key={idx} className="bg-white p-6 rounded-xl border-2 border-gray-200 hover:border-blue-300 transition-all group">
-                <summary className="font-bold text-lg text-gray-900 cursor-pointer flex items-center justify-between">
-                  <span>Q. {faq.question}</span>
-                  <span className="text-blue-500 group-open:rotate-180 transition-transform">▼</span>
-                </summary>
-                <div className="mt-4 text-gray-700 leading-relaxed pl-4 border-l-4 border-blue-500">
-                  {faq.answer}
+          <div className="grid md:grid-cols-3 gap-8">
+            {HACCP_SERVICES.map((service, index) => (
+              <div key={index} className="p-6 rounded-xl border bg-gray-50 hover:shadow-lg transition-shadow">
+                <div className="flex items-center mb-4">
+                  <div className="p-3 bg-purple-100 rounded-lg mr-4">
+                    <service.icon className="w-6 h-6 text-purple-600" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900">{service.title}</h3>
                 </div>
-              </details>
+                <p className="text-gray-600 mb-4">{service.desc}</p>
+                <ul className="space-y-2">
+                  {service.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-center text-sm text-gray-600">
+                      <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 bg-gradient-to-r from-[#007AFF] to-[#6A5AE0] text-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-6">
-            준비되셨나요?
+      {/* 효율성 중심 섹션 */}
+      <section className="px-6 md:px-12 py-16 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">효율성 중심</h2>
+            <p className="text-xl text-gray-600">자동화를 통한 HACCP 관리 혁신</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {EFFICIENCY_SERVICES.map((service, index) => (
+              <div key={index} className="p-6 rounded-xl border bg-white hover:shadow-lg transition-shadow">
+                <div className="flex items-center mb-4">
+                  <div className="p-3 bg-blue-100 rounded-lg mr-4">
+                    <service.icon className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900">{service.title}</h3>
+                </div>
+                <p className="text-gray-600 mb-4">{service.desc}</p>
+                <ul className="space-y-2">
+                  {service.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-center text-sm text-gray-600">
+                      <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 데이터 기반 관리 섹션 */}
+      <section className="px-6 md:px-12 py-16 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">데이터 기반 관리</h2>
+            <p className="text-xl text-gray-600">스마트 시스템으로 완성하는 HACCP 운영</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {DATA_SERVICES.map((service, index) => (
+              <div key={index} className="p-6 rounded-xl border bg-gray-50 hover:shadow-lg transition-shadow">
+                <div className="flex items-center mb-4">
+                  <div className="p-3 bg-green-100 rounded-lg mr-4">
+                    <service.icon className="w-6 h-6 text-green-600" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900">{service.title}</h3>
+                </div>
+                <p className="text-gray-600 mb-4">{service.desc}</p>
+                <ul className="space-y-2">
+                  {service.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-center text-sm text-gray-600">
+                      <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA 섹션 */}
+      <section id="contact" className="px-6 md:px-12 py-16 bg-gradient-to-r from-purple-600 to-indigo-600">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold text-white mb-6">
+            내 프로젝트 데이터를 저장하고 전문가와 연결되세요
           </h2>
-          <p className="text-xl mb-8 text-blue-100">
-            컨설팅을 통해 스스로 HACCP 인증을 준비하세요
+          <p className="text-xl text-purple-100 mb-8">
+            HACCP 인증 성공률 95% 이상의 전문가 팀이 직접 지원합니다
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#services">
-              <button className="px-8 py-4 bg-white text-[#007AFF] rounded-xl font-bold text-lg hover:bg-gray-100 transition-all">
-                패키지 선택하기
-              </button>
-            </a>
-            <Link href="/estimate">
-              <button className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 rounded-xl font-bold text-lg hover:bg-white/20 transition-all">
-                공장 견적 먼저 보기
-              </button>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Link 
+              href="/estimate"
+              className="px-6 py-3 rounded-lg bg-white text-purple-600 font-semibold hover:bg-gray-100 transition-colors min-h-[44px] flex items-center"
+            >
+              <Calendar className="w-5 h-5 mr-2" />
+              무료 상담 신청하기
+            </Link>
+            <Link 
+              href="#demo"
+              className="px-6 py-3 rounded-lg border border-white text-white font-semibold hover:bg-white hover:text-purple-600 transition-colors min-h-[44px] flex items-center"
+            >
+              <Download className="w-5 h-5 mr-2" />
+              HACCP 가이드북 다운로드
             </Link>
           </div>
         </div>
@@ -396,4 +232,3 @@ export default function ConsultingPage() {
     </div>
   );
 }
-

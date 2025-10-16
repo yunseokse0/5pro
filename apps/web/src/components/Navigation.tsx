@@ -27,13 +27,9 @@ const Navigation = () => {
   const navItems = [
     { href: '/', icon: Home, label: '홈' },
     { href: '/estimate', icon: Calculator, label: '견적' },
-    { href: '/3d-visualization', icon: Box, label: '3D 조감도' },
     { href: '/smart-factory', icon: Cpu, label: '스마트팩토리' },
     { href: '/consulting', icon: ShieldCheck, label: 'HACCP' },
-    { href: '/partners', icon: Users2, label: '파트너사' },
-    { href: '/contract', icon: FileSignature, label: '계약관리' },
-    { href: '/progress', icon: Gauge, label: '진행상황' },
-    { href: '/login', icon: UserCheck, label: '로그인' },
+    { href: '/signup', icon: UserCheck, label: '회원가입' },
   ]
 
   return (

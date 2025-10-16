@@ -125,29 +125,28 @@ export default function SmartFactoryPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-bold mb-6">
-              🏭 스마트 팩토리 솔루션
+              💰 1억 규모 스마트팩토리 구축
             </div>
                 <h1 className="text-5xl font-bold mb-6">
-                  5PRO 스마트팩토리
-                  <br />
+                  운영비 절감과 품질 향상을 동시에 실현하는<br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-purple-200">
-                    공장의 두뇌를 설계하다
+                    스마트팩토리 솔루션 (1억 규모 이상)
                   </span>
                 </h1>
                 <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-                  데이터로 움직이는 공장.<br />
-                  운영 비용을 줄이고, 품질과 효율을 모두 잡는 통합 솔루션입니다.
+                  공장 설립의 마지막 단계, 스마트 운영의 시작입니다.<br />
+                  데이터가 흐르는 공장 — 생산·품질·재고를 하나로 연결합니다.
                 </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="#solutions">
                 <button className="px-8 py-4 bg-white text-[#101828] rounded-xl font-bold text-lg hover:bg-gray-100 transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
                   <Eye className="inline-block w-5 h-5 mr-2" />
-                  솔루션 둘러보기
+                  스마트팩토리 구축 상담 (1억 규모 이상 프로젝트)
                 </button>
               </Link>
               <Link href="#consultation">
                 <button className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 rounded-xl font-bold text-lg hover:bg-white/20 transition-all">
-                  무료 상담 신청
+                  운영 효율·품질 개선 시뮬레이션 요청
                   <ArrowRight className="inline-block w-5 h-5 ml-2" />
                 </button>
               </Link>
@@ -160,12 +159,12 @@ export default function SmartFactoryPage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-[#101828] mb-4">
-              핵심 기능 3대 축
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              문제 → 솔루션 → 효과로 구성된 체계적인 스마트팩토리 솔루션
-            </p>
+          <h2 className="text-4xl font-bold text-[#101828] mb-4">
+            핵심 이득 3가지
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            1억 원 이상의 투자로 완성되는 운영 효율·품질 관리 시스템
+          </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -173,19 +172,19 @@ export default function SmartFactoryPage() {
               <div className="p-4 bg-blue-100 rounded-full inline-flex mb-6">
                 <TrendingUp className="w-8 h-8 text-blue-600" />
               </div>
-              <h3 className="text-2xl font-bold text-[#101828] mb-4">생산성 향상</h3>
+              <h3 className="text-2xl font-bold text-[#101828] mb-4">품질 혁신</h3>
               <div className="space-y-4">
                 <div className="p-4 bg-red-50 rounded-lg">
                   <h4 className="font-semibold text-red-800 mb-2">문제</h4>
-                  <p className="text-red-700">반복되는 생산 지연, 비효율적 작업 흐름</p>
+                  <p className="text-red-700">생산 오류 실시간 감지 및 자동 경보</p>
                 </div>
                 <div className="p-4 bg-blue-50 rounded-lg">
                   <h4 className="font-semibold text-blue-800 mb-2">솔루션</h4>
-                  <p className="text-blue-700">IoT 기반 실시간 생산 모니터링으로 병목 구간 자동 감지</p>
+                  <p className="text-blue-700">품질 데이터 기반 불량률 40% 감소</p>
                 </div>
                 <div className="p-4 bg-green-50 rounded-lg">
                   <h4 className="font-semibold text-green-800 mb-2">결과</h4>
-                  <p className="text-green-700">생산 효율 20%↑, 작업 시간 25% 단축</p>
+                  <p className="text-green-700">HACCP 심사 대비 문서 자동 생성</p>
                 </div>
               </div>
             </div>
@@ -194,19 +193,19 @@ export default function SmartFactoryPage() {
               <div className="p-4 bg-green-100 rounded-full inline-flex mb-6">
                 <ShieldCheck className="w-8 h-8 text-green-600" />
               </div>
-              <h3 className="text-2xl font-bold text-[#101828] mb-4">품질 안정화</h3>
+              <h3 className="text-2xl font-bold text-[#101828] mb-4">비용 절감·효율</h3>
               <div className="space-y-4">
                 <div className="p-4 bg-red-50 rounded-lg">
                   <h4 className="font-semibold text-red-800 mb-2">문제</h4>
-                  <p className="text-red-700">수작업 기록, 불량률 증가</p>
+                  <p className="text-red-700">원가 분석 기반 공정 최적화로 인건비 15% 절감</p>
                 </div>
                 <div className="p-4 bg-blue-50 rounded-lg">
                   <h4 className="font-semibold text-blue-800 mb-2">솔루션</h4>
-                  <p className="text-blue-700">센서 기반 품질 자동 검사 + HACCP 기록 자동화</p>
+                  <p className="text-blue-700">창고·물류 관리 자동화로 재고 손실 0%</p>
                 </div>
                 <div className="p-4 bg-green-50 rounded-lg">
                   <h4 className="font-semibold text-green-800 mb-2">결과</h4>
-                  <p className="text-green-700">불량률 40%↓, 기록 관리 시간 70% 절감</p>
+                  <p className="text-green-700">에너지 효율 모니터링으로 연간 유지비 절감</p>
                 </div>
               </div>
             </div>
@@ -215,19 +214,19 @@ export default function SmartFactoryPage() {
               <div className="p-4 bg-orange-100 rounded-full inline-flex mb-6">
                 <Zap className="w-8 h-8 text-orange-600" />
               </div>
-              <h3 className="text-2xl font-bold text-[#101828] mb-4">재고·에너지 효율</h3>
+              <h3 className="text-2xl font-bold text-[#101828] mb-4">안전·신뢰성</h3>
               <div className="space-y-4">
                 <div className="p-4 bg-red-50 rounded-lg">
                   <h4 className="font-semibold text-red-800 mb-2">문제</h4>
-                  <p className="text-red-700">과잉생산과 불필요한 에너지 사용</p>
+                  <p className="text-red-700">출입·동선·온습도 이력 추적</p>
                 </div>
                 <div className="p-4 bg-blue-50 rounded-lg">
                   <h4 className="font-semibold text-blue-800 mb-2">솔루션</h4>
-                  <p className="text-blue-700">실시간 재고 모니터링 및 에너지 사용 최적화</p>
+                  <p className="text-blue-700">오염 리스크 제로 환경 구축</p>
                 </div>
                 <div className="p-4 bg-green-50 rounded-lg">
                   <h4 className="font-semibold text-green-800 mb-2">결과</h4>
-                  <p className="text-green-700">월 평균 15% 에너지 절감</p>
+                  <p className="text-green-700">HACCP 사후관리 자동화 지원</p>
                 </div>
               </div>
             </div>
@@ -469,10 +468,10 @@ export default function SmartFactoryPage() {
       <section className="py-20 bg-gradient-to-r from-[#007AFF] to-[#6A5AE0] text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-6">
-            스마트팩토리 데모 요청하기
+            스마트 운영 대시보드 데모 보기
           </h2>
           <p className="text-xl mb-8 text-blue-100">
-            내 공장의 운영 효율 분석과 ROI 효율 보고서를 받아보세요
+            내 프로젝트 데이터를 저장하고 전문가와 연결되세요
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="#consultation">

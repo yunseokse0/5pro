@@ -107,11 +107,16 @@ export default function EstimatePage() {
       <div className="max-w-4xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
+          <div className="inline-block px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full text-sm font-semibold mb-6">
+            💰 1억 규모 스마트팩토리 포함 견적
+          </div>
           <h1 className="text-4xl font-bold text-[#101828] mb-4">
-            스마트 견적 시뮬레이터
+            AI가 계산하는 95% 정확도의 즉시 견적
           </h1>
-          <p className="text-xl text-gray-600">
-            3단계만으로 정확한 공장 건설 견적을 확인하세요
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            HACCP 설비와 스마트팩토리 인프라까지 반영되어 추가비용 걱정이 없습니다.
+            <br className="hidden md:block" />
+            면적·생산량·제품유형만 입력하면 1억 규모 이상의 운영 효율 시스템까지 포함된 총사업비를 확인할 수 있습니다.
           </p>
         </div>
 
@@ -152,7 +157,7 @@ export default function EstimatePage() {
             <div className="space-y-8">
               <div>
                 <h2 className="text-2xl font-bold mb-2 text-[#101828]">지역을 선택하세요</h2>
-                <p className="text-gray-600 mb-6">지역별 비용 지수가 자동으로 적용됩니다</p>
+                <p className="text-gray-600 mb-6">단 5분 투자로 설립비 30% 절감 + 운영비 효율 20% 향상 가능성을 확인하세요</p>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                   {REGIONS.map((region) => (
                     <button
@@ -201,7 +206,7 @@ export default function EstimatePage() {
             <div className="space-y-6">
               <div>
                 <h2 className="text-2xl font-bold mb-2 text-[#101828]">공장 유형을 선택하세요</h2>
-                <p className="text-gray-600 mb-6">업종별 특화된 설계가 적용됩니다</p>
+                <p className="text-gray-600 mb-6">AI 기반 스마트 견적, 지금 바로 실행해 보세요</p>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                   {FACTORY_TYPES.map((type) => (
                     <button
@@ -227,7 +232,7 @@ export default function EstimatePage() {
             <div className="space-y-6">
               <div>
                 <h2 className="text-2xl font-bold mb-2 text-[#101828]">추가 시설을 선택하세요</h2>
-                <p className="text-gray-600 mb-6">필요한 시설을 모두 선택하세요 (복수 선택 가능)</p>
+                <p className="text-gray-600 mb-6">1억 원 이상 프로젝트의 예상 예산과 일정, 지금 바로 시뮬레이션</p>
                 <div className="space-y-3">
                   {FACILITIES.map((facility) => (
                     <button
@@ -447,7 +452,7 @@ export default function EstimatePage() {
               <div className="flex gap-4">
                 <button className="flex-1 px-6 py-4 bg-gradient-to-r from-[#007AFF] to-[#6A5AE0] text-white rounded-xl font-bold hover:shadow-xl transition-all">
                   <Download className="inline-block w-5 h-5 mr-2" />
-                  PDF로 저장하기
+                  스마트팩토리 포함 통합 견적 확인
                 </button>
                 <button 
                   onClick={handleReset}
