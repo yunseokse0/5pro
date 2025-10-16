@@ -16,18 +16,18 @@ export default function HomePage() {
                 💡 스마트 견적 시스템
               </div>
                   <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
-                    지금 바로 짓고, 미래까지 준비하는
+                    짓는 것에서 멈추지 않습니다.
                     <br />
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-purple-200">
-                      단 하나의 식품공장 솔루션
+                      '운영까지 설계하는' 식품공장 솔루션
                     </span>
                   </h1>
                   <p className="text-xl text-gray-200 leading-relaxed">
-                    설계, HACCP, 시공, 그리고 운영 자동화까지.
+                    설계, HACCP 컨설팅, 시공, 그리고 스마트팩토리 시스템까지.
                     <br />
-                    5PRO는 공장의 시작과 미래를 함께 설계합니다.
+                    5PRO는 공장의 시작부터 미래 운영 효율까지 함께 설계합니다.
                     <br />
-                    <strong className="text-yellow-300">95% 정확도 견적 · 30% 비용 절감 · 10년 지속 효율</strong>
+                    데이터 기반 견적과 20년 현장 노하우로, 더 정확하고 효율적인 공장을 만들어 드립니다.
                   </p>
               <div className="inline-block px-4 py-2 bg-purple-500/20 backdrop-blur-sm rounded-full text-sm border border-purple-300/30 mb-4">
                 <span className="text-purple-200">HACCP 컨설팅 제공</span>
@@ -35,22 +35,29 @@ export default function HomePage() {
               <p className="text-sm text-blue-200 mb-6">
                 컨설팅(자문·교육·사전점검)을 통해 함께 준비합니다.
               </p>
-                  <div className="flex flex-col sm:flex-row gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <Link href="/estimate">
-                      <button className="w-full sm:w-auto px-8 py-4 bg-white text-[#101828] rounded-xl font-bold text-lg hover:bg-gray-100 transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
+                      <button className="w-full px-8 py-4 bg-white text-[#101828] rounded-xl font-bold text-lg hover:bg-gray-100 transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
                         <Calculator className="inline-block w-5 h-5 mr-2" />
                         즉시 견적 보기
-                      </button>
-                    </Link>
-                    <Link href="/smart-factory">
-                      <button className="w-full sm:w-auto px-8 py-4 bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 rounded-xl font-bold text-lg hover:bg-white/20 transition-all">
-                        스마트팩토리 데모 보기
                         <ArrowRight className="inline-block w-5 h-5 ml-2" />
                       </button>
                     </Link>
                     <Link href="/consulting">
-                      <button className="w-full sm:w-auto px-8 py-4 bg-purple-500/20 backdrop-blur-sm text-white border-2 border-purple-300/30 rounded-xl font-bold text-lg hover:bg-purple-500/30 transition-all">
+                      <button className="w-full px-8 py-4 bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 rounded-xl font-bold text-lg hover:bg-white/20 transition-all">
                         전문가 상담 신청
+                        <ArrowRight className="inline-block w-5 h-5 ml-2" />
+                      </button>
+                    </Link>
+                    <Link href="/smart-factory">
+                      <button className="w-full px-8 py-4 bg-purple-500/20 backdrop-blur-sm text-white border-2 border-purple-300/30 rounded-xl font-bold text-lg hover:bg-purple-500/30 transition-all">
+                        스마트팩토리 데모 보기
+                        <ArrowRight className="inline-block w-5 h-5 ml-2" />
+                      </button>
+                    </Link>
+                    <Link href="/estimate">
+                      <button className="w-full px-8 py-4 bg-orange-500/20 backdrop-blur-sm text-white border-2 border-orange-300/30 rounded-xl font-bold text-lg hover:bg-orange-500/30 transition-all">
+                        운영 효율 시뮬레이션 받기
                         <ArrowRight className="inline-block w-5 h-5 ml-2" />
                       </button>
                     </Link>
@@ -103,7 +110,7 @@ export default function HomePage() {
               </div>
               <h3 className="text-2xl font-bold mb-4 text-[#101828]">데이터 기반 견적</h3>
               <p className="text-gray-600 leading-relaxed">
-                95% 정확도의 비용 예측으로 불확실성을 제거합니다
+                AI 분석을 통한 95% 정확도의 비용 예측으로 불확실성을 줄입니다
               </p>
             </div>
 
@@ -113,7 +120,7 @@ export default function HomePage() {
               </div>
               <h3 className="text-2xl font-bold mb-4 text-[#101828]">HACCP 컨설팅 전문성</h3>
               <p className="text-gray-600 leading-relaxed">
-                문서·공정·검증까지 현장 맞춤형 지원을 제공합니다
+                현장 진단부터 문서 코칭, 모의심사까지 체계적인 준비를 지원합니다
               </p>
             </div>
 
@@ -123,7 +130,7 @@ export default function HomePage() {
               </div>
               <h3 className="text-2xl font-bold mb-4 text-[#101828]">스마트팩토리 통합 시스템</h3>
               <p className="text-gray-600 leading-relaxed">
-                생산·품질·재고를 한눈에 모니터링합니다
+                생산·품질·재고를 실시간으로 연결해 운영 효율을 극대화합니다
               </p>
             </div>
 
@@ -133,41 +140,49 @@ export default function HomePage() {
               </div>
               <h3 className="text-2xl font-bold mb-4 text-[#101828]">지속 가능한 효율성</h3>
               <p className="text-gray-600 leading-relaxed">
-                설립 후 10년 이상 유지되는 운영 안정성을 보장합니다
+                설립 이후 10년 이상 안정적으로 유지되는 데이터 기반 운영 구조를 제공합니다
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 스마트 견적 시뮬레이터 CTA */}
+      {/* 섹션 문구 예시 */}
       <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-[#101828] mb-6">
-            정말 30% 절약되는지 직접 확인해보세요
-          </h2>
-          <p className="text-xl text-gray-600 mb-8">
-            지역, 규모, 용도를 입력하면 스마트 시스템이 즉시 정확한 견적을 생성합니다
-          </p>
-          <div className="flex justify-center gap-4">
-            <Link href="/estimate">
-              <button className="px-10 py-5 bg-gradient-to-r from-[#007AFF] to-[#6A5AE0] text-white rounded-xl font-bold text-lg hover:shadow-2xl transition-all transform hover:-translate-y-1">
-                <Calculator className="inline-block w-6 h-6 mr-2" />
-                견적 시뮬레이션 시작
-              </button>
-            </Link>
-          </div>
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
-            <div className="bg-white p-6 rounded-xl shadow-md">
-              <div className="text-sm text-gray-500 mb-2">기존 방식</div>
-              <div className="text-3xl font-bold text-gray-800">10억원</div>
-              <div className="text-xs text-red-600 mt-2">+ 추가 비용 발생 가능성 높음</div>
+          <div className="bg-white p-12 rounded-2xl shadow-lg">
+            <h2 className="text-3xl font-bold text-[#101828] mb-8">
+              "지금 짓는 공장, 10년 뒤에도 경쟁력이 있을까요?"
+            </h2>
+            <div className="text-lg text-gray-700 leading-relaxed space-y-4">
+              <p>
+                5PRO는 단순한 시공을 넘어<br />
+                설계–컨설팅–스마트 운영까지 모두 연결된 데이터 기반 솔루션으로<br />
+                미래까지 준비하는 공장을 완성합니다.
+              </p>
             </div>
-            <div className="bg-white p-6 rounded-xl shadow-md border-2 border-blue-500">
-              <div className="text-sm text-blue-600 mb-2">오프로 방식</div>
-              <div className="text-3xl font-bold text-blue-600">7억원</div>
-              <div className="text-xs text-green-600 mt-2">✓ 완벽한 비용 보장</div>
-              <div className="mt-4 text-xl font-bold text-green-600">💰 3억원 절약</div>
+            <div className="mt-8 grid md:grid-cols-3 gap-6">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-blue-600 mb-2">95%</div>
+                <div className="text-gray-700">AI 견적 정확도</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-green-600 mb-2">20년</div>
+                <div className="text-gray-700">현장 노하우</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-purple-600 mb-2">10년+</div>
+                <div className="text-gray-700">지속 운영 효율</div>
+              </div>
+            </div>
+            <div className="mt-8">
+              <Link href="/estimate">
+                <button className="px-8 py-4 bg-gradient-to-r from-[#007AFF] to-[#6A5AE0] text-white rounded-xl font-bold text-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
+                  <Calculator className="inline-block w-5 h-5 mr-2" />
+                  AI 기반 입력으로 1분 만에 맞춤 견적 확인
+                  <ArrowRight className="inline-block w-5 h-5 ml-2" />
+                </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -334,19 +349,20 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-[#101828] mb-4">
-              5단계 스마트팩토리 여정
+              한 번의 설립, 10년의 운영 효율을 설계하다
             </h2>
             <p className="text-xl text-gray-600">
-              설립부터 운영까지, 체계적이고 신뢰할 수 있는 프로세스로 완성합니다
+              5PRO의 5단계 프로세스는 공장 설립에서 운영 자동화까지<br />
+              모두 고려한 "스마트팩토리 구축 여정"입니다.
             </p>
           </div>
           <div className="grid md:grid-cols-5 gap-6">
             {[
-              { step: '1', title: 'AI 견적 요청', desc: '설비·면적·생산품 데이터 입력으로 95% 정확도 자동 견적 생성', icon: Calculator },
-              { step: '2', title: '3D 설계 & 스마트 시스템 구상', desc: '동선·HACCP 구역·운영 효율까지 고려한 설계 제안', icon: Box },
-              { step: '3', title: '계약 체결 & 프로젝트 관리', desc: '명확한 ROI 산정과 일정 관리로 불확실성 제거', icon: FileSignature },
-              { step: '4', title: '시공 & 스마트 인프라 구축', desc: '센서, 제어 시스템, 실시간 모니터링 장비를 포함한 통합 시공', icon: Gauge },
-              { step: '5', title: '완공 인도 & 운영 교육', desc: '시스템 사용법·데이터 활용법·유지보수 가이드까지 제공', icon: ShieldCheck },
+              { step: '1', title: 'AI 견적 요청', desc: '입력값만으로 95% 정확도의 자동 견적 생성\n불필요한 추가 비용 없이 명확한 초기 예산 수립', icon: Calculator },
+              { step: '2', title: '3D 설계 & 스마트 시스템 구상', desc: '단순 도면이 아닌 운영 효율을 포함한 공정 설계\nHACCP 기준의 구역화, 동선, 재료 흐름까지 시각화', icon: Box },
+              { step: '3', title: '계약 체결 & 프로젝트 관리', desc: '일정·비용·ROI를 명확히 제시\n프로젝트 대시보드로 진행 상황을 실시간 공유', icon: FileSignature },
+              { step: '4', title: '시공 & 스마트 인프라 구축', desc: '설비, 제어, IoT 센서까지 통합 구축\n시공 중에도 데이터 수집 구조를 함께 세팅', icon: Gauge },
+              { step: '5', title: '완공 인도 & 운영 교육', desc: '단순 인도가 아닌 운영 시스템 활용 교육 포함\n유지보수, 데이터 분석, 리포트 활용법까지 지원', icon: ShieldCheck },
             ].map((item, idx) => (
               <div key={idx} className="relative">
                 <div className="bg-white p-6 rounded-2xl border-2 border-gray-200 hover:border-blue-500 transition-all shadow-sm hover:shadow-md">
@@ -354,7 +370,7 @@ export default function HomePage() {
                     <item.icon className="w-6 h-6" strokeWidth={2.2} />
                   </div>
                   <h3 className="font-bold text-lg mb-2 text-gray-800">{item.title}</h3>
-                  <p className="text-sm text-gray-600">{item.desc}</p>
+                  <p className="text-sm text-gray-600 whitespace-pre-line">{item.desc}</p>
                 </div>
                 {idx < 4 && (
                   <div className="hidden md:block absolute top-1/2 -right-3 transform -translate-y-1/2">
@@ -364,6 +380,15 @@ export default function HomePage() {
               </div>
             ))}
           </div>
+          
+          <div className="mt-16 text-center">
+            <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-8 rounded-2xl max-w-4xl mx-auto">
+              <blockquote className="text-xl text-gray-800 italic mb-4">
+                "5PRO는 짓는 공장이 아니라,<br />
+                운영 가능한 시스템을 함께 만드는 파트너입니다."
+              </blockquote>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -371,10 +396,13 @@ export default function HomePage() {
       <section className="py-20 bg-gradient-to-r from-[#007AFF] to-[#6A5AE0] text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
               <h2 className="text-4xl font-bold mb-6">
-                미래형 식품공장 파트너와 함께 시작하세요
+                공장을 짓는 일은 시작일 뿐입니다.
               </h2>
               <p className="text-xl mb-8 text-blue-100">
-                5PRO는 단순한 시공사가 아니라, 미래까지 함께 설계해주는 스마트 식품공장 파트너입니다
+                5PRO는 운영, 효율, 그리고 미래까지 함께 설계합니다.
+              </p>
+              <p className="text-lg mb-8 text-blue-200">
+                5PRO — 미래형 식품공장 통합 플랫폼
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link href="/estimate">
