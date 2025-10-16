@@ -31,10 +31,12 @@ export default function LeadMagnets() {
             🎁 회원 전용 혜택
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            지금 가입하고 <span className="text-indigo-600">무료 자료</span>와 <span className="text-purple-600">맞춤 분석</span>을 받아보세요
+            HACCP 체크리스트와<br />
+            <span className="text-indigo-600">식품공장 설립 가이드북</span> 무료 제공
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            오프로 회원만의 특별한 혜택으로 식품공장 설립을 더욱 쉽고 빠르게 준비하세요
+            20년 경력 전문가가 직접 작성한 실무 중심의 자료로<br />
+            HACCP 인증과 식품공장 설립을 더욱 쉽고 빠르게 준비하세요
           </p>
         </div>
         {/* 회원 혜택 카드들 */}
@@ -44,9 +46,9 @@ export default function LeadMagnets() {
               <div className="w-16 h-16 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl">📊</span>
               </div>
-              <h3 className="font-bold text-lg text-gray-900 mb-2">맞춤형 분석 리포트</h3>
-              <p className="text-gray-600 text-sm mb-4">내 공장 데이터 기반 투자 회수 분석</p>
-              <div className="text-xs text-indigo-600 font-semibold">회원 전용</div>
+              <h3 className="font-bold text-lg text-gray-900 mb-2">HACCP 체크리스트</h3>
+              <p className="text-gray-600 text-sm mb-4">20년 경력 전문가가 작성한 실무 체크리스트</p>
+              <div className="text-xs text-indigo-600 font-semibold">무료 제공</div>
             </div>
           </div>
           
@@ -55,8 +57,8 @@ export default function LeadMagnets() {
               <div className="w-16 h-16 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl">📚</span>
               </div>
-              <h3 className="font-bold text-lg text-gray-900 mb-2">전문가 가이드북</h3>
-              <p className="text-gray-600 text-sm mb-4">HACCP 체크리스트 + 설립 가이드</p>
+              <h3 className="font-bold text-lg text-gray-900 mb-2">식품공장 설립 가이드북</h3>
+              <p className="text-gray-600 text-sm mb-4">200+ 프로젝트 경험을 바탕으로 한 단계별 가이드</p>
               <div className="text-xs text-purple-600 font-semibold">무료 제공</div>
             </div>
           </div>
@@ -66,9 +68,9 @@ export default function LeadMagnets() {
               <div className="w-16 h-16 bg-gradient-to-br from-green-100 to-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl">🎯</span>
               </div>
-              <h3 className="font-bold text-lg text-gray-900 mb-2">1:1 전문가 상담</h3>
-              <p className="text-gray-600 text-sm mb-4">20년 경력 전문가 직접 상담</p>
-              <div className="text-xs text-green-600 font-semibold">우선 예약</div>
+              <h3 className="font-bold text-lg text-gray-900 mb-2">3D 시뮬레이션 활용법</h3>
+              <p className="text-gray-600 text-sm mb-4">HACCP 동선 검증을 위한 3D 활용 가이드</p>
+              <div className="text-xs text-green-600 font-semibold">무료 제공</div>
             </div>
           </div>
         </div>
@@ -77,10 +79,10 @@ export default function LeadMagnets() {
         <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-200">
           <div className="text-center">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              지금 무료로 시작하세요
+              HACCP 체크리스트 다운로드 신청
             </h3>
             <p className="text-gray-600 mb-6">
-              이메일만 입력하면 즉시 회원가입 완료! 모든 혜택을 바로 받아보세요.
+              이메일만 입력하면 즉시 다운로드 가능! 20년 경력 전문가의 실무 자료를 무료로 받아보세요.
             </p>
             
             <div className="max-w-md mx-auto">
@@ -104,7 +106,7 @@ export default function LeadMagnets() {
                   type="submit"
                   className="px-8 py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold hover:shadow-lg transition-all transform hover:-translate-y-1"
                 >
-                  무료 가입하기
+                  HACCP 체크리스트 다운로드
                 </button>
               </form>
               
