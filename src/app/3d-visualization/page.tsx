@@ -100,33 +100,44 @@ export default function Smart3DVisualization() {
 
     const sectionsText = sections.join(', ')
 
-    return `Generate an isometric 3D simulation image of a modern ${industryName} factory layout, viewed from slightly above. The image should look like a professional software screenshot for HACCP (Hazard Analysis and Critical Control Points) validation.
+    return `Create a detailed 3D isometric factory layout visualization for HACCP validation. This must be a professional software interface screenshot showing a modern ${industryName} facility.
 
-Key elements to include and emphasize:
+CRITICAL REQUIREMENTS - MUST INCLUDE:
 
-Clear Zone Segmentation (Color-Coded): Divide the plant interior into at least 4-5 distinct functional areas (e.g., Raw Material Receiving, Preparation, Processing, Packaging, Dispatch, Washing Area). Each zone must be colored differently to visually represent its hygiene level:
-- Blue/Green: For Clean Zones (Processing, Packaging).
-- Orange/Red: For Contamination Zones (Raw Material Receiving, initial Preparation, Waste).
-- Yellow/Gray: For Neutral/Transition/Utility Zones (e.g., offices, changing rooms, storage areas).
+1. ZONE COLOR CODING (MANDATORY):
+   - Raw Material Area: RED background with "RAW MATERIALS" label
+   - Preparation Area: ORANGE background with "PREPARATION" label  
+   - Processing Area: GREEN background with "CLEAN PROCESSING" label
+   - Packaging Area: BLUE background with "CLEAN PACKAGING" label
+   - Waste Area: DARK RED background with "WASTE" label
 
-Flow Path Visualization:
-- Correct (HACCP-Compliant) Flow: Use thick, bright green arrows to clearly show the ideal, one-way flow of materials and personnel from dirty to clean areas, ensuring no cross-contamination.
-- Cross-Contamination Risk: Highlight areas where improper flow paths would create risk. This should be indicated by thick, bright red arrows pointing against the green flow, often accompanied by red 'X' marks or caution symbols where pathways intersect dangerously.
+2. HACCP FLOW ARROWS (MANDATORY):
+   - Thick GREEN arrows showing correct flow: Raw → Prep → Processing → Packaging
+   - Thick RED arrows showing contamination risks: Cross-flow paths
+   - RED X marks at dangerous intersections
+   - Arrow labels: "CLEAN FLOW" and "CONTAMINATION RISK"
 
-Detailed Equipment & Stations: Include realistic 3D models of typical food processing equipment in each zone (e.g., conveyor belts, mixers, ovens, packaging machines, washing stations, hand-washing sinks, air showers at clean zone entrances). Equipment should be rendered in a clean, metallic, or industrial plastic style.
+3. SOFTWARE UI OVERLAY (MANDATORY):
+   - Top menu bar: "HACCP ANALYSIS | FLOW VALIDATION | ZONE MONITORING"
+   - Side panel with data: "Temperature: 4°C | Humidity: 60% | HACCP Status: COMPLIANT ✓"
+   - Zone status indicators: "CLEAN ZONE ✓" "RISK ZONE ⚠"
 
-Professional Software UI Elements: Overlay subtle, semi-transparent UI elements on the image to mimic a software interface. These should include:
-- Top/Side Menus: Text labels like "Layout," "Flow Analysis," "HACCP Check," "Reports," "Equipment," "Sensors."
-- Data Panels: A small side panel displaying simulated real-time data or checklist items (e.g., "Temperature: 12.5°C," "Humidity: 45%," "HACCP Compliant: Yes ✔," "Cross-Contamination Risk: High ✖").
+4. EQUIPMENT & DETAILS:
+   - Conveyor belts connecting zones
+   - Hand washing stations at zone entrances
+   - Air shower units
+   - Temperature monitoring displays
+   - Zone separation barriers
 
-Factory Layout Details:
-- Total size: ${sizePyeong}평 (about ${sizeArea}㎡)
-- Sections: ${sectionsText}
-- Perspective: isometric view, slightly above
-- Lighting: bright and even, highlighting all details
-- Style: professional software simulation interface
+5. VISUAL STYLE:
+   - Isometric 3D view from above
+   - Clean, technical appearance
+   - High contrast colors for zones
+   - Professional software interface look
+   - Factory size: ${sizePyeong}평 (${sizeArea}㎡)
+   - Sections: ${sectionsText}
 
-Overall Aesthetic: The image should convey precision, cleanliness, and advanced technological analysis, suitable for showcasing a sophisticated food safety management tool. The lighting should be bright and even, highlighting all details.`
+The image must clearly show HACCP compliance validation with visible color-coded zones and flow arrows. This is for a food safety management system interface.`
   }
 
   const handleGenerate = async () => {
@@ -209,40 +220,40 @@ Overall Aesthetic: The image should convey precision, cleanliness, and advanced 
       <div className="max-w-6xl mx-auto">
         {/* 헤더 섹션 */}
         <div className="text-center mb-8">
-          <div className="inline-block px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full text-sm font-semibold mb-4">
+          <div className="inline-block px-4 py-2 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 rounded-full text-sm font-semibold mb-4">
             🏭 HACCP 검증형 3D 시뮬레이터
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             스마트 3D 조감도 생성기
           </h1>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             HACCP 기준에 맞춰 자동으로 동선을 배치하는 3D 조감도 시뮬레이터입니다.<br />
-            <span className="font-semibold text-indigo-600">색상 구분된 구역</span>과 <span className="font-semibold text-green-600">동선 검증</span>으로<br />
+            <span className="font-semibold text-indigo-600 dark:text-indigo-400">색상 구분된 구역</span>과 <span className="font-semibold text-green-600 dark:text-green-400">동선 검증</span>으로<br />
             식품안전관리인증을 위한 최적의 공장 레이아웃을 미리 확인하세요.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* 좌측 설정 영역 */}
-          <div className="bg-white rounded-2xl shadow-lg p-6">
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border border-gray-200 dark:border-gray-700">
             <div className="flex items-center mb-6">
-              <CogIcon className="h-6 w-6 text-indigo-600 mr-3" />
-              <h2 className="text-xl font-bold text-gray-900">설정 영역</h2>
+              <CogIcon className="h-6 w-6 text-indigo-600 dark:text-indigo-400 mr-3" />
+              <h2 className="text-xl font-bold text-gray-900 dark:text-white">설정 영역</h2>
             </div>
 
             <div className="space-y-6">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-4 flex items-center">
-                  <BuildingOfficeIcon className="h-4 w-4 text-indigo-600 mr-2" />
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-4 flex items-center">
+                  <BuildingOfficeIcon className="h-4 w-4 text-indigo-600 dark:text-indigo-400 mr-2" />
                   공장 평수
                 </label>
                 
                 {/* 현재 선택된 평수 표시 */}
                 <div className="text-center mb-4">
-                  <div className="text-3xl font-bold text-indigo-600 mb-1">
+                  <div className="text-3xl font-bold text-indigo-600 dark:text-indigo-400 mb-1">
                     {Math.round(parseFloat(options.size))}평
                   </div>
-                  <div className="text-sm text-gray-500">
+                  <div className="text-sm text-gray-500 dark:text-gray-400">
                     약 {Math.round(parseFloat(options.size) * 3.3)}㎡
                   </div>
                 </div>

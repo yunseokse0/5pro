@@ -234,8 +234,8 @@ export default function ProjectDetailPage() {
           {/* 메인 콘텐츠 */}
           <div className="lg:col-span-2 space-y-8">
             {/* 프로젝트 이미지 갤러리 */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-              <div className="aspect-video bg-gray-200 relative">
+            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+              <div className="aspect-video bg-gray-200 dark:bg-gray-700 relative">
                 <img
                   src={project.gallery[selectedImage] || project.image}
                   alt={project.name}
