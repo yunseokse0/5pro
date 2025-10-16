@@ -577,7 +577,53 @@ export async function POST(request: NextRequest) {
       
           const imagePrompt = `Generate a detailed 3D aerial perspective view (bird's eye 45-degree angle) of a modern ${industryName} factory, total size ${sizeInfo?.label} (about ${sizeInfo?.area}).
 
-CRITICAL VISUAL REQUIREMENTS:
+🚨 CRITICAL HACCP FLOW VISUALIZATION REQUIREMENTS:
+
+1. FLOOR ZONE COLOR CODING (MANDATORY - EXTREMELY VISIBLE):
+   - Raw Material Area: SOLID BRIGHT RED floor with large "RAW MATERIALS" label
+   - Preparation Area: SOLID BRIGHT ORANGE floor with large "PREPARATION" label  
+   - Processing Area: SOLID BRIGHT GREEN floor with large "CLEAN PROCESSING" label
+   - Packaging Area: SOLID BRIGHT BLUE floor with large "CLEAN PACKAGING" label
+   - Waste Area: SOLID DARK RED floor with large "WASTE" label
+   - Each zone must have SOLID COLORED FLOOR - not just labels
+
+2. HACCP FLOW ARROWS ON FLOOR (MANDATORY - EXTREMELY PROMINENT):
+   - THICK BOLD GREEN arrows (minimum 30px wide) painted directly on the floor
+   - THICK BOLD RED arrows (minimum 30px wide) painted on the floor for contamination risks
+   - LARGE RED X marks painted on floor at dangerous intersections
+   - Arrow labels painted on floor in large bold text: "CLEAN FLOW" and "CONTAMINATION RISK"
+   - Arrows must be painted directly on the floor surface, not floating
+   - Add directional arrows painted on conveyor belts and walkways
+
+3. FLOOR PATHWAY MARKINGS (MANDATORY - PAINTED ON FLOOR):
+   - Green painted lines directly on floor showing clean flow paths
+   - Red painted lines directly on floor showing restricted areas
+   - Yellow safety lines painted on floor marking boundaries
+   - Clear walkway markings with arrows painted on floor
+
+4. SOFTWARE UI OVERLAY (MANDATORY):
+   - Top menu bar: "HACCP ANALYSIS | FLOW VALIDATION | ZONE MONITORING"
+   - Side panel with data: "Temperature: 4°C | Humidity: 60% | HACCP Status: COMPLIANT ✓"
+   - Zone status indicators: "CLEAN ZONE ✓" "RISK ZONE ⚠"
+   - Flow diagram overlay showing the HACCP flow
+
+5. EQUIPMENT & DETAILS:
+   - Conveyor belts connecting zones with visible flow direction arrows
+   - Hand washing stations at zone entrances
+   - Air shower units
+   - Temperature monitoring displays
+   - Clear signage on all equipment
+   - Zone separation barriers
+
+6. HACCP FLOW VISUALIZATION (CRITICAL - MUST BE VISIBLE):
+   - Show clear product flow from raw materials to finished goods with painted arrows
+   - Display personnel flow paths with different colored lines painted on floor
+   - Indicate cross-contamination prevention measures with painted markings
+   - Show air flow direction with painted arrows
+   - Display waste flow paths in red painted lines
+   - Add HACCP control points with numbered markers painted on floor
+
+ARCHITECTURAL REQUIREMENTS:
 - **Perspective**: Closer aerial view with strong 3D perspective - focus on the main building complex
 - **Architecture**: Realistic industrial building with modern materials (metal panels, glass windows, ventilation ducts, industrial roofing)
 - **Scale**: Building size must be proportional to ${sizeInfo?.area} - for ${sizeInfo?.label} this should be a compact, single-story building approximately ${sizeInfo?.area === '330㎡' ? '18m x 18m' : sizeInfo?.area === '990㎡' ? '31m x 31m' : sizeInfo?.area === '1650㎡' ? '40m x 40m' : '57m x 57m'} - NOT oversized
@@ -623,6 +669,15 @@ CONTEXT ELEMENTS (minimal):
 - Focus primarily on the main factory building
 - Include only essential external elements like loading docks
 - Minimal surrounding context to emphasize the factory details
+
+🚨 ABSOLUTELY CRITICAL: The generated image MUST include:
+- SOLID COLORED FLOORS for each zone (RED, ORANGE, GREEN, BLUE)
+- THICK ARROWS PAINTED DIRECTLY ON THE FLOOR showing product flow paths
+- CLEAR HACCP FLOW INDICATORS AND DIRECTIONAL MARKINGS PAINTED ON FLOOR
+- VISIBLE WALKWAY LINES AND SAFETY BOUNDARIES PAINTED ON FLOOR
+- PROFESSIONAL SOFTWARE INTERFACE OVERLAY WITH HACCP DATA
+
+This is for a food safety management system interface. The HACCP flow paths and color coding are the most important visual elements and must be prominently displayed as painted markings on the floor surface.
 
 Generate a convincing architectural visualization that looks like a real food processing facility, not a flat diagram.
 

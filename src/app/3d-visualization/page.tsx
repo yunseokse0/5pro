@@ -102,29 +102,29 @@ export default function Smart3DVisualization() {
 
     return `Create a detailed 3D isometric factory layout visualization for HACCP validation. This must be a professional software interface screenshot showing a modern ${industryName} facility.
 
-CRITICAL REQUIREMENTS - MUST INCLUDE:
+🚨 CRITICAL REQUIREMENTS - MUST INCLUDE VISIBLE FLOW PATHS:
 
-1. ZONE COLOR CODING (MANDATORY - VERY VISIBLE):
-   - Raw Material Area: BRIGHT RED background with large "RAW MATERIALS" label
-   - Preparation Area: BRIGHT ORANGE background with large "PREPARATION" label  
-   - Processing Area: BRIGHT GREEN background with large "CLEAN PROCESSING" label
-   - Packaging Area: BRIGHT BLUE background with large "CLEAN PACKAGING" label
-   - Waste Area: DARK RED background with large "WASTE" label
-   - Each zone must have distinct, bright colors that are clearly visible
+1. FLOOR ZONE COLOR CODING (MANDATORY - EXTREMELY VISIBLE):
+   - Raw Material Area: SOLID BRIGHT RED floor with large "RAW MATERIALS" label
+   - Preparation Area: SOLID BRIGHT ORANGE floor with large "PREPARATION" label  
+   - Processing Area: SOLID BRIGHT GREEN floor with large "CLEAN PROCESSING" label
+   - Packaging Area: SOLID BRIGHT BLUE floor with large "CLEAN PACKAGING" label
+   - Waste Area: SOLID DARK RED floor with large "WASTE" label
+   - Each zone must have SOLID COLORED FLOOR - not just labels
 
-2. HACCP FLOW ARROWS (MANDATORY - VERY PROMINENT):
-   - THICK BOLD GREEN arrows (minimum 20px wide) showing correct flow: Raw → Prep → Processing → Packaging
-   - THICK BOLD RED arrows (minimum 20px wide) showing contamination risks: Cross-flow paths
-   - LARGE RED X marks at dangerous intersections
-   - Arrow labels in large bold text: "CLEAN FLOW" and "CONTAMINATION RISK"
-   - Arrows must be clearly visible on the floor surface
-   - Add directional arrows on conveyor belts and walkways
+2. HACCP FLOW ARROWS ON FLOOR (MANDATORY - EXTREMELY PROMINENT):
+   - THICK BOLD GREEN arrows (minimum 30px wide) painted directly on the floor
+   - THICK BOLD RED arrows (minimum 30px wide) painted on the floor for contamination risks
+   - LARGE RED X marks painted on floor at dangerous intersections
+   - Arrow labels painted on floor in large bold text: "CLEAN FLOW" and "CONTAMINATION RISK"
+   - Arrows must be painted directly on the floor surface, not floating
+   - Add directional arrows painted on conveyor belts and walkways
 
-3. FLOOR PATHWAY MARKINGS (MANDATORY):
-   - Green painted lines on floor showing clean flow paths
-   - Red painted lines on floor showing restricted areas
-   - Yellow safety lines marking boundaries
-   - Clear walkway markings with arrows
+3. FLOOR PATHWAY MARKINGS (MANDATORY - PAINTED ON FLOOR):
+   - Green painted lines directly on floor showing clean flow paths
+   - Red painted lines directly on floor showing restricted areas
+   - Yellow safety lines painted on floor marking boundaries
+   - Clear walkway markings with arrows painted on floor
 
 4. SOFTWARE UI OVERLAY (MANDATORY):
    - Top menu bar: "HACCP ANALYSIS | FLOW VALIDATION | ZONE MONITORING"
@@ -133,39 +133,39 @@ CRITICAL REQUIREMENTS - MUST INCLUDE:
    - Flow diagram overlay showing the HACCP flow
 
 5. EQUIPMENT & DETAILS:
-   - Conveyor belts connecting zones with visible flow direction
+   - Conveyor belts connecting zones with visible flow direction arrows
    - Hand washing stations at zone entrances
    - Air shower units
    - Temperature monitoring displays
    - Clear signage on all equipment
    - Zone separation barriers
 
-6. HACCP FLOW VISUALIZATION (CRITICAL):
-   - Show clear product flow from raw materials to finished goods
-   - Display personnel flow paths with different colored lines
-   - Indicate cross-contamination prevention measures
-   - Show air flow direction with arrows
-   - Display waste flow paths in red
-   - Add HACCP control points with numbered markers
+6. HACCP FLOW VISUALIZATION (CRITICAL - MUST BE VISIBLE):
+   - Show clear product flow from raw materials to finished goods with painted arrows
+   - Display personnel flow paths with different colored lines painted on floor
+   - Indicate cross-contamination prevention measures with painted markings
+   - Show air flow direction with painted arrows
+   - Display waste flow paths in red painted lines
+   - Add HACCP control points with numbered markers painted on floor
 
 7. VISUAL STYLE:
    - Isometric 3D view from above
    - Clean, technical appearance
    - High contrast colors for visibility
    - Professional CAD-like rendering
-   - High contrast colors for zones
+   - SOLID COLORED FLOORS for each zone
    - Professional software interface look
    - Factory size: ${sizePyeong}평 (${sizeArea}㎡)
    - Sections: ${sectionsText}
 
-IMPORTANT: The generated image MUST include:
-- Bright, clearly visible color-coded floor zones (RED, ORANGE, GREEN, BLUE)
-- Thick, bold arrows on the floor showing product flow paths
-- Clear HACCP flow indicators and directional markings
-- Visible walkway lines and safety boundaries
-- Professional software interface overlay with HACCP data
+🚨 ABSOLUTELY CRITICAL: The generated image MUST include:
+- SOLID COLORED FLOORS for each zone (RED, ORANGE, GREEN, BLUE)
+- THICK ARROWS PAINTED DIRECTLY ON THE FLOOR showing product flow paths
+- CLEAR HACCP FLOW INDICATORS AND DIRECTIONAL MARKINGS PAINTED ON FLOOR
+- VISIBLE WALKWAY LINES AND SAFETY BOUNDARIES PAINTED ON FLOOR
+- PROFESSIONAL SOFTWARE INTERFACE OVERLAY WITH HACCP DATA
 
-This is for a food safety management system interface. The HACCP flow paths and color coding are the most important visual elements and must be prominently displayed.`
+This is for a food safety management system interface. The HACCP flow paths and color coding are the most important visual elements and must be prominently displayed as painted markings on the floor surface.`
   }
 
   const handleGenerate = async () => {
