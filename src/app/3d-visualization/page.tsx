@@ -100,14 +100,33 @@ export default function Smart3DVisualization() {
 
     const sectionsText = sections.join(', ')
 
-    return `Generate a 3D aerial view of a modern ${industryName} factory, total size ${sizePyeong}평 (about ${sizeArea}㎡).
-Show clear sections inside the factory layout:
-- ${sectionsText}
-Perspective: bird's-eye view, realistic architectural rendering.
-Lighting: bright daylight.
-Style: clean, modern industrial design with clear section boundaries.
-Do not add any Korean text or labels.
-Focus on architectural structure and layout clarity.`
+    return `Generate an isometric 3D simulation image of a modern ${industryName} factory layout, viewed from slightly above. The image should look like a professional software screenshot for HACCP (Hazard Analysis and Critical Control Points) validation.
+
+Key elements to include and emphasize:
+
+Clear Zone Segmentation (Color-Coded): Divide the plant interior into at least 4-5 distinct functional areas (e.g., Raw Material Receiving, Preparation, Processing, Packaging, Dispatch, Washing Area). Each zone must be colored differently to visually represent its hygiene level:
+- Blue/Green: For Clean Zones (Processing, Packaging).
+- Orange/Red: For Contamination Zones (Raw Material Receiving, initial Preparation, Waste).
+- Yellow/Gray: For Neutral/Transition/Utility Zones (e.g., offices, changing rooms, storage areas).
+
+Flow Path Visualization:
+- Correct (HACCP-Compliant) Flow: Use thick, bright green arrows to clearly show the ideal, one-way flow of materials and personnel from dirty to clean areas, ensuring no cross-contamination.
+- Cross-Contamination Risk: Highlight areas where improper flow paths would create risk. This should be indicated by thick, bright red arrows pointing against the green flow, often accompanied by red 'X' marks or caution symbols where pathways intersect dangerously.
+
+Detailed Equipment & Stations: Include realistic 3D models of typical food processing equipment in each zone (e.g., conveyor belts, mixers, ovens, packaging machines, washing stations, hand-washing sinks, air showers at clean zone entrances). Equipment should be rendered in a clean, metallic, or industrial plastic style.
+
+Professional Software UI Elements: Overlay subtle, semi-transparent UI elements on the image to mimic a software interface. These should include:
+- Top/Side Menus: Text labels like "Layout," "Flow Analysis," "HACCP Check," "Reports," "Equipment," "Sensors."
+- Data Panels: A small side panel displaying simulated real-time data or checklist items (e.g., "Temperature: 12.5°C," "Humidity: 45%," "HACCP Compliant: Yes ✔," "Cross-Contamination Risk: High ✖").
+
+Factory Layout Details:
+- Total size: ${sizePyeong}평 (about ${sizeArea}㎡)
+- Sections: ${sectionsText}
+- Perspective: isometric view, slightly above
+- Lighting: bright and even, highlighting all details
+- Style: professional software simulation interface
+
+Overall Aesthetic: The image should convey precision, cleanliness, and advanced technological analysis, suitable for showcasing a sophisticated food safety management tool. The lighting should be bright and even, highlighting all details.`
   }
 
   const handleGenerate = async () => {
@@ -198,6 +217,7 @@ Focus on architectural structure and layout clarity.`
           </h1>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             HACCP 기준에 맞춰 자동으로 동선을 배치하는 3D 조감도 시뮬레이터입니다.<br />
+            <span className="font-semibold text-indigo-600">색상 구분된 구역</span>과 <span className="font-semibold text-green-600">동선 검증</span>으로<br />
             식품안전관리인증을 위한 최적의 공장 레이아웃을 미리 확인하세요.
           </p>
         </div>
@@ -451,18 +471,35 @@ Focus on architectural structure and layout clarity.`
                       <InformationCircleIcon className="h-4 w-4 mr-2" />
                       HACCP 구역별 색상 구분 안내
                     </h3>
-                    <div className="grid grid-cols-3 gap-2 text-xs">
-                      <div className="flex items-center">
-                        <div className="w-3 h-3 bg-green-500 rounded mr-2"></div>
-                        <span className="text-gray-700">청결구역</span>
+                    <div className="space-y-2 text-xs">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center">
+                          <div className="w-3 h-3 bg-green-500 rounded mr-2"></div>
+                          <span className="text-gray-700">청결구역 (가공, 포장)</span>
+                        </div>
+                        <span className="text-green-600 font-medium">→</span>
                       </div>
-                      <div className="flex items-center">
-                        <div className="w-3 h-3 bg-red-500 rounded mr-2"></div>
-                        <span className="text-gray-700">오염구역</span>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center">
+                          <div className="w-3 h-3 bg-orange-500 rounded mr-2"></div>
+                          <span className="text-gray-700">오염구역 (원료, 폐기물)</span>
+                        </div>
+                        <span className="text-red-600 font-medium">✗</span>
                       </div>
-                      <div className="flex items-center">
-                        <div className="w-3 h-3 bg-gray-400 rounded mr-2"></div>
-                        <span className="text-gray-700">일반구역</span>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center">
+                          <div className="w-3 h-3 bg-yellow-400 rounded mr-2"></div>
+                          <span className="text-gray-700">중립구역 (사무실, 탈의실)</span>
+                        </div>
+                        <span className="text-gray-600 font-medium">○</span>
+                      </div>
+                    </div>
+                    <div className="mt-3 pt-3 border-t border-indigo-200">
+                      <div className="flex items-center text-xs text-indigo-700">
+                        <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                        <span>정상 동선</span>
+                        <div className="w-2 h-2 bg-red-500 rounded-full mr-2 ml-4"></div>
+                        <span>교차 오염 위험</span>
                       </div>
                     </div>
                   </div>
@@ -494,12 +531,7 @@ Focus on architectural structure and layout clarity.`
                           src="/imgs/5PROLINE.png" 
                           alt="오프로 3D 조감도 예시" 
                           className="max-w-full max-h-full object-contain"
-                          onError={(e) => {
-                            e.currentTarget.style.display = 'none';
-                            e.currentTarget.nextElementSibling.style.display = 'block';
-                          }}
                         />
-                        <CubeIcon className="h-16 w-16 text-gray-400 mx-auto mb-4 hidden" />
                       </div>
                       <p className="text-gray-500">설정을 완료하고 '3D 조감도 생성' 버튼을 클릭하세요</p>
                     </>

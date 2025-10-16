@@ -20,11 +20,6 @@ export default function Section3D() {
             alt="오프로 3D 조감도" 
             className="w-full h-full object-contain bg-gray-50" 
             loading="lazy"
-            onError={(e) => {
-              // 이미지 로드 실패 시 대체 이미지 표시
-              e.currentTarget.src = '/imgs/3d-preview.jpg';
-              e.currentTarget.className = 'w-full h-full object-cover';
-            }}
           />
         </div>
       </div>
