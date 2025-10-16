@@ -33,6 +33,27 @@ export default function SystemSettings() {
     permitBaseCost: 2000000,
     contingencyRate: 0.1,
     
+    // 지역별 비용 설정
+    regionalCosts: {
+      '서울특별시': { multiplier: 1.3, description: '수도권 최고가 지역' },
+      '경기도': { multiplier: 1.1, description: '수도권 외곽 지역' },
+      '인천광역시': { multiplier: 1.2, description: '수도권 항만 지역' },
+      '부산광역시': { multiplier: 1.15, description: '남부권 중심지' },
+      '대구광역시': { multiplier: 1.05, description: '영남권 중심지' },
+      '광주광역시': { multiplier: 1.0, description: '호남권 중심지' },
+      '대전광역시': { multiplier: 1.0, description: '충청권 중심지' },
+      '울산광역시': { multiplier: 1.1, description: '산업도시' },
+      '세종특별자치시': { multiplier: 1.1, description: '신도시' },
+      '강원도': { multiplier: 0.9, description: '산간 지역' },
+      '충청북도': { multiplier: 0.95, description: '내륙 지역' },
+      '충청남도': { multiplier: 0.95, description: '서해안 지역' },
+      '전라북도': { multiplier: 0.9, description: '서해안 지역' },
+      '전라남도': { multiplier: 0.9, description: '남해안 지역' },
+      '경상북도': { multiplier: 0.95, description: '내륙 지역' },
+      '경상남도': { multiplier: 0.95, description: '남해안 지역' },
+      '제주특별자치도': { multiplier: 1.2, description: '도서 지역' }
+    },
+    
     // HACCP 설정
     haccpRequirements: [
       'HACCP 계획서 작성',
@@ -122,6 +143,19 @@ export default function SystemSettings() {
     setSettings(prev => ({
       ...prev,
       [key]: (prev[key as keyof typeof prev] as string[]).filter((_: any, i: number) => i !== index)
+    }))
+  }
+
+  const handleRegionalCostChange = (region: string, field: 'multiplier' | 'description', value: string | number) => {
+    setSettings(prev => ({
+      ...prev,
+      regionalCosts: {
+        ...prev.regionalCosts,
+        [region]: {
+          ...(prev.regionalCosts as any)[region],
+          [field]: value
+        }
+      }
     }))
   }
 
@@ -328,6 +362,60 @@ export default function SystemSettings() {
                   className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                 />
               </div>
+            </div>
+          </div>
+        </div>
+
+        {/* 지역별 비용 설정 */}
+        <div className="bg-white dark:bg-gray-800 shadow rounded-lg">
+          <div className="px-4 py-5 sm:p-6">
+            <h3 className="text-lg leading-6 font-medium text-gray-900 dark:text-white mb-4 flex items-center">
+              <Globe className="h-5 w-5 mr-2" />
+              지역별 비용 배수 설정
+            </h3>
+            <p className="text-sm text-gray-600 dark:text-gray-300 mb-6">
+              각 지역별 건설비 배수를 설정하여 정확한 견적을 제공합니다.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {Object.entries(settings.regionalCosts).map(([region, data]) => (
+                <div key={region} className="border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-700 rounded-lg p-4">
+                  <div className="flex items-center justify-between mb-3">
+                    <h4 className="font-medium text-gray-900 dark:text-white">{region}</h4>
+                    <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                      data.multiplier >= 1.2 ? 'bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200' :
+                      data.multiplier >= 1.1 ? 'bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200' :
+                      data.multiplier >= 1.0 ? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200' :
+                      'bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200'
+                    }`}>
+                      {data.multiplier}x
+                    </span>
+                  </div>
+                  <div className="space-y-2">
+                    <div>
+                      <label className="block text-xs font-medium text-gray-600 dark:text-gray-300 mb-1">비용 배수</label>
+                      <input
+                        type="number"
+                        step="0.05"
+                        value={data.multiplier}
+                        onChange={(e) => handleRegionalCostChange(region, 'multiplier', parseFloat(e.target.value))}
+                        className="w-full text-sm border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-medium text-gray-600 dark:text-gray-300 mb-1">설명</label>
+                      <input
+                        type="text"
+                        value={data.description}
+                        onChange={(e) => handleRegionalCostChange(region, 'description', e.target.value)}
+                        className="w-full text-sm border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                      />
+                    </div>
+                    <div className="text-xs text-gray-500 dark:text-gray-400">
+                      예상 비용: {Math.round(settings.baseConstructionCost * data.multiplier).toLocaleString()}원/평
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
