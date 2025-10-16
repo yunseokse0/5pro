@@ -117,7 +117,9 @@ export default function ROICalculator() {
   const [opSaveRate, setOpSaveRate] = useState(0.15);        // 15% (보수적: 0.15~0.25)
   const [revenueLiftRate, setRevenueLiftRate] = useState(0); // 0~0.05 추천
 
-  const ready =
+  const [ready, setReady] = useState(false);
+  
+  const inputsReady =
     toNumber(capex) > 0 &&
     toNumber(monthlyRevenue) > 0 &&
     toNumber(monthlyOpCost) > 0;
@@ -254,7 +256,24 @@ export default function ROICalculator() {
               />
             </div>
 
-            <div className="mt-6 text-sm text-gray-500">
+            <div className="mt-6 flex justify-center">
+              <button
+                onClick={() => {
+                  // 입력값이 모두 채워졌는지 확인
+                  if (inputsReady) {
+                    // 계산 강제 실행
+                    setReady(true);
+                  } else {
+                    alert('필수 입력값을 모두 입력해주세요.');
+                  }
+                }}
+                className="px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-xl hover:shadow-lg transition-all transform hover:-translate-y-1"
+              >
+                💰 투자 회수 기간 계산하기
+              </button>
+            </div>
+
+            <div className="mt-4 text-sm text-gray-500 text-center">
               ※ 결과는 가정에 따른 예시입니다. 실제 성과는 사업장 환경·범위에 따라 달라질 수 있습니다.
             </div>
           </div>
@@ -265,65 +284,111 @@ export default function ROICalculator() {
 
             {!ready ? (
               <div className="text-center py-12">
-                <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl">📊</span>
                 </div>
-              <p className="text-gray-500">
-                상단의 입력값을 채우면 투자 회수 기간과 수익률이 계산됩니다.
-              </p>
+                <p className="text-gray-500 text-lg">
+                  상단의 입력값을 채우고 <span className="font-semibold text-indigo-600">"투자 회수 기간 계산하기"</span> 버튼을 클릭하세요.
+                </p>
+                <div className="mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                  <p className="text-sm text-blue-800">
+                    💡 <strong>필수 입력값:</strong> 총 공사 예정 금액, 월평균 예상 매출, 월평균 기존 운영비
+                  </p>
+                </div>
               </div>
             ) : (
               <>
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <StatCard
-                    title="공사비 절감액"
-                    value={`${fmtKRW(Math.max(0, capexSavings))} 원`}
-                    sub="(오프로 적용)"
-                    color="text-green-600"
-                  />
-                  <StatCard
-                    title="적용 후 초기 투자"
-                    value={`${fmtKRW(Math.max(0, initialInvestment))} 원`}
-                    sub="CAPEX 절감 + HACCP 초기비 합산"
-                    color="text-blue-600"
-                  />
+                {/* 핵심 결과 요약 */}
+                <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl p-6 mb-6">
+                  <h4 className="text-lg font-semibold text-gray-900 mb-4">📊 핵심 결과</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-indigo-600">
+                        {paybackMonths === Infinity ? "산출 불가" : `${Math.round(paybackMonths)}개월`}
+                      </div>
+                      <div className="text-sm text-gray-600">투자 회수 기간</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-green-600">
+                        {fmtKRW(Math.max(0, monthlyProfitDelta))}원
+                      </div>
+                      <div className="text-sm text-gray-600">월 이익 증가분</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-purple-600">
+                        {isFinite(roi12m) ? roi12m.toFixed(1) : 0}%
+                      </div>
+                      <div className="text-sm text-gray-600">12개월 수익률</div>
+                    </div>
+                  </div>
+                </div>
 
-                  <StatCard
-                    title="월 이익(적용 전)"
-                    value={`${fmtKRW(Math.max(0, monthlyProfitBefore))} 원`}
-                    sub="월매출 - 기존 운영비"
-                    color="text-gray-600"
-                  />
-                  <StatCard
-                    title="월 이익(적용 후)"
-                    value={`${fmtKRW(Math.max(0, monthlyProfitAfter))} 원`}
-                    sub="(스마트 운영·절감 반영)"
-                    color="text-indigo-600"
-                  />
-
-                  <StatCard
-                    title="월 이익 증가분"
-                    value={`${fmtKRW(Math.max(0, monthlyProfitDelta))} 원`}
-                    sub="적용 후 - 적용 전"
-                    color="text-green-600"
-                  />
-                  <StatCard
-                    title="투자 회수 기간"
-                    value={
-                      paybackMonths === Infinity
-                        ? "산출 불가"
-                        : `${paybackMonths} 개월`
-                    }
-                    sub="월 이익 증가분으로 초기 투자 회수"
-                    color="paybackMonths === Infinity ? 'text-red-600' : 'text-orange-600'"
-                  />
-
-                  <StatCard
-                    title="12개월 수익률"
-                    value={`${isFinite(roi12m) ? roi12m.toFixed(1) : 0}%`}
-                    sub="(12개월 기준)"
-                    color="text-purple-600"
-                  />
+                {/* 상세 분석 테이블 */}
+                <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
+                  <div className="bg-gray-50 px-6 py-3 border-b border-gray-200">
+                    <h4 className="text-lg font-semibold text-gray-900">📈 상세 분석</h4>
+                  </div>
+                  <div className="divide-y divide-gray-200">
+                    <div className="px-6 py-4 flex justify-between items-center">
+                      <div>
+                        <div className="font-medium text-gray-900">공사비 절감액</div>
+                        <div className="text-sm text-gray-500">오프로 적용 시</div>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-lg font-semibold text-green-600">
+                          {fmtKRW(Math.max(0, capexSavings))}원
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="px-6 py-4 flex justify-between items-center">
+                      <div>
+                        <div className="font-medium text-gray-900">적용 후 초기 투자</div>
+                        <div className="text-sm text-gray-500">CAPEX 절감 + HACCP 초기비</div>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-lg font-semibold text-blue-600">
+                          {fmtKRW(Math.max(0, initialInvestment))}원
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="px-6 py-4 flex justify-between items-center">
+                      <div>
+                        <div className="font-medium text-gray-900">월 이익 (적용 전)</div>
+                        <div className="text-sm text-gray-500">월매출 - 기존 운영비</div>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-lg font-semibold text-gray-600">
+                          {fmtKRW(Math.max(0, monthlyProfitBefore))}원
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="px-6 py-4 flex justify-between items-center">
+                      <div>
+                        <div className="font-medium text-gray-900">월 이익 (적용 후)</div>
+                        <div className="text-sm text-gray-500">스마트 운영·절감 반영</div>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-lg font-semibold text-indigo-600">
+                          {fmtKRW(Math.max(0, monthlyProfitAfter))}원
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="px-6 py-4 flex justify-between items-center bg-green-50">
+                      <div>
+                        <div className="font-medium text-gray-900">월 이익 증가분</div>
+                        <div className="text-sm text-gray-500">적용 후 - 적용 전</div>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-lg font-semibold text-green-600">
+                          +{fmtKRW(Math.max(0, monthlyProfitDelta))}원
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 {/* 그래프 (선택) */}
