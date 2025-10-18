@@ -11,11 +11,13 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          500: '#0ea5e9',
-          600: '#0284c7',
-          700: '#0369a1',
+          DEFAULT: '#1A2DFF',
+          hover: '#0A0AC2',
+          50: '#f0f2ff',
+          100: '#e0e5ff',
+          500: '#1A2DFF',
+          600: '#0A0AC2',
+          700: '#0808A0',
         },
         secondary: {
           50: '#f8fafc',
@@ -25,13 +27,29 @@ module.exports = {
         },
         brand: {
           navy: '#101828',
-          blue: '#007AFF',
+          blue: '#1A2DFF',
           purple: '#6A5AE0',
         }
       },
       screens: {
         'xs': '475px',
-      }
+      },
+      maxWidth: {
+        'container': '1200px',
+      },
+      boxShadow: {
+        'soft': '0 12px 36px rgba(0,0,0,0.06)',
+        'soft-hover': '0 16px 48px rgba(0,0,0,0.12)',
+      },
+      borderRadius: {
+        'card': '16px',
+      },
+      transitionDuration: {
+        '120': '120ms',
+      },
+      transitionTimingFunction: {
+        'smooth': 'cubic-bezier(0.2,0,0,1)',
+      },
     },
   },
   plugins: [],

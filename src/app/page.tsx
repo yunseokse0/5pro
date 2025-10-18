@@ -1,23 +1,27 @@
-import Hero from '@/components/Hero';
-import ValueCards from '@/components/ValueCards';
-import ROIBanner from '@/components/ROIBanner';
-import Section3D from '@/components/Section3D';
-import ROICalculator from '@/components/ROICalculator';
-import ProjectShowcase from '@/components/ProjectShowcase';
-import ExpertInterview from '@/components/ExpertInterview';
-import LeadMagnets from '@/components/LeadMagnets';
+import HeroPrimary from '@/components/5pro/HeroPrimary';
+import QuickEstimate from '@/components/5pro/QuickEstimate';
+import ProcessSteps from '@/components/5pro/ProcessSteps';
+import StakeholderTiles from '@/components/5pro/StakeholderTiles';
+import PartnerLogoStrip from '@/components/5pro/PartnerLogoStrip';
+import SolutionCards from '@/components/5pro/SolutionCards';
+import CaseGrid from '@/components/5pro/CaseGrid';
+import KPIStats from '@/components/5pro/KPIStats';
+import EnterpriseCTA from '@/components/5pro/EnterpriseCTA';
+import FAQAccordion from '@/components/5pro/FAQAccordion';
 
 export default function Home() {
   return (
     <main className="min-h-screen">
-      <Hero />
-      <ValueCards />
-      <ROIBanner />
-      <Section3D />
-      <ROICalculator />
-      <ProjectShowcase />
-      <ExpertInterview />
-      <LeadMagnets />
+      <HeroPrimary />
+      <QuickEstimate />
+      <ProcessSteps />
+      <StakeholderTiles />
+      <PartnerLogoStrip />
+      <SolutionCards />
+      <CaseGrid />
+      <KPIStats />
+      <EnterpriseCTA />
+      <FAQAccordion />
     </main>
   );
 }

@@ -1,0 +1,74 @@
+{
+  "partners": [
+    {
+      "id": "p1",
+      "name": "두산건설",
+      "logo": "/images/partners/placeholder-1.png",
+      "category": "construction",
+      "description": "대형 플랜트 전문"
+    },
+    {
+      "id": "p2",
+      "name": "CJ대한통운",
+      "logo": "/images/partners/placeholder-2.png",
+      "category": "logistics",
+      "description": "물류/창고 솔루션"
+    },
+    {
+      "id": "p3",
+      "name": "한국산업안전공단",
+      "logo": "/images/partners/placeholder-3.png",
+      "category": "certification",
+      "description": "안전인증 협력"
+    },
+    {
+      "id": "p4",
+      "name": "한국식품연구원",
+      "logo": "/images/partners/placeholder-4.png",
+      "category": "research",
+      "description": "공정 R&D"
+    },
+    {
+      "id": "p5",
+      "name": "시스템에어",
+      "logo": "/images/partners/placeholder-5.png",
+      "category": "hvac",
+      "description": "공조 설비"
+    },
+    {
+      "id": "p6",
+      "name": "한국냉동공조",
+      "logo": "/images/partners/placeholder-6.png",
+      "category": "cooling",
+      "description": "냉동/냉장 시스템"
+    },
+    {
+      "id": "p7",
+      "name": "오토닉스",
+      "logo": "/images/partners/placeholder-7.png",
+      "category": "automation",
+      "description": "자동화 센서"
+    },
+    {
+      "id": "p8",
+      "name": "농협은행",
+      "logo": "/images/partners/placeholder-8.png",
+      "category": "finance",
+      "description": "시설자금 제휴"
+    },
+    {
+      "id": "p9",
+      "name": "SGS코리아",
+      "logo": "/images/partners/placeholder-9.png",
+      "category": "certification",
+      "description": "HACCP 인증"
+    },
+    {
+      "id": "p10",
+      "name": "LS일렉트릭",
+      "logo": "/images/partners/placeholder-10.png",
+      "category": "electrical",
+      "description": "전기 설비"
+    }
+  ]
+}

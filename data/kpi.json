@@ -1,0 +1,37 @@
+{
+  "stats": [
+    {
+      "id": "requests",
+      "label": "누적 견적 요청",
+      "value": 5420,
+      "unit": "건",
+      "suffix": "",
+      "description": "누적 견적 요청"
+    },
+    {
+      "id": "partners",
+      "label": "등록된 건설 파트너",
+      "value": 1250,
+      "unit": "곳",
+      "suffix": "",
+      "description": "검증된 건설 전문가"
+    },
+    {
+      "id": "savings",
+      "label": "평균 공사비 절감률",
+      "value": 18,
+      "unit": "%",
+      "suffix": "",
+      "description": "평균 공사비 절감"
+    },
+    {
+      "id": "amount",
+      "label": "누적 건축 매칭 금액",
+      "value": 3500,
+      "unit": "억 원",
+      "suffix": "",
+      "description": "총 매칭 금액"
+    }
+  ]
+}
+

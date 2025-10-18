@@ -1,0 +1,117 @@
+{
+  "cases": [
+    {
+      "id": "case1",
+      "title": "김치 제조장 HACCP 신규 인증",
+      "category": "김치·반찬",
+      "location": "경기 이천",
+      "scale": "연면적 980㎡",
+      "period": "2024.03 ~ 2024.08",
+      "thumbnail": "/images/cases/kimchi-plant.jpg",
+      "tags": ["HACCP", "신축", "동선최적화"],
+      "description": "교차오염 제로, 5개월 만에 인증 완료",
+      "challenge": "기존 임대 공간은 위생 동선 확보가 불가했습니다.",
+      "solution": "초기부터 HACCP 동선을 평면에 반영, 청결·준청결·일반구역을 명확히 구획했습니다.",
+      "result": "심사 1회 통과, 가동 후 3주 만에 대형마트 납품 계약 체결"
+    },
+    {
+      "id": "case2",
+      "title": "냉동만두 라인 증설 프로젝트",
+      "category": "냉동식품",
+      "location": "충남 천안",
+      "scale": "기존 1,200㎡ → 1,800㎡",
+      "period": "2023.11 ~ 2024.04",
+      "thumbnail": "/images/cases/frozen-line.jpg",
+      "tags": ["증설", "라인시뮬", "원가절감"],
+      "description": "병목 제거로 생산량 2.3배 증가",
+      "challenge": "기존 라인은 포장 공정에서 대기 시간이 길었습니다.",
+      "solution": "시뮬레이션으로 병목 지점을 찾아 포장기 2대 추가, 동선을 재배치했습니다.",
+      "result": "시간당 생산량 1,200개 → 2,760개, ROI 회수 기간 18개월"
+    },
+    {
+      "id": "case3",
+      "title": "베이커리 중앙공장 신축",
+      "category": "제과·제빵",
+      "location": "경기 평택",
+      "scale": "연면적 2,400㎡",
+      "period": "2023.05 ~ 2024.02",
+      "thumbnail": "/images/cases/bakery-central.jpg",
+      "tags": ["신축", "CM", "다점포공급"],
+      "description": "18개 매장 동시 공급 체계 구축",
+      "challenge": "각 매장별 생산은 품질 편차와 인건비 부담이 컸습니다.",
+      "solution": "중앙 생산 후 냉동 유통, 매장은 굽기만 하는 시스템으로 전환했습니다.",
+      "result": "매장당 인건비 40% 절감, 품질 균일화로 고객 만족도 상승"
+    },
+    {
+      "id": "case4",
+      "title": "건강기능식품 GMP 공장",
+      "category": "건강식품",
+      "location": "충북 청주 오창",
+      "scale": "연면적 1,650㎡",
+      "period": "2024.01 ~ 2024.09",
+      "thumbnail": "/images/cases/health-gmp.jpg",
+      "tags": ["GMP", "클린룸", "인증"],
+      "description": "클린룸 등급 관리로 GMP 인증 획득",
+      "challenge": "분말 타입 제품은 교차오염과 이물 관리가 까다롭습니다.",
+      "solution": "Class 100,000 클린룸, 에어샤워·집진 시스템 설계, GMP 절차 문서화까지 지원했습니다.",
+      "result": "식약처 실사 통과, OEM 고객사 3곳 확보"
+    },
+    {
+      "id": "case5",
+      "title": "유제품 저온창고 증설",
+      "category": "유가공",
+      "location": "경기 안성",
+      "scale": "저온창고 600㎡ 추가",
+      "period": "2023.09 ~ 2023.12",
+      "thumbnail": "/images/cases/dairy-cold.jpg",
+      "tags": ["증설", "냉장", "물류"],
+      "description": "피크 시즌 재고 적체 해소",
+      "challenge": "여름철 생산량 증가 시 기존 창고로는 보관이 어려웠습니다.",
+      "solution": "기존 건물 옆 부지에 샌드위치패널 저온창고 신축, 3~5°C 유지 시스템 구축",
+      "result": "여름철 폐기율 8% → 1% 감소, 유통기한 연장으로 매출 12% 증가"
+    },
+    {
+      "id": "case6",
+      "title": "소스·양념장 OEM 공장",
+      "category": "소스·장류",
+      "location": "전남 나주",
+      "scale": "연면적 1,100㎡",
+      "period": "2024.02 ~ 2024.07",
+      "thumbnail": "/images/cases/sauce-oem.jpg",
+      "tags": ["신축", "OEM", "멀티라인"],
+      "description": "다품종 소량 생산 체계 구축",
+      "challenge": "고객사마다 레시피·용기·라벨이 달라 라인 전환이 잦았습니다.",
+      "solution": "모듈형 충전기와 세척 시스템 도입, 라인 전환 시간 단축 설계",
+      "result": "라인 전환 4시간 → 1.5시간, 월 처리 가능 SKU 12종 → 28종"
+    },
+    {
+      "id": "case7",
+      "title": "HMR 밀키트 패키징 센터",
+      "category": "HMR",
+      "location": "서울 금천구",
+      "scale": "연면적 720㎡",
+      "period": "2023.10 ~ 2024.01",
+      "thumbnail": "/images/cases/hmr-mealkit.jpg",
+      "tags": ["신축", "콜드체인", "당일배송"],
+      "description": "새벽 배송 대응 콜드체인 시스템",
+      "challenge": "신선 채소·육류 혼합 구성, 온도대별 분리 보관이 필요했습니다.",
+      "solution": "냉장·냉동 존 분리, 피킹·패킹 동선 최적화, 보냉박스 자동 라인 구축",
+      "result": "하루 2,000세트 처리 가능, 새벽 배송 정시 출하율 98%"
+    },
+    {
+      "id": "case8",
+      "title": "떡 제조 HACCP 재인증 컨설팅",
+      "category": "떡·한과",
+      "location": "경기 용인",
+      "scale": "기존 540㎡ 리모델링",
+      "period": "2024.05 ~ 2024.07",
+      "thumbnail": "/images/cases/rice-cake.jpg",
+      "tags": ["리모델링", "HACCP재인증", "동선개선"],
+      "description": "기존 공장 최소 투자로 재인증 달성",
+      "challenge": "1차 심사 부적합, 동선 교차·배수 불량 지적받았습니다.",
+      "solution": "벽체 추가 없이 파티션·커튼으로 구역 분리, 배수 트렌치 재시공",
+      "result": "투자비 기존 견적 대비 60% 절감, 재심사 통과"
+    }
+  ]
+}
+
