@@ -50,6 +50,9 @@ export default function FAQAccordion() {
     }
   };
 
+  // 대표 질문 3가지
+  const featuredFaqs = faqs.slice(0, 3);
+
   return (
     <section className="py-16 bg-white">
       <div className="max-w-[800px] mx-auto px-5">
@@ -69,6 +72,40 @@ export default function FAQAccordion() {
               className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white shadow-sm"
             />
           </div>
+        </div>
+
+        {/* 대표 질문 3가지 */}
+        <div className="mb-16">
+          <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">대표 질문</h3>
+          <div className="grid gap-6">
+            {featuredFaqs.map((faq, index) => (
+              <div key={faq.id} className="bg-gradient-to-r from-primary/5 to-blue-50 rounded-card border border-primary/20 overflow-hidden">
+                <div className="p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm">
+                      {index + 1}
+                    </div>
+                    <div className="flex-1">
+                      <div className="text-xs font-medium text-primary mb-2">
+                        {faq.category}
+                      </div>
+                      <h4 className="text-lg font-bold text-gray-900 mb-3">
+                        {faq.question}
+                      </h4>
+                      <p className="text-gray-700 leading-relaxed">
+                        {faq.answer}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* 전체 질문 목록 */}
+        <div className="mb-8">
+          <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">전체 질문 목록</h3>
         </div>
 
         {/* FAQ 아코디언 */}
