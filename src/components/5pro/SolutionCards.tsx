@@ -4,14 +4,14 @@ import Link from 'next/link';
 
 const solutions = [
   {
-    id: 'line-sim',
-    title: '원가·라인 시뮬레이션',
-    slug: 'line-sim',
-    description: 'CAPEX 가시화, 병목 제거',
+    id: 'transparent-quote',
+    title: '투명한 견적 비교',
+    slug: 'transparent-quote',
+    description: '검증된 파트너의 공개 경쟁 입찰',
     details: [
-      '설비·공사비 명세표 자동 생성',
-      '공정별 생산량·대기시간 시뮬',
-      '투자 시나리오 3안 비교',
+      '수량 산출 내역 기반의 공사비 예측',
+      '숨은 비용 없는 최적의 견적 리포트 제공',
+      '실시간 견적 비교 및 분석 시스템',
     ],
     icon: (
       <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -29,14 +29,14 @@ const solutions = [
     textColor: 'text-blue-600',
   },
   {
-    id: 'haccp',
-    title: 'HACCP·동선 검토',
-    slug: 'haccp',
-    description: '교차오염 리스크, 사전에 차단',
+    id: 'expert-matching',
+    title: '건축 전문가 매칭',
+    slug: 'expert-matching',
+    description: '요구사항에 맞는 최적의 파트너 선정',
     details: [
-      '청결·준청결·일반구역 구획',
-      '원료→완제품 흐름 검증',
-      '인증 심사 대비 체크리스트',
+      '현장 경험과 실적 기반의 건설사 정보 공개',
+      '건축사, 건설사, 시공 전문가 원스톱 연결',
+      '까다로운 검증을 통과한 신뢰할 수 있는 파트너',
     ],
     icon: (
       <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -55,14 +55,14 @@ const solutions = [
     textColor: 'text-green-600',
   },
   {
-    id: 'cm',
-    title: 'CM·현장관리',
-    slug: 'cm',
-    description: '공정·품질·안전, 한 화면에서',
+    id: 'construction-management',
+    title: '공정 관리 및 안전 시스템',
+    slug: 'construction-management',
+    description: '투명한 공정 관리와 안전한 대금 지급',
     details: [
-      '주간 공정률 모니터링',
-      '품질·안전 체크리스트 관리',
-      '변경·지연 사항 즉시 보고',
+      '시공 매니저의 품질 진척도 관리',
+      '실시간 현장 보고서 및 모바일 대시보드 제공',
+      '공정별 대금 지급 안전 관리(에스크로 시스템)',
     ],
     icon: (
       <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -83,26 +83,24 @@ const solutions = [
     textColor: 'text-purple-600',
   },
   {
-    id: 'mes-wms',
-    title: 'MES·WMS 연동',
-    slug: 'mes-wms',
-    description: '운영 데이터와 연결',
+    id: 'bim-analysis',
+    title: '사업성 분석 및 BIM',
+    slug: 'bim-analysis',
+    description: '데이터 기반의 정확한 사업 계획',
     details: [
-      '생산·재고·출하 실시간 집계',
-      '기존 ERP와 양방향 연동',
-      '모바일 대시보드 제공',
+      '토지 법규 검토 및 최대 규모 산정',
+      '3D BIM 기반의 설계 도면 시뮬레이션',
+      '수익률 및 단계별 예상 공사비 분석',
     ],
     icon: (
       <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        {/* 클라우드와 연결된 시스템들 */}
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M15 13l-3 3-3-3" />
-        {/* 연결된 시스템 박스들 */}
-        <rect x="4" y="8" width="4" height="3" strokeWidth={1.6} rx="0.5" />
-        <rect x="16" y="8" width="4" height="3" strokeWidth={1.6} rx="0.5" />
-        {/* 연결 화살표 */}
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M8 9.5h2M14 9.5h2" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M10 9.5l2-1M14 9.5l-2-1" />
+        {/* 3D 큐브와 설계도 */}
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M12 2l-8 4v8l8 4 8-4V6l-8-4z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M12 6v8" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M4 6l8 4 8-4" />
+        {/* 측정 도구 */}
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M18 18h4v4h-4v-4z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M19 19l2 2" />
       </svg>
     ),
     color: 'bg-orange-50',
@@ -117,10 +115,10 @@ export default function SolutionCards() {
         {/* 헤더 */}
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            문제를 정확히 풉니다
+            건축의 시작부터 완공까지, 체계적으로
           </h2>
           <p className="text-lg text-gray-600">
-            4가지 핵심 솔루션으로 리스크를 줄이고 성과를 냅니다
+            4가지 핵심 서비스로 투명하고 안전한 건축을 실현합니다
           </p>
         </div>
 
