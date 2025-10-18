@@ -34,11 +34,16 @@ export default function TransparencyTeaser() {
               {/* 메인 모바일 화면 */}
               <div className="w-72 bg-white rounded-3xl p-4 shadow-2xl">
                 <div className="bg-gray-100 rounded-2xl p-4 space-y-3">
-                  {/* 현장 사진 아이콘 */}
+                  {/* 현장 사진 아이콘 - 카메라와 눈 */}
                   <div className="flex items-center gap-3 bg-white p-3 rounded-lg">
                     <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                       <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        {/* 카메라 */}
+                        <rect x="3" y="8" width="18" height="12" rx="2" strokeWidth={1.8} />
+                        <circle cx="12" cy="14" r="3" strokeWidth={1.8} />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 8V6a1 1 0 011-1h4a1 1 0 011 1v2" />
+                        {/* 눈 (실시간 관찰) */}
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M18 6l2-2M20 4l1 1" />
                       </svg>
                     </div>
                     <div className="flex-1">
@@ -47,11 +52,19 @@ export default function TransparencyTeaser() {
                     </div>
                   </div>
 
-                  {/* 공정률 그래프 아이콘 */}
+                  {/* 공정률 그래프 아이콘 - 크레인과 진행률 바 */}
                   <div className="flex items-center gap-3 bg-white p-3 rounded-lg">
                     <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
                       <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        {/* 크레인 */}
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M4 20h16" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M8 20V6" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M8 6h12" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M20 6v4" />
+                        <rect x="18" y="10" width="4" height="3" strokeWidth={1.8} rx="0.5" />
+                        {/* 진행률 바 */}
+                        <rect x="4" y="16" width="8" height="2" strokeWidth={1.8} rx="1" />
+                        <rect x="4" y="16" width="5" height="2" fill="currentColor" rx="1" />
                       </svg>
                     </div>
                     <div className="flex-1">
@@ -60,11 +73,15 @@ export default function TransparencyTeaser() {
                     </div>
                   </div>
 
-                  {/* 대금 관리 아이콘 */}
+                  {/* 대금 관리 아이콘 - 방패 안에 지갑 */}
                   <div className="flex items-center gap-3 bg-white p-3 rounded-lg">
                     <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
                       <svg className="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        {/* 방패 */}
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M12 2L4 6v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V6l-8-4z" />
+                        {/* 지갑/돈 */}
+                        <rect x="9" y="10" width="6" height="4" strokeWidth={1.8} rx="1" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M10 12h4" />
                       </svg>
                     </div>
                     <div className="flex-1">
@@ -90,8 +107,12 @@ export default function TransparencyTeaser() {
             <div className="flex items-start gap-4">
               <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0">
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  {/* 돋보기와 건물 */}
+                  <circle cx="10" cy="10" r="7" strokeWidth={1.8} />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M21 21l-4.35-4.35" />
+                  {/* 건물 */}
+                  <rect x="6" y="6" width="4" height="6" strokeWidth={1.8} rx="0.5" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M7 8h2M7 10h2" />
                 </svg>
               </div>
               <div className="flex-1">
@@ -105,7 +126,13 @@ export default function TransparencyTeaser() {
             <div className="flex items-start gap-4">
               <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0">
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  {/* 금고/저금통 */}
+                  <rect x="6" y="8" width="12" height="12" strokeWidth={1.8} rx="2" />
+                  <circle cx="12" cy="14" r="2" strokeWidth={1.8} />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M12 12v4" />
+                  {/* 자물쇠 */}
+                  <rect x="10" y="3" width="4" height="5" strokeWidth={1.8} rx="1" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M10 5V3a2 2 0 014 0v2" />
                 </svg>
               </div>
               <div className="flex-1">
@@ -119,7 +146,13 @@ export default function TransparencyTeaser() {
             <div className="flex items-start gap-4">
               <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0">
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+                  {/* 헤드셋 낀 사람 */}
+                  <circle cx="12" cy="8" r="4" strokeWidth={1.8} />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M4 20c0-4 3-7 8-7s8 3 8 7" />
+                  {/* 헤드셋 */}
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M8 8h-1a2 2 0 00-2 2v2M16 8h1a2 2 0 012 2v2" />
+                  {/* 체크 마크 */}
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M16 4l1.5 1.5L20 3" />
                 </svg>
               </div>
               <div className="flex-1">
