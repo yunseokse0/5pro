@@ -5,11 +5,12 @@ const steps = [
     id: 1,
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        {/* 견적 요청 - 문서와 계산기 */}
-        <rect x="6" y="4" width="8" height="10" strokeWidth={1.6} rx="1" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M8 7h4M8 9h3" />
-        <rect x="16" y="6" width="4" height="6" strokeWidth={1.6} rx="0.5" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M17 8h2M17 9h2" />
+        {/* 견적 요청 - 클립보드와 펜 */}
+        <rect x="5" y="3" width="10" height="14" strokeWidth={1.6} rx="1" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M7 6h6M7 8h4M7 10h6" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M16 4l2-2 2 2" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M18 2v4" />
+        <circle cx="18" cy="6" r="1" strokeWidth={1.6} />
       </svg>
     ),
     title: '견적 요청',
@@ -19,12 +20,13 @@ const steps = [
     id: 2,
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        {/* 파트너 선택 - 건물들과 화살표 */}
-        <rect x="3" y="14" width="4" height="6" strokeWidth={1.6} rx="0.5" />
-        <rect x="9" y="12" width="4" height="8" strokeWidth={1.6} rx="0.5" />
-        <rect x="15" y="10" width="4" height="10" strokeWidth={1.6} rx="0.5" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M7 16h2M11 16h2" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M5 13l2-1 2 1M13 11l2-1 2 1" />
+        {/* 파트너 선택 - 돋보기로 여러 선택지 검토 */}
+        <circle cx="11" cy="11" r="8" strokeWidth={1.6} />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M21 21l-4.35-4.35" />
+        <rect x="3" y="3" width="3" height="3" strokeWidth={1.6} rx="0.5" />
+        <rect x="7" y="3" width="3" height="3" strokeWidth={1.6} rx="0.5" />
+        <rect x="11" y="3" width="3" height="3" strokeWidth={1.6} rx="0.5" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M4.5 4.5h2M8.5 4.5h2M12.5 4.5h2" />
       </svg>
     ),
     title: '파트너 선택',
@@ -34,11 +36,9 @@ const steps = [
     id: 3,
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        {/* 안전한 진행 - 방패와 체크마크 */}
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M12 2L8 6l4 4 4-4-4-4z" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M8 10h8v6a2 2 0 01-2 2H10a2 2 0 01-2-2v-6z" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 13l1.5 1.5L15 11" />
-        <circle cx="12" cy="18" r="2" strokeWidth={1.6} />
+        {/* 안전한 진행 - 방패 안에 체크마크 */}
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M12 2L4 6v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V6l-8-4z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 12l2 2 4-4" />
       </svg>
     ),
     title: '안전한 진행',
