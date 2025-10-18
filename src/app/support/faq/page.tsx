@@ -10,7 +10,7 @@ export default function FAQPage() {
   return (
     <main className="min-h-screen pt-16">
       {/* 히어로 */}
-      <section className="pt-20 pb-16 bg-gradient-to-b from-gray-50 to-white">
+      <section className="pt-20 pb-16 bg-gray-50">
         <div className="max-w-container mx-auto px-5 text-center">
           <h1 className="text-5xl font-bold text-gray-900 mb-6">
             자주 묻는 질문

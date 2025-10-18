@@ -11,14 +11,33 @@ interface FAQ {
 
 export default function FAQAccordion() {
   const [faqs, setFaqs] = useState<FAQ[]>([]);
+  const [filteredFaqs, setFilteredFaqs] = useState<FAQ[]>([]);
   const [openId, setOpenId] = useState<string | null>(null);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     fetch('/data/faq.json')
       .then((res) => res.json())
-      .then((data) => setFaqs(data.faqs || []))
+      .then((data) => {
+        setFaqs(data.faqs || []);
+        setFilteredFaqs(data.faqs || []);
+      })
       .catch(console.error);
   }, []);
+
+  useEffect(() => {
+    if (searchTerm.trim() === '') {
+      setFilteredFaqs(faqs);
+    } else {
+      const filtered = faqs.filter(
+        (faq) =>
+          faq.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          faq.answer.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          faq.category.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setFilteredFaqs(filtered);
+    }
+  }, [searchTerm, faqs]);
 
   const toggleFAQ = (id: string) => {
     setOpenId(openId === id ? null : id);
@@ -32,21 +51,37 @@ export default function FAQAccordion() {
   };
 
   return (
-    <section className="pt-20 pb-20 bg-gray-50">
+    <section className="py-16 bg-white">
       <div className="max-w-[800px] mx-auto px-5">
-        {/* 헤더 */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            자주 묻는 질문
-          </h2>
-          <p className="text-lg text-gray-600">
-            궁금한 점이 있으신가요? 여기서 답을 찾아보세요
-          </p>
+        {/* 검색 기능 */}
+        <div className="text-center mb-12">
+          <div className="relative max-w-md mx-auto">
+            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
+            <input
+              type="text"
+              placeholder="질문을 검색해보세요..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white shadow-sm"
+            />
+          </div>
         </div>
 
         {/* FAQ 아코디언 */}
         <div className="space-y-4">
-          {faqs.map((faq) => (
+          {filteredFaqs.length === 0 ? (
+            <div className="text-center py-12">
+              <div className="text-gray-400 text-lg mb-2">🔍</div>
+              <p className="text-gray-600">
+                검색 결과가 없습니다. 다른 키워드로 검색해보세요.
+              </p>
+            </div>
+          ) : (
+            filteredFaqs.map((faq) => (
             <div
               key={faq.id}
               className="bg-white rounded-card border border-gray-200 overflow-hidden"
@@ -101,7 +136,8 @@ export default function FAQAccordion() {
                 </div>
               )}
             </div>
-          ))}
+            ))
+          )}
         </div>
 
         {/* 추가 문의 링크 */}
