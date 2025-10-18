@@ -15,14 +15,19 @@ const solutions = [
     ],
     icon: (
       <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        {/* 성장하는 막대 그래프와 화폐 기호 */}
-        <rect x="3" y="16" width="3" height="5" strokeWidth={1.6} rx="1" />
-        <rect x="7" y="12" width="3" height="9" strokeWidth={1.6} rx="1" />
-        <rect x="11" y="8" width="3" height="13" strokeWidth={1.6} rx="1" />
-        <rect x="15" y="4" width="3" height="17" strokeWidth={1.6} rx="1" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M18 2h3v3" />
-        <circle cx="20" cy="4" r="1.5" strokeWidth={1.6} />
-        <text x="20" y="5.5" fontSize="6" textAnchor="middle" fill="currentColor">₩</text>
+        {/* 건물과 성장하는 그래프 */}
+        <rect x="4" y="8" width="6" height="8" strokeWidth={1.6} rx="1" />
+        <rect x="6" y="6" width="2" height="2" strokeWidth={1.6} />
+        <rect x="5" y="10" width="1" height="2" strokeWidth={1.6} />
+        <rect x="8" y="10" width="1" height="2" strokeWidth={1.6} />
+        {/* 성장하는 그래프 */}
+        <rect x="12" y="12" width="2" height="4" strokeWidth={1.6} rx="0.5" />
+        <rect x="14" y="8" width="2" height="8" strokeWidth={1.6} rx="0.5" />
+        <rect x="16" y="4" width="2" height="12" strokeWidth={1.6} rx="0.5" />
+        <rect x="18" y="2" width="2" height="14" strokeWidth={1.6} rx="0.5" />
+        {/* 화폐 기호 */}
+        <circle cx="20" cy="2" r="1" strokeWidth={1.6} />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M19 2h2M19 1v2M21 1v2" />
       </svg>
     ),
     color: 'bg-blue-50',
@@ -40,15 +45,17 @@ const solutions = [
     ],
     icon: (
       <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        {/* 건물 위에 방패와 체크마크 */}
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M6 18h12v2H6v-2z" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M9 18V8h6v10" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M10 12h4M10 14h4" />
+        {/* 명함과 돋보기 */}
+        <rect x="6" y="8" width="8" height="6" strokeWidth={1.6} rx="1" />
+        <rect x="7" y="9" width="6" height="1" strokeWidth={1.6} />
+        <rect x="7" y="11" width="4" height="1" strokeWidth={1.6} />
+        <rect x="7" y="12.5" width="5" height="1" strokeWidth={1.6} />
+        {/* 돋보기 */}
+        <circle cx="17" cy="11" r="3" strokeWidth={1.6} />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M19 13l3 3" />
         {/* 방패 */}
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M12 4l2 2-2 2-2-2z" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M12 6l1 1-1 1-1-1z" />
-        {/* 체크마크 */}
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 15l1.5 1.5L15 12" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M12 3l2 1-2 1-2-1z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M12 4l1 0.5-1 0.5-1-0.5z" />
       </svg>
     ),
     color: 'bg-green-50',
@@ -66,17 +73,20 @@ const solutions = [
     ],
     icon: (
       <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        {/* 안전모, 클립보드, 크레인 */}
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M8 8h8v2H8V8z" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M10 6h4v2h-4V6z" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M12 2l-2 4 2 4 2-4-2-4z" />
-        {/* 클립보드 */}
-        <rect x="14" y="4" width="4" height="6" strokeWidth={1.6} rx="0.5" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M15 6h2M15 7h2" />
+        {/* 안전모와 크레인 */}
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M12 3c-1 0-2 1-2 2v1h4V5c0-1-1-2-2-2z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M10 5v2h4V5" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M8 7h8v3H8V7z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M10 8h4v2h-4V8z" />
         {/* 크레인 */}
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M18 10v6" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M16 16l4-2" />
-        <circle cx="20" cy="14" r="1" strokeWidth={1.6} />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M4 18v4" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M6 18V6" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M6 6h10" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M16 6v4" />
+        <rect x="14" y="10" width="4" height="3" strokeWidth={1.6} rx="0.5" />
+        {/* 클립보드 */}
+        <rect x="17" y="13" width="3" height="4" strokeWidth={1.6} rx="0.5" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M18 14h1M18 15h1" />
       </svg>
     ),
     color: 'bg-purple-50',
@@ -94,13 +104,20 @@ const solutions = [
     ],
     icon: (
       <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        {/* 3D 큐브와 설계도 */}
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M12 2l-8 4v8l8 4 8-4V6l-8-4z" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M12 6v8" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M4 6l8 4 8-4" />
+        {/* 3D 건물 구조와 분석 그래프 */}
+        <rect x="4" y="12" width="4" height="6" strokeWidth={1.6} rx="0.5" />
+        <rect x="8" y="8" width="4" height="10" strokeWidth={1.6} rx="0.5" />
+        <rect x="12" y="4" width="4" height="14" strokeWidth={1.6} rx="0.5" />
+        {/* 3D 효과 */}
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M8 8l2-2M12 4l2-2M16 12l2-2" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M8 12l2 2M12 14l2 2M16 18l2 2" />
+        {/* 분석 그래프 */}
+        <rect x="18" y="14" width="2" height="4" strokeWidth={1.6} rx="0.5" />
+        <rect x="20" y="10" width="2" height="8" strokeWidth={1.6} rx="0.5" />
+        <rect x="22" y="6" width="2" height="12" strokeWidth={1.6} rx="0.5" />
         {/* 측정 도구 */}
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M18 18h4v4h-4v-4z" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M19 19l2 2" />
+        <circle cx="21" cy="5" r="1" strokeWidth={1.6} />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M20 5h2M21 4v2" />
       </svg>
     ),
     color: 'bg-orange-50',
