@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function TransparencyTeaser() {
   return (
-    <section className="pt-20 pb-20 bg-gradient-to-br from-primary to-blue-600 text-white relative overflow-hidden">
+    <section className="pt-20 pb-20 bg-primary text-white relative overflow-hidden">
       {/* 배경 패턴 */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{

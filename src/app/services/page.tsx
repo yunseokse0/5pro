@@ -145,7 +145,7 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       {/* 히어로 섹션 */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-primary to-blue-600 text-white relative overflow-hidden">
+      <section className="pt-32 pb-20 bg-primary text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
             backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',

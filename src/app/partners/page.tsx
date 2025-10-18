@@ -38,7 +38,7 @@ export default function PartnersPage() {
     'diamond': {
       name: '다이아몬드',
       color: 'from-blue-500 to-cyan-500',
-      bgColor: 'bg-gradient-to-r from-blue-50 to-cyan-50',
+      bgColor: 'bg-white',
       borderColor: 'border-blue-200',
       icon: Diamond,
       requirements: '도급액 100억 이상, 신용등급 AAA~AA, HACCP 인증 100%'
@@ -46,7 +46,7 @@ export default function PartnersPage() {
     'platinum': {
       name: '플래티넘',
       color: 'from-gray-400 to-gray-600',
-      bgColor: 'bg-gradient-to-r from-gray-50 to-gray-100',
+      bgColor: 'bg-white',
       borderColor: 'border-gray-200',
       icon: Gem,
       requirements: '도급액 50억~100억, 신용등급 A~BBB, HACCP 인증 95%'
@@ -54,7 +54,7 @@ export default function PartnersPage() {
     'gold': {
       name: '골드',
       color: 'from-yellow-400 to-yellow-600',
-      bgColor: 'bg-gradient-to-r from-yellow-50 to-yellow-100',
+      bgColor: 'bg-white',
       borderColor: 'border-yellow-200',
       icon: Medal,
       requirements: '도급액 20억~50억, 신용등급 BB~B, HACCP 인증 90%'
@@ -62,7 +62,7 @@ export default function PartnersPage() {
     'silver': {
       name: '실버',
       color: 'from-gray-300 to-gray-500',
-      bgColor: 'bg-gradient-to-r from-gray-50 to-gray-100',
+      bgColor: 'bg-white',
       borderColor: 'border-gray-200',
       icon: Award,
       requirements: '도급액 10억~20억, 신용등급 CCC~CC, HACCP 인증 85%'
@@ -70,7 +70,7 @@ export default function PartnersPage() {
     'bronze': {
       name: '브론즈',
       color: 'from-orange-400 to-orange-600',
-      bgColor: 'bg-gradient-to-r from-orange-50 to-orange-100',
+      bgColor: 'bg-white',
       borderColor: 'border-orange-200',
       icon: Star,
       requirements: '도급액 5억~10억, 신용등급 C~D, HACCP 인증 80%'
@@ -231,7 +231,7 @@ export default function PartnersPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-16">
+      <div className="bg-primary text-white py-16">
         <div className="container mx-auto px-4">
           <div className="text-center">
             <h1 className="text-4xl font-bold mb-4">파트너사</h1>
@@ -275,7 +275,7 @@ export default function PartnersPage() {
                   placeholder="파트너사명, 지역, 전문분야로 검색..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
                 />
               </div>
               
@@ -283,7 +283,7 @@ export default function PartnersPage() {
               <select
                 value={selectedGrade}
                 onChange={(e) => setSelectedGrade(e.target.value)}
-                className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
               >
                 <option value="all">모든 등급</option>
                 {Object.entries(gradeSystem).map(([key, grade]) => (
@@ -295,7 +295,7 @@ export default function PartnersPage() {
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
               >
                 {categories.map(category => (
                   <option key={category} value={category}>
@@ -318,7 +318,7 @@ export default function PartnersPage() {
               </h3>
               <Link
                 href="/partners/register"
-                className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300"
+                className="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary-hover transition-colors duration-300"
               >
                 <Plus className="w-5 h-5 mr-2" />
                 파트너사 등록
@@ -410,7 +410,7 @@ export default function PartnersPage() {
                         <div className="space-y-2">
                           <Link
                             href={`/partners/${partner.id}`}
-                            className="block w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300 text-center"
+                            className="block w-full px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-hover transition-colors duration-300 text-center"
                           >
                             상세보기
                           </Link>
