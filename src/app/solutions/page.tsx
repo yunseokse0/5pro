@@ -44,10 +44,10 @@ export default function SolutionsPage() {
       <section className="pt-20 pb-16 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-container mx-auto px-5">
           <h1 className="text-5xl font-bold text-gray-900 mb-6">
-            문제를 정확히 풉니다
+            데이터와 시스템으로 리스크 없는 건축을 약속합니다
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl">
-            4가지 핵심 솔루션으로 식품공장 프로젝트의 리스크를 줄이고 성과를 냅니다
+            오프로만의 4가지 핵심 솔루션을 통해, 건축 리스크를 최소화하고 공사비 절감 효과를 극대화하세요
           </p>
         </div>
       </section>

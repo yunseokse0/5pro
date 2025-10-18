@@ -132,10 +132,10 @@ export default function SolutionCards() {
         {/* 헤더 */}
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            건축의 시작부터 완공까지, 체계적으로
+            데이터와 시스템으로 리스크 없는 건축을 약속합니다
           </h2>
           <p className="text-lg text-gray-600">
-            4가지 핵심 서비스로 투명하고 안전한 건축을 실현합니다
+            오프로만의 4가지 핵심 솔루션을 통해, 건축 리스크를 최소화하고 공사비 절감 효과를 극대화하세요
           </p>
         </div>
 
