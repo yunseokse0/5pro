@@ -37,25 +37,19 @@ export default function HeroPrimary() {
               </Link>
             </div>
 
-            {/* 신뢰 배지 */}
-            <div className="flex flex-wrap items-center gap-6 text-sm text-gray-600">
-              <div className="flex items-center gap-2">
-                    <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                <span>누적 견적 요청 5,420건</span>
+            {/* 핵심 지표 블록 */}
+            <div className="inline-flex flex-wrap items-center divide-x divide-gray-300 bg-white/50 backdrop-blur-sm rounded-lg px-6 py-4 shadow-sm">
+              <div className="px-6 first:pl-0 last:pr-0">
+                <div className="text-3xl font-bold text-gray-900 mb-1">5,420건</div>
+                <div className="text-sm text-gray-600">누적 견적 요청</div>
               </div>
-              <div className="flex items-center gap-2">
-                    <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                <span>등록 파트너 1,250곳</span>
+              <div className="px-6 first:pl-0 last:pr-0">
+                <div className="text-3xl font-bold text-gray-900 mb-1">1,250곳</div>
+                <div className="text-sm text-gray-600">등록 파트너</div>
               </div>
-              <div className="flex items-center gap-2">
-                    <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                <span>평균 공사비 절감 18%</span>
+              <div className="px-6 first:pl-0 last:pr-0">
+                <div className="text-3xl font-bold text-gray-900 mb-1">18%</div>
+                <div className="text-sm text-gray-600">평균 공사비 절감률</div>
               </div>
             </div>
           </div>
