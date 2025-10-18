@@ -10,20 +10,45 @@ interface FAQ {
 }
 
 export default function FAQAccordion() {
-  const [faqs, setFaqs] = useState<FAQ[]>([]);
+  const [faqs, setFaqs] = useState<FAQ[]>([
+    {
+      id: "faq1",
+      category: "비용 절감",
+      question: "오프로를 이용하면 정말 공사비가 절감되나요?",
+      answer: "네, BIM 기반의 정확한 물량 산출과 공개 경쟁 입찰 시스템을 통해 불필요한 비용을 제거하여, 평균 18% 이상의 공사비 절감 효과를 보실 수 있습니다."
+    },
+    {
+      id: "faq2",
+      category: "대금 안전 관리",
+      question: "공사 중 대금 유용의 위험은 없나요?",
+      answer: "오프로는 공사 대금 안전 관리 시스템(에스크로)을 운영합니다. 대금은 안전 계좌에 예치되며, 시공 진척도 검사 후, 시공한 만큼만 지급되므로 유용 위험을 원천 차단합니다."
+    },
+    {
+      id: "faq3",
+      category: "이용 편의성",
+      question: "건축을 처음 시작하는 초보자도 이용할 수 있나요?",
+      answer: "네, 건축 비전문가도 쉽게 이용하도록 전담 매니저가 모든 단계를 지원합니다. 사업성 분석부터 전문가 매칭, 공정 관리까지 오프로 전문가가 함께합니다."
+    },
+    {
+      id: "faq4",
+      category: "파트너 검증",
+      question: "등록된 파트너 건설사는 믿을 수 있나요?",
+      answer: "오프로에 등록된 모든 파트너는 재무 상태, 시공 실적, 현장 대리인의 경력 등을 엄격하게 검증한 실명 인증 전문가 그룹입니다. 까다로운 기준을 통과한 파트너만 건축주님을 만날 수 있습니다. 다이아몬드부터 브론즈까지 5단계 품질등급시스템으로 파트너의 실력을 객관적으로 평가하고 공개합니다."
+    },
+    {
+      id: "faq5",
+      category: "수수료",
+      question: "서비스 이용 수수료는 어떻게 되나요?",
+      answer: "건축주님은 무료로 견적 요청, 비교 분석, 파트너 매칭 서비스를 이용할 수 있습니다. 수수료는 건설사가 플랫폼 이용 대가로 지불하며, 이는 건축주에게 전가되지 않습니다. 투명한 수수료 구조로 숨은 비용 없이 서비스를 이용하실 수 있습니다."
+    }
+  ]);
   const [filteredFaqs, setFilteredFaqs] = useState<FAQ[]>([]);
   const [openId, setOpenId] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-    fetch('/data/faq.json')
-      .then((res) => res.json())
-      .then((data) => {
-        setFaqs(data.faqs || []);
-        setFilteredFaqs(data.faqs || []);
-      })
-      .catch(console.error);
-  }, []);
+    setFilteredFaqs(faqs);
+  }, [faqs]);
 
   useEffect(() => {
     if (searchTerm.trim() === '') {
