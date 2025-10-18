@@ -107,29 +107,29 @@ export default function QuickEstimate() {
     <>
       <section className="pt-16 pb-20 bg-gradient-to-r from-blue-50 to-indigo-50">
         <div className="max-w-container mx-auto px-5">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               3초 만에 식품공장 예상 공사비를 확인하세요.
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-sm sm:text-base md:text-lg text-gray-600">
               간단한 정보 입력만으로, 지역별/공장종류별 평균 공사비를 즉시 안내해 드립니다.
             </p>
           </div>
 
           {/* 퀵 견적 폼 */}
           <div className="max-w-4xl mx-auto">
-            <div className="bg-white rounded-2xl shadow-soft p-8">
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-6 items-end">
+            <div className="bg-white rounded-2xl shadow-soft p-4 sm:p-6 md:p-8">
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-4 sm:gap-6 items-end">
                 {/* 건물 용도 */}
                 <div>
-                  <label htmlFor="building-type" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="building-type" className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
                     식품공장 종류
                   </label>
                   <select
                     id="building-type"
                     value={buildingType}
                     onChange={(e) => setBuildingType(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-120"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-120"
                   >
                     <option value="">선택하세요</option>
                     {buildingTypes.map((type) => (
@@ -142,7 +142,7 @@ export default function QuickEstimate() {
 
                 {/* 예상 면적 */}
                 <div>
-                  <label htmlFor="area" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="area" className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
                     예상 면적
                   </label>
                   <div className="relative">
@@ -152,22 +152,22 @@ export default function QuickEstimate() {
                       value={area}
                       onChange={(e) => setArea(e.target.value)}
                       placeholder="예: 200"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-120"
+                      className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-120"
                     />
-                    <span className="absolute right-3 top-3 text-gray-500 text-sm">평</span>
+                    <span className="absolute right-3 top-2.5 sm:top-3 text-gray-500 text-xs sm:text-sm">평</span>
                   </div>
                 </div>
 
                 {/* 지역 */}
                 <div>
-                  <label htmlFor="region" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="region" className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
                     지역
                   </label>
                   <select
                     id="region"
                     value={region}
                     onChange={(e) => setRegion(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-120"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-120"
                   >
                     <option value="">선택하세요</option>
                     {regions.map((region) => (
@@ -182,7 +182,7 @@ export default function QuickEstimate() {
                 <div>
                   <button
                     onClick={calculateEstimate}
-                    className="w-full px-6 py-3 bg-primary hover:bg-primary-hover text-white font-semibold rounded-lg transition-colors duration-120 shadow-soft hover:shadow-soft-hover"
+                    className="w-full px-4 sm:px-6 py-2.5 sm:py-3 bg-primary hover:bg-primary-hover text-white text-sm sm:text-base font-semibold rounded-lg transition-colors duration-120 shadow-soft hover:shadow-soft-hover"
                   >
                     예상 견적 확인하기
                   </button>
@@ -191,27 +191,27 @@ export default function QuickEstimate() {
 
               {/* 결과 표시 영역 */}
               {showResult && estimateResult && (
-                <div className="mt-8 p-6 bg-gradient-to-r from-green-50 to-blue-50 rounded-xl border border-green-200">
+                <div className="mt-6 sm:mt-8 p-4 sm:p-6 bg-gradient-to-r from-green-50 to-blue-50 rounded-xl border border-green-200">
                   <div className="text-center">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
                       예상 공사비
                     </h3>
-                    <div className="text-4xl font-extrabold text-primary mb-4">
+                    <div className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-primary mb-3 sm:mb-4">
                       {estimateResult.min.toLocaleString()} ~ {estimateResult.max.toLocaleString()} {estimateResult.unit}
                     </div>
-              <p className="text-gray-600 mb-6">
+              <p className="text-xs sm:text-sm md:text-base text-gray-600 mb-4 sm:mb-6">
                 * 위 금액은 참고용 평균 견적이며, HACCP 설비, 특수 공정라인 등에 따라 실제 공사비는 달라질 수 있습니다.
               </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                       <button
                         onClick={closeResult}
-                        className="px-6 py-3 border-2 border-gray-300 text-gray-700 font-medium rounded-lg transition-colors duration-120 hover:border-gray-400"
+                        className="px-4 sm:px-6 py-2.5 sm:py-3 border-2 border-gray-300 text-gray-700 text-sm sm:text-base font-medium rounded-lg transition-colors duration-120 hover:border-gray-400"
                       >
                         다시 계산하기
                       </button>
                       <Link
                         href="/contact"
-                        className="px-6 py-3 bg-primary hover:bg-primary-hover text-white font-medium rounded-lg transition-colors duration-120 text-center"
+                        className="px-4 sm:px-6 py-2.5 sm:py-3 bg-primary hover:bg-primary-hover text-white text-sm sm:text-base font-medium rounded-lg transition-colors duration-120 text-center"
                       >
                         정확한 견적 받기
                       </Link>

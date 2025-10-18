@@ -130,11 +130,11 @@ export default function SolutionCards() {
     <section className="pt-20 pb-20 bg-gray-50">
       <div className="max-w-container mx-auto px-5">
         {/* 헤더 */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             데이터와 시스템으로 리스크 없는 건축을 약속합니다
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className="text-sm sm:text-base md:text-lg text-gray-600">
             오프로만의 4가지 핵심 솔루션을 통해, 건축 리스크를 최소화하고 공사비 절감 효과를 극대화하세요
           </p>
         </div>
@@ -145,29 +145,29 @@ export default function SolutionCards() {
             <Link
               key={solution.id}
               href={`/solutions/${solution.slug}`}
-              className="group bg-white p-8 rounded-card hover:shadow-soft-hover transition-all duration-120 border border-gray-100"
+              className="group bg-white p-6 sm:p-8 rounded-card hover:shadow-soft-hover transition-all duration-120 border border-gray-100"
             >
               {/* 아이콘 */}
-              <div className={`inline-flex w-16 h-16 ${solution.color} rounded-lg items-center justify-center ${solution.textColor} mb-6 group-hover:scale-105 transition-transform duration-120`}>
+              <div className={`inline-flex w-12 h-12 sm:w-16 sm:h-16 ${solution.color} rounded-lg items-center justify-center ${solution.textColor} mb-4 sm:mb-6 group-hover:scale-105 transition-transform duration-120`}>
                 {solution.icon}
               </div>
 
               {/* 제목 */}
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-2">
                 {solution.title}
               </h3>
 
               {/* 설명 */}
-              <p className="text-gray-600 mb-6">
+              <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
                 {solution.description}
               </p>
 
               {/* 세부 기능 */}
-              <ul className="space-y-2 mb-6">
+              <ul className="space-y-2 mb-4 sm:mb-6">
                 {solution.details.map((detail, index) => (
-                  <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
+                  <li key={index} className="flex items-start gap-2 text-xs sm:text-sm text-gray-700">
                     <svg
-                      className="w-5 h-5 text-gray-400 flex-shrink-0 mt-0.5"
+                      className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 flex-shrink-0 mt-0.5"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -185,7 +185,7 @@ export default function SolutionCards() {
               </ul>
 
               {/* 링크 */}
-              <div className="flex items-center gap-2 text-primary font-medium group-hover:gap-3 transition-all duration-120">
+              <div className="flex items-center gap-2 text-primary font-medium text-sm sm:text-base group-hover:gap-3 transition-all duration-120">
                 <span>자세히 보기</span>
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

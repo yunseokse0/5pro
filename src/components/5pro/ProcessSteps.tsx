@@ -51,11 +51,11 @@ export default function ProcessSteps() {
     <section className="pt-20 pb-20 bg-white">
       <div className="max-w-container mx-auto px-5">
         {/* 헤더 */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             간편한 3단계 프로세스
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className="text-sm sm:text-base md:text-lg text-gray-600">
             견적 요청부터 완공까지, 투명하고 안전하게
           </p>
         </div>
@@ -72,24 +72,24 @@ export default function ProcessSteps() {
                 <div className="hidden lg:block absolute top-12 left-full w-8 h-0.5 bg-gray-200 -translate-x-1/2 group-last:hidden" />
               )}
 
-              <div className="relative bg-white p-8 rounded-card border-2 border-gray-100 hover:border-primary-100 hover:shadow-soft transition-all duration-120">
+              <div className="relative bg-white p-6 sm:p-8 rounded-card border-2 border-gray-100 hover:border-primary-100 hover:shadow-soft transition-all duration-120">
                 {/* 번호 배지 */}
-                <div className="absolute -top-3 -left-3 w-8 h-8 bg-primary text-white text-sm font-bold rounded-full flex items-center justify-center shadow-soft">
+                <div className="absolute -top-3 -left-3 w-6 h-6 sm:w-8 sm:h-8 bg-primary text-white text-xs sm:text-sm font-bold rounded-full flex items-center justify-center shadow-soft">
                   {step.id}
                 </div>
 
                 {/* 아이콘 */}
-                <div className="w-16 h-16 bg-gray-50 rounded-lg flex items-center justify-center text-gray-700 mb-4">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gray-50 rounded-lg flex items-center justify-center text-gray-700 mb-4">
                   {step.icon}
                 </div>
 
                 {/* 제목 */}
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">
                   {step.title}
                 </h3>
 
                 {/* 설명 */}
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                   {step.description}
                 </p>
               </div>

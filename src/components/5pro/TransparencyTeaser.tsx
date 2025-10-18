@@ -15,13 +15,13 @@ export default function TransparencyTeaser() {
 
       <div className="max-w-container mx-auto px-5 relative z-10">
         {/* 헤더 */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 leading-tight">
             건축 중 발생하는 모든 문제,
             <br />
             오프로에서 투명하게 해결합니다
           </h2>
-          <p className="text-xl text-primary-100">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-primary-100">
             실시간 정보 공개로 불안함을 없애고, 안전한 대금 관리로 리스크를 제거합니다.
           </p>
         </div>
@@ -103,10 +103,10 @@ export default function TransparencyTeaser() {
           </div>
 
           {/* 오른쪽: 핵심 가치 3가지 */}
-          <div className="space-y-8">
-            <div className="flex items-start gap-4">
-              <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0">
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="space-y-6 sm:space-y-8">
+            <div className="flex items-start gap-3 sm:gap-4">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   {/* 돋보기와 건물 */}
                   <circle cx="10" cy="10" r="7" strokeWidth={1.8} />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M21 21l-4.35-4.35" />
@@ -116,16 +116,16 @@ export default function TransparencyTeaser() {
                 </svg>
               </div>
               <div className="flex-1">
-                <h3 className="text-2xl font-bold mb-2">1. 실시간 현장 투명 공개</h3>
-                <p className="text-primary-100 leading-relaxed">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2">1. 실시간 현장 투명 공개</h3>
+                <p className="text-sm sm:text-base text-primary-100 leading-relaxed">
                   모바일로 언제든지 현장 사진과 진행 상황을 확인하세요. 숨길 것이 없습니다.
                 </p>
               </div>
             </div>
 
-            <div className="flex items-start gap-4">
-              <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0">
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="flex items-start gap-3 sm:gap-4">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   {/* 금고/저금통 */}
                   <rect x="6" y="8" width="12" height="12" strokeWidth={1.8} rx="2" />
                   <circle cx="12" cy="14" r="2" strokeWidth={1.8} />
@@ -136,16 +136,16 @@ export default function TransparencyTeaser() {
                 </svg>
               </div>
               <div className="flex-1">
-                <h3 className="text-2xl font-bold mb-2">2. 공정 기반 대금 안전 관리</h3>
-                <p className="text-primary-100 leading-relaxed">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2">2. 공정 기반 대금 안전 관리</h3>
+                <p className="text-sm sm:text-base text-primary-100 leading-relaxed">
                   공사 진척도에 따라 단계별로 대금이 지급되어, 부도·먹튀 리스크를 원천 차단합니다.
                 </p>
               </div>
             </div>
 
-            <div className="flex items-start gap-4">
-              <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0">
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="flex items-start gap-3 sm:gap-4">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   {/* 헤드셋 낀 사람 */}
                   <circle cx="12" cy="8" r="4" strokeWidth={1.8} />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M4 20c0-4 3-7 8-7s8 3 8 7" />
@@ -156,8 +156,8 @@ export default function TransparencyTeaser() {
                 </svg>
               </div>
               <div className="flex-1">
-                <h3 className="text-2xl font-bold mb-2">3. 전담 매니저 1:1 리스크 관리</h3>
-                <p className="text-primary-100 leading-relaxed">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2">3. 전담 매니저 1:1 리스크 관리</h3>
+                <p className="text-sm sm:text-base text-primary-100 leading-relaxed">
                   건축 전문가가 설계 변경부터 하자까지, 모든 이슈를 사전에 관리합니다.
                 </p>
               </div>
@@ -169,10 +169,10 @@ export default function TransparencyTeaser() {
         <div className="text-center">
           <Link
             href="/transparency-system"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary font-semibold rounded-lg hover:bg-gray-50 transition-colors duration-120 shadow-soft hover:shadow-soft-hover"
+            className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-white text-primary text-sm sm:text-base font-semibold rounded-lg hover:bg-gray-50 transition-colors duration-120 shadow-soft hover:shadow-soft-hover"
           >
             <span>오프로의 투명 관리 시스템 자세히 보기</span>
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </Link>
